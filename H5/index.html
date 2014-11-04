@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<title>html5的学习</title>
+</head>
+<body>
+	<div>
+		<canvas width="1000" height="500" id="canvas">
+			您的浏览器不支持绘图，稍微逊色了一些
+		</canvas>
+		<script type="text/javascript">
+			// 获取画布
+			var canvas = document.getElementById("canvas");
+			// 设置绘图环境
+			var c= canvas.getContext("2d");
+			// 画线段
+				c.beginPath();
+				// 设置线的粗细
+				c.lineWidth=10;
+				// 设置颜色
+				c.strokeStyle="#ff00ff";
+				// 设置下笔的位置
+				c.moveTo(20,20);
+				// 设置移动到哪里
+				c.lineTo(100,20);
+				// 开始画线
+				c.stroke();
+				// 结束路径
+				c.closePath()
+			// 画空心圆形
+				// 开始路径
+				c.beginPath();
+				c.lineWidth=3;
+				c.strokeStyle="#333";
+				// 横坐标，纵坐标，半径，第四个和第五个 是角度范围第六个是顺时间和逆时针画
+				c.arc(100,200,50,0,360,false);
+				c.stroke();
+				c.closePath()
+			// 画实心圆形
+				c.beginPath();
+				c.fillStyle="#333";
+				c.arc(100,90,50,0,360,false);
+				c.fill();
+				c.closePath()
+			// 画空心矩形
+				// 横坐标，纵坐标，长宽
+				c.rect(200,50,200,100);
+				c.stroke();
+				// 第二种方法
+				c.strokeRect(410,50,100,100);
+			// 画实心矩形
+				c.beginPath();
+				c.rect(200,180,200,100);
+				c.fill();
+				// 第二种方法
+				c.fillStyle="#00dd00";
+				c.fillRect(200,300,200,50);
+			// 写字
+				c.font="40px 微软雅黑";
+				c.fillText("萌萌",300,50); 
+				c.lineWidth=1;
+				c.strokeText("萌萌",300,100);
+			// 画图  把一幅图片画到画布中
+				var img=new Image();
+				img.src="bjf.jpg";
+				// google浏览器不支持画图片
+				c.drawImage(img,400,50,200,160);
+			// 画一个三角形 画三角注意先闭合路径再画
+				c.beginPath();
+				c.moveTo(500,200);
+				c.lineTo(550,200);
+				c.lineTo(500,300);
+				c.closePath();
+				c.stroke();
+			// 画实心三角形
+				c.beginPath();
+				c.moveTo(420,200);
+				c.lineTo(480,200);
+				c.lineTo(420,300);
+				c.closePath();
+				c.fill();
+			// 旋转
+				// 设置旋转环境
+				c.save();
+				// 重置零零点
+				c.translate(20,20);
+				// 传递参数弧度  弧度=角度*Math.PI/180
+				c.rotate(-30*Math.PI/180);
+					c.beginPath();
+					c.lineWidth=10;
+					c.moveTo(20,20);
+					c.lineTo(20,100);
+					c.stroke();
+					c.closePath();
+				c.restore()
+		</script>
+	</div>
+	<div>
+		<canvas width="500" height="500" id="clock"></canvas>
+		<script type="text/javascript">
+			var clock=document.getElementById('clock');
+			var c=clock.getContext('2d');
+			function drawClock(){
+				c.clearRect(0,0,500,500);
+				var now=new Date();
+				var sec=now.getSeconds();
+				var min=now.getMinutes();
+				var hour=now.getHours()%12+min/60;
+				// 表盘
+					c.beginPath();
+					c.lineWidth=6;
+					c.strokeStyle="#abcdef";
+					c.arc(250,250,200,0,360,false);
+					c.closePath();
+					c.stroke();
+				// 刻度
+					// 时刻度
+					for (var i = 12-1; i >= 0; i--) {
+						c.save();
+						c.lineWidth=7;
+						c.strokeStyle="#000";
+						c.translate(250,250);
+						c.rotate(i*30*Math.PI/180);
+						c.beginPath();
+						c.moveTo(0,-170);
+						c.lineTo(0,-190);
+						c.closePath();
+						c.stroke();
+						c.restore();
+					};
+					// 分刻度
+					for (var i = 60-1; i >= 0; i--) {
+						c.save();
+						c.lineWidth=5;
+						c.strokeStyle="#000";
+						c.translate(250,250);
+						c.rotate(i*6*Math.PI/180);
+						c.beginPath();
+						c.moveTo(0,-180);
+						c.lineTo(0,-190);
+						c.closePath();
+						c.stroke();
+						c.restore();
+					};
+				// 时针
+					c.save();
+					c.lineWidth=7;
+					c.strokeStyle="#000";
+					c.translate(250,250);
+					c.rotate(hour*30*Math.PI/180);
+					c.beginPath();
+					c.moveTo(0,-120);
+					c.lineTo(0,10);
+					c.stroke();
+					c.closePath();
+					c.restore();
+				// 分针
+					c.save();
+					c.lineWidth=5;
+					c.strokeStyle="#000";
+					c.translate(250,250);
+					c.rotate(min*6*Math.PI/180);
+					c.beginPath();
+					c.moveTo(0,-140);
+					c.lineTo(0,15);
+					c.stroke();
+					c.closePath();
+					c.restore();
+				// 秒针
+					c.save();
+					c.lineWidth=3;
+					c.strokeStyle="red";
+					c.translate(250,250);
+					c.rotate(sec*6*Math.PI/180);
+					c.beginPath();
+					c.moveTo(0,-160);
+					c.lineTo(0,18);
+					c.stroke();
+					c.beginPath();
+					c.fillStyle="#333";
+					c.arc(0,0,4,0,360,false);
+					c.fill();
+					c.closePath();
+					c.stroke();
+					c.beginPath();
+					c.fillStyle="#333";
+					c.arc(0,-140,2,0,360,false);
+					c.fill();
+					c.closePath();
+					c.stroke();
+					c.restore();
+			}
+			drawClock();
+			setInterval(drawClock,1000);
+		</script>
+	</div>
+</body>
+</html>
