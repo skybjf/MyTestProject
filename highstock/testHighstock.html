@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<title>HighStock</title>
+	<script type="text/javascript"></script>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/highstock.js"></script>
+</head>
+<body>
+	<div id="container" style="height: 400px; min-width: 310px">
+		
+	</div>
+	<script type="text/javascript">
+		$(function () {
+			function test(){
+				var dataa;
+				$.ajax({
+					url:'http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?',
+					type:'GET',
+					dataType:'json',
+					async:false,
+					success:function(data){
+						dataa=data;
+					}
+				});
+				return dataa;		
+			}
+			var test=test();
+			console.log(test);
+			var dataa;
+			$.ajax({
+				url:'http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?',
+				type:'GET',
+				dataType:'json',
+				async:false,
+				success:function(data){
+					dataa=data;
+					var options ={
+				    	chart: {
+				    		alignTicks: true,
+				    		renderTo: 'container',
+				    	},
+				    	// 右下角的的标志
+				    	credits: {
+				            enabled: true,
+				            href:"www.baidu.com",
+				            text:"世纪佳缘",
+				            position: {
+								align: 'right',
+								x: -10,
+								verticalAlign: 'bottom',
+								y: -5
+							},
+							style: {
+								// cursor: 'pointer',
+								// color: '#909090',
+								// fontSize: '10px'
+							}
+				        },
+				        tooltip: {
+				            crosshairs: {
+				            	dashStyle: 'solid'
+				            }
+				            // 提示框格式
+				            // formatter: function() {
+				            //     return '<b> 空' +'</b><br/>'+this.x +': '+ this.y;
+				            // }
+				        },
+				    	rangeSelector : {
+				    		selected : 1,
+				    		inputEnabled: $('#container').width() > 480
+				    	},
+				    	title : {
+				    		text : 'AAPL Stock Price'
+				    	},
+				    	series : [{
+				    		name : '卜江峰',
+				    		data : data,
+				    		tooltip: {
+				    			valueDecimals: 2
+				    		}
+				    	}]
+				    };
+				    // options.series.push({data:data});
+				    var chart=new Highcharts.StockChart(options);
+				    return dataa;
+				}
+			});
+			console.log(dataa);
+		});
+	</script>
+</body>
+</html>

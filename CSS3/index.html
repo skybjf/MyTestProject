@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<title>css3测试网页</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.textShadow{text-shadow:0 0 4px #fff,0 -5px 4px #ff3,2px -10px 6px #fd3,-2px -15px 11px #f80,2px -25px 18px #f20;font-size: 100px;color: #333;}
+		h2 i{color: red}
+		h2 > i{color: red}
+		li+li{color: green;}
+		.testDIV{width: 200px;height: 200px;background-color: blue;
+/*			-webkit-transform:translate(80px,80px) rotate(45deg) scale(1,1) skew(30deg,-10deg);
+			transform:translate(80px,80px) rotate(45deg) scale(1,1) skew(30deg,-10deg) ;
+			-moz-transform:translate(80px,80px) rotate(45deg) scale(1,1);
+			-o-transform:translate(80px,80px) rotate(45deg) scale(1,1);*/
+
+/*			-webkit-transform:matrix(1,0.4,0,1,0,0);
+			transform:matrix(1,0.4,0,1,0,0);
+			-moz-transform:translate(80px,80px) rotate(45deg) scale(1,1);
+			-o-transform:translate(80px,80px) rotate(45deg) scale(1,1);*/
+/*
+			-webkit-transition-property:background-color;
+			-webkit-transition-duration:2s;*/
+		}
+
+
+		@keyframes myfirst
+			{
+			0%   {background: red;}
+			25%  {background: yellow;}
+			50%  {background: blue;}
+			100% {background: green;}
+			}
+
+			@-moz-keyframes myfirst /* Firefox */
+			{
+			0%   {background: red;}
+			25%  {background: yellow;}
+			50%  {background: blue;}
+			100% {background: green;}
+			}
+
+			@-webkit-keyframes myfirst /* Safari 和 Chrome */
+			{
+			0%   {background: red;}
+			25%  {background: yellow;}
+			50%  {background: blue;}
+			100% {background: green;}
+			}
+
+			@-o-keyframes myfirst /* Opera */
+			{
+			0%   {background: red;}
+			25%  {background: yellow;}
+			50%  {background: blue;}
+			100% {background: green;}
+			}
+		.animation{
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+			animation: myfirst 5s;
+			-moz-animation: myfirst 5s;	/* Firefox */
+			-webkit-animation: myfirst 5s;	/* Safari 和 Chrome */
+			-o-animation: myfirst 5s;	/* Opera */
+		}
+
+		@keyframes light_left{
+				32%{opacity:.5;left:100px;top:2px}
+			    37%{opacity:.55;left:100px;top:-16px}
+			    50%{opacity:.6;left:140px;top:20px}
+			    63%{left:100px;top:55px}
+			    68%{left:100px;top:38px}
+			    100%{left:-35px;top:38px}
+			}
+			@-webkit-keyframes light_left{
+			    32%{opacity:.5;left:100px;top:2px}
+			    37%{opacity:.55;left:100px;top:-16px}
+			    50%{opacity:.6;left:140px;top:20px}
+			    63%{left:100px;top:55px}
+			    68%{left:100px;top:38px}
+			    100%{left:-35px;top:38px}
+			}
+
+		.move{
+			position: absolute;
+			top: 10px;
+			left:35px;
+			width: 10px;
+			height: 10px;
+			overflow: hidden;
+			background: red;
+			animation: light_left 2.2s .6s infinite linear;
+			-webkit-animation: light_left 6s .6s infinite linear;
+			-webkit-animation-play-state: running;
+		}
+	</style>
+</head>
+<body>
+	<div style="background:#000;text-align: center;vertical-align: middle;">
+		<span class="textShadow">
+			Test
+		</span>
+	</div>
+	<h2>今天天气不错啊，<span>就是<i>有</i>点小冷啊</span></h2>
+	<p>今天天气不错啊，<span>就是<i>有</i>点小冷啊</span></p>
+	<ul>
+		<li>疙瘩</li>
+		<li>疙瘩</li>
+		<li>疙瘩</li>
+		<li>疙瘩</li>
+	</ul>
+	<div class="testDIV">
+		
+	</div>
+	<div class="animation"></div>
+	<div class="move"></div>
+	<div class="shiyan">
+		<div class="shiyan_div"></div>
+		<div class="fengche"><img src="fengche.jpg" width="200" height="200" /></div>
+	</div>
+	<style type="text/css">
+		@keyframes shiyan{
+			    25%{left:50%;margin-left:-100px;top:0;-webkit-transform:rotate(90deg);}
+			    50%{left:0;top:50%;-webkit-transform:rotate(180deg);}
+			    75%{left:50%;margin-left:-100px;bottom:0;-webkit-transform:rotate(270deg);}
+			    100%{left:0;top:50%;-webkit-transform:rotate(360deg);}
+			}
+			@-webkit-keyframes shiyan{
+			    25%{left:50%;margin-left:-100px;top:0;margin-top:0px;-webkit-transform:rotate(-90deg);}
+			    50%{left:100%;margin-left:-200px;top:50%;-webkit-transform:rotate(-180deg);}
+			    75%{left:50%;margin-left:-100px;top:100%;margin-top:-200px;-webkit-transform:rotate(-270deg);}
+			    100%{left:0;top:50%;margin-top:-100px;-webkit-transform:rotate(-360deg);}
+			}
+		@keyframes fengche{
+				from{-webkit-transform:rotate(0deg);}
+				to{-webkit-transform:rotate(360deg);}
+			}
+			@-webkit-keyframes fengche{
+			    from{-webkit-transform:rotate(0deg);}
+				to{-webkit-transform:rotate(360deg);}
+			}
+		.shiyan{height:800px;position: relative;border:1px solid red;width: 1000px;margin:0 auto;}
+		.shiyan_div{width: 200px;height: 200px;position: absolute;left: 0;top: 50%;margin-top:-100px;background: blue;border-radius: 10px;animation:shiyan 10s linear infinite alternate;-webkit-animation:shiyan 10s linear infinite normal;}
+		.fengche{width: 200px;height: 200px;overflow: hidden;position: absolute;left: 50%;top:50%;margin: -100px 0 0 -100px;-webkit-animation:fengche 2s linear infinite normal;}
+
+	</style>
+</body>
+</html>

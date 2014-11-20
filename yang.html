@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>送给杨坑的</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+	    $(function(){
+	    	$('#kaptchaImage').click(function () {
+		    	$(this).hide().attr('src', 'img/1.jpg?' + Math.floor(Math.random()*100) ).fadeIn();
+		    }); 
+	    })
+    </script>
+</head>
+<body>
+	<a href="###">test</a>
+	<img id="kaptchaImage" width="100" height="100" src=""/>
+</body>
+</html>

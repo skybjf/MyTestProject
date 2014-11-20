@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+		<title>在线画图板</title>
+		<link rel="stylesheet" type="text/css" href="css/onLineDraw.css" />
+		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<header>HTML5在线画图</header>
+		
+		<section>
+			<ul class="tool fn-clear">
+				<li>
+					<div class="title">图像</div>
+					<ul class="fun fn-clear">
+						<li></li>
+
+						<li></li>
+
+						<li></li>
+
+						<li></li>
+
+						<li></li>
+						<li></li>
+					</ul>
+				</li>
+				<li>
+					<div class="title">工具</div>
+					<ul class="fun fn-clear">
+						<li>铅笔</li>
+						<li>橡皮</li>
+						<li>填充</li>
+						<li>吸色</li>
+						<li>文字</li>
+						<li>放大</li>
+					</ul>
+				</li>
+				<li>
+					<div class="title">形状</div>
+					<ul class="fun fn-clear">
+						<li>直线</li>
+						<li>空心圆</li>
+						<li>空心方</li>
+						<li>空心三角</li>
+						<li>实心圆</li>
+						<li>实心方</li>
+					</ul>
+				</li>
+				<li>
+					<div class="title">线宽</div>
+					<ul class="fun fn-clear line">
+						<li>1磅</li>
+						<li>3磅</li>
+						<li>6磅</li>
+						<li>8磅</li>
+					</ul>
+				</li>
+				<li>
+					<div class="title">颜色</div>
+					<ul class="color fn-clear">
+						<li class="red"></li>
+						<li class="green"></li>
+						<li class="blue"></li>
+						<li class="yellow"></li>
+						<li class="withe"></li>
+						<li class="black"></li>
+						<li class="pink"></li>
+						<li class="purple"></li>
+						<li class="cyan"></li>
+						<li class="orange"></li>
+					</ul>
+				</li>
+			</ul>
+			<canvas id="canvas" width="880" height="400">
+				您的浏览器不支持，请升级浏览器
+			</canvas>
+		</section>
+		<footer>2014年 11月 5日 @卜江峰 制作</footer>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas'); 
+			var c=canvas.getContext('2d'); 
+			var flag=false;
+			// c.beginPath();
+			// 设置开始点  c.moveTo();
+			// 绘制不同的点  c.lineTo();
+			// c.closePath();
+			// 画笔画图 c.stroke();
+			canvas.onmousedown=function(evt){
+				// 获取鼠标相对于canvas画布的位置
+				// 获取鼠标相对于屏幕的距离
+					// 整合鼠标事件（整合w3c和ie）
+					evt=window.event||evt;
+					// 鼠标相对于页面的横纵坐标
+					// evt.pageX+'---'+evt.pageY
+				// 获取当前对象（标签）相对于页面顶端的距离
+				// this.offsetLeft+'--'+this.offsetTop;
+				var startX=evt.pageX-this.offsetLeft;
+				var startY=evt.pageY-this.offsetTop;
+				c.beginPath();
+				c.moveTo(startX,startY);
+				flag=true;
+			}
+			canvas.onmousemove=function(evt){
+				evt=window.event||evt;
+				var endX=evt.pageX-this.offsetLeft;
+				var endY=evt.pageY-this.offsetTop;
+				if (flag){
+					c.lineTo(endX,endY);
+					c.stroke();	
+				}
+			}
+			canvas.onmouseup=function(){
+				flag=false;
+				c.closePath();
+			}
+			canvas.onmouseout=function(){
+				flag=false;
+				c.closePath();
+			}
+			// 选择画笔的粗细
+				$('.line li').each(function(i){
+					$(this).click(function(){
+						var index=i;
+						switchLineWidth(index);
+					})
+				})
+
+				// 选择画笔的粗细
+				function switchLineWidth(num){
+					this.num=num;
+					switch(num){
+						case 0:
+							c.lineWidth=1;
+							break;
+						case 1:
+							c.lineWidth=3;
+							break;
+						case 2:
+							c.lineWidth=6;
+							break;
+						case 3:
+							c.lineWidth=8;
+							break;
+						default:
+							c.lineWidth=1;
+					}
+				}
+			// 选择画笔的颜色
+				$('.color li').each(function(i){
+					$(this).click(function(){
+						switchStrokeStyle(i);
+					})
+				});
+				function switchStrokeStyle(num){
+					var color=["red","green","blue","yellow","white","black","pink","purple","cyan","orange"];
+					c.strokeStyle=color[num];
+				}
+		</script>
+	</body>
+</html>

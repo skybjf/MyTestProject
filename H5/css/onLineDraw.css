@@ -1,0 +1,29 @@
+@charset "utf-8"
+*{padding:0;margin: 0;list-style:none;border: none}
+ul,li{list-style: none;padding: 0;margin: 0;}
+body{background: #ABCDEF;}
+header{line-height: 100px;width: 1000px;margin:0 auto;font-size: 60px;text-align: center;}
+section{width: 880px;height: 550px;background: gray;margin: 0 auto;padding: 10px;}
+footer{width: 1000px;margin: 0 auto;text-align: center;line-height: 60px;}
+canvas{background: #fff;}
+canvas:hover{cursor: crosshair;}
+.fn-clear:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.fn-clear {zoom:1; /* for IE6 IE7 */}
+
+.tool{height: 150px;margin:0;padding:0;list-style: none;} 
+.tool li{float: left;width: 175px;border-right:1px solid red ;height: 140px;background: lightgray;}
+.tool li:last-child{border: none;}
+.tool li .title{border-bottom:1px solid #000;text-align: center;font-weight: bold;}
+.tool .fun{margin: 0;padding:0;}
+.tool .fun li,.tool .color li{float: left;padding:2px 4px;height: auto;width: auto;border: 1px solid #000;margin:6px 0 0 6px;cursor: pointer;}
+.tool .color li{width: 10px;height: 10px;overflow: hidden;}
+.color .red{background: red}
+.color .green{background: green}
+.color .blue{background: blue}
+.color .yellow{background: yellow}
+.color .withe{background: white}
+.color .black{background: black}
+.color .pink{background: pink}
+.color .purple{background: purple}
+.color .cyan{background: cyan}
+.color .orange{background: orange}
