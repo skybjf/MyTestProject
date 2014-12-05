@@ -118,20 +118,28 @@
 	<div class="move"></div>
 	<div class="shiyan">
 		<div class="shiyan_div"></div>
+		<div class="shiyan_div2"></div>
 		<div class="fengche"><img src="fengche.jpg" width="200" height="200" /></div>
 	</div>
 	<style type="text/css">
-		@keyframes shiyan{
-			    25%{left:50%;margin-left:-100px;top:0;-webkit-transform:rotate(90deg);}
-			    50%{left:0;top:50%;-webkit-transform:rotate(180deg);}
-			    75%{left:50%;margin-left:-100px;bottom:0;-webkit-transform:rotate(270deg);}
-			    100%{left:0;top:50%;-webkit-transform:rotate(360deg);}
-			}
+		@keyframes 
 			@-webkit-keyframes shiyan{
 			    25%{left:50%;margin-left:-100px;top:0;margin-top:0px;-webkit-transform:rotate(-90deg);}
 			    50%{left:100%;margin-left:-200px;top:50%;-webkit-transform:rotate(-180deg);}
 			    75%{left:50%;margin-left:-100px;top:100%;margin-top:-200px;-webkit-transform:rotate(-270deg);}
 			    100%{left:0;top:50%;margin-top:-100px;-webkit-transform:rotate(-360deg);}
+			}
+		@keyframes two{
+			    25%{left:50%;margin-left:-100px;top:0;margin-top:0px;-webkit-transform:rotate(90deg);}
+			    50%{left:100%;margin-left:-200px;top:50%;-webkit-transform:rotate(180deg);}
+			    75%{left:50%;margin-left:-100px;top:100%;margin-top:-200px;-webkit-transform:rotate(270deg);}
+			    100%{left:0;top:50%;margin-top:-100px;-webkit-transform:rotate(360deg);}
+			}
+			@-webkit-keyframes two{
+			    25%{left:50%;margin-left:-100px;top:0;margin-top:0px;-webkit-transform:rotate(90deg);}
+			    50%{left:100%;margin-left:-200px;top:50%;-webkit-transform:rotate(180deg);}
+			    75%{left:50%;margin-left:-100px;top:100%;margin-top:-200px;-webkit-transform:rotate(270deg);}
+			    100%{left:0;top:50%;margin-top:-100px;-webkit-transform:rotate(360deg);}
 			}
 		@keyframes fengche{
 				from{-webkit-transform:rotate(0deg);}
@@ -139,10 +147,11 @@
 			}
 			@-webkit-keyframes fengche{
 			    from{-webkit-transform:rotate(0deg);}
-				to{-webkit-transform:rotate(360deg);}
+				to{-webkit-transform:rotate(-360deg);}
 			}
 		.shiyan{height:800px;position: relative;border:1px solid red;width: 1000px;margin:0 auto;}
-		.shiyan_div{width: 200px;height: 200px;position: absolute;left: 0;top: 50%;margin-top:-100px;background: blue;border-radius: 10px;animation:shiyan 10s linear infinite alternate;-webkit-animation:shiyan 10s linear infinite normal;}
+		.shiyan_div{width: 200px;height: 200px;position: absolute;left: 0;top: 50%;margin-top:-100px;background: blue;border-radius: 10px;animation:shiyan 10s linear infinite alternate;-webkit-animation:shiyan 10s linear infinite normal;display: none;}
+		.shiyan_div2{width: 200px;height: 200px;position: absolute;left: 0;top: 50%;margin-top:-100px;background: blue;border-radius: 10px;-webkit-animation:two 10s ease-in-out infinite normal;}
 		.fengche{width: 200px;height: 200px;overflow: hidden;position: absolute;left: 50%;top:50%;margin: -100px 0 0 -100px;-webkit-animation:fengche 2s linear infinite normal;}
 
 	</style>

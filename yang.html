@@ -1,19 +1,151 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<title>送给杨坑的</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-	    $(function(){
-	    	$('#kaptchaImage').click(function () {
-		    	$(this).hide().attr('src', 'img/1.jpg?' + Math.floor(Math.random()*100) ).fadeIn();
-		    }); 
-	    })
-    </script>
+    <title>测试版网页</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="http://mc.meituan.net/combo/?f=touch/css/download/download.24782fc7.css;">
+    <style type="text/css">
+        .bjf_hide{display: none;}
+    </style>
 </head>
 <body>
-	<a href="###">test</a>
-	<img id="kaptchaImage" width="100" height="100" src=""/>
+<div class="bjf_hide" id="header">
+    <a class="site-logo" href="http://bj.meituan.com/"><img src="http://ms0.meituan.net/touch/css/download/i/title_meituan.png"></a>
+
+    <div id="menu">
+        <span><a href="javascript:void(0)" id="android" gaevent="imt/mobile/meituan/androidTab">Android</a></span>
+        <span><a href="javascript:void(0)" id="iphone" gaevent="imt/mobile/meituan/iphoneTab">iPhone</a></span>
+        <span><a href="javascript:void(0)" id="ipad" gaevent="imt/mobile/meituan/ipadTab">iPad</a></span>
+        <span><a href="javascript:void(0)" id="wp" gaevent="imt/mobile/meituan/wpTab">WP8/Win8</a></span>
+        <span><a href="javascript:void(0)" id="web" gaevent="imt/mobile/meituan/webTab">手机网页版</a></span>
+    </div>
+    <div id="web-tip" class="hide">
+        <div id="arrow"></div>
+        手机浏览器访问meituan.com，无需安装，立刻访问美团
+    </div>
+</div>
+<div class="nav" id="primary">
+    <ul>
+        <li>
+            <a class="active" href="#page-1" id="nav-1" gaevent="imt/mobile/meituan/page-1">Page-1</a>
+        </li>
+        <li>
+            <a class="" href="#page-2" id="nav-2" gaevent="imt/mobile/meituan/page-2">Page-2</a>
+        </li>
+        <li>
+            <a class="" href="#page-3" id="nav-3" gaevent="imt/mobile/meituan/page-3">Page-3</a>
+        </li>
+        <li>
+            <a class="" href="#page-4" id="nav-4" gaevent="imt/mobile/meituan/page-4">Page-4</a>
+        </li>
+    </ul>
+</div>
+<div class="page page-1 fl"></div>
+<div class="page page-2 fl"></div>
+<div class="page page-3 fl"></div>
+<div class="page page-4 fl"></div>
+<div id="content">
+    <div class="page" id="page-1">
+        <div class="phone-wrapper position">
+            <div class="top">
+                <div class="phone"></div>
+                <div class="circle"></div>
+                <div id="wheel-1"></div>
+                <div id="wheel-2"></div>
+                <div id="wheel-3"></div>
+                <div id="wheel-4"></div>
+            </div>
+        </div>
+        <div class="fixed">
+            <div class="top-1">
+                <div id="description">
+                </div>
+                <div id="qrcode-wrapper">
+                    <div class="qrcode"></div>
+                    <div id="btn">
+                        <a href="javascript:void(0)" gaevent="imt/mobile/meituan/download">立即下载</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="page-2">
+        <div class="map-wrapper position">
+            <div class="top-2">
+                <div id="map"></div>
+                <div id="cloud"></div>
+                <div id="nail"></div>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="page-3">
+        <div class="shop-wrapper position">
+            <div class="top-3">
+                <div id="v-phone"></div>
+                <div id="function"></div>
+                <div id="shop"></div>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="page-4">
+        <div class="gift-wrapper position">
+            <div class="top-4">
+                <div id="gift_1"></div>
+                <div id="gift_2"></div>
+                <div id="ballon"></div>
+                <div id="phone_1"></div>
+                <div id="phone_2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="page-5">
+        <div class="bg">
+            <ul>
+                <li class="bg1"></li>
+                <li class="bg2"></li>
+                <li class="bg3"></li>
+                <li class="bg4"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="http://mc.meituan.net/combo/?f=touch/js/download/jquery.3576a6e7.js;touch/js/download/rotate.d60cec41.js;touch/js/download/download.eeb718a2.js;touch/js/count_v2.29e445e8.js;"></script>
+<script type="text/javascript">
+    MT.GA = {
+        trackGAEvent: function () {
+            // 事件代理方式
+            $('body').on('click', 'a', function (e) {
+                MT.GA.genGA.call(this);
+            });
+            $('.sms-btn').click(function (e) {
+                MT.GA.genGA.call(this);
+            });
+        },
+
+        genGA: function() {
+            var GA_EVENT = 'gaevent', // 自定义trackEvent属性
+                attrs;
+
+            if (attrs = this.getAttribute(GA_EVENT)) {
+                attrs = this.getAttribute(GA_EVENT).split('|');
+                MT.GA.sendGA.apply(null, attrs);
+            }
+        },
+
+        sendGA: function () {
+            var arrTrack = ['_trackEvent'],
+                    attrs = [].slice.call(arguments);
+
+            if (attrs.length === 1) {
+                arrTrack.push('InnerLink', 'Click', attrs[0]);
+            } else {
+                arrTrack = arrTrack.concat(attrs);
+            }
+            _gaq.push(arrTrack);
+        }
+    };
+    MT.GA.trackGAEvent();
+</script>
 </body>
 </html>
