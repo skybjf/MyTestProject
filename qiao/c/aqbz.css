@@ -1,0 +1,14 @@
+@charset "utf-8";
+/*主体样式*/
+.main{position: relative;margin: 0 auto;padding-left:160px;color: #333;border:1px solid #eae5e5;margin-top: 16px;}
+.adcon{width: 1000px;height: 138px;overflow: hidden;}
+.laside{position: absolute;left:0;top:0;width: 160px;zoom:1;_left:-160px;_top:1px;}
+.laside ul li{border-bottom: 1px solid #eae5e5;border-top: 1px solid #f9f7f7;}
+.laside ul li a{display: inline-block;color: #333;width: 130px;padding-left: 30px;line-height: 40px;background: #fff;}
+.laside ul li a:hover,.laside ul li .active{width: 133px;border-left: 3px solid #224E73;padding-left: 27px;font-weight: bold;}
+.laside ul li a:hover{background:#224E73;color:#fff;}
+.raside {padding: 10px 15px 40px 40px;border-left:1px solid #eae5e5;}
+.raside .title h2{font: normal 22px/40px 'Microsoft Yahei';border-bottom: 2px solid #dcd8cd;}
+.raside  dt{font-weight: bold;font-size: 14px;margin-top: 20px;line-height: 30px;}
+.raside  dd{line-height: 28px;font-size: 14px;}
+.raside  dd,.raside  dd p{text-indent: 2em;word-break:break-all;}

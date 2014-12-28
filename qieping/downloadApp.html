@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>全屏滚动</title>
+	<meta name="author" content="bujiangfeng@jiayuan.com" />
+	<meta name="Resource-type" content="Document" />
+	<link rel="stylesheet" type="text/css" href="http://images1.jyimg.com/w4/common/c/base.css"/>
+	<link rel="stylesheet" type="text/css" href="c/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="c/downloadApp.css" />
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+	<script src="http://images1.jyimg.com/w4/common/j/jquery.js"></script>
+	<script src="js/jquery-ui.min.js "></script>
+	<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				'verticalCentered': false,
+				'css3': true,
+				sectionsColor: ['#ff7e71','#30aedd','#3089dd','#ffae58','#ff6058'],
+				// 地址栏会改变
+				// anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+				navigation: true,
+				navigationPosition: 'right',
+				// 鼠标移动上去之后显示的文字
+				// navigationTooltips: ['fullPage.js', 'Powerful', 'Amazing', 'Simple']
+			});
+		});
+	</script>
+	<script type="text/javascript" src="js/downloadAPP.js"></script>
+	<script type="text/javascript">
+		var browser=navigator.appName;
+		var b_version=navigator.appVersion;
+		var version=b_version.split(";");
+		var trim_Version=version[1].replace(/[ ]/g,"");  
+		if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0"){alert("IE 6.0");  }  
+		else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0"){alert("IE 7.0");  }  
+		else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0"){alert("IE 8.0");  }  
+		else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE9.0"){alert("IE 9.0");  }
+	</script>
+</head>
+<body>
+	<div class="downloadbox">
+		<div class="fn-clear">
+			<div class="left">
+				<div class="title"><i> 1</i> 手机扫描二维码下载</div>
+				<div class="erweima"></div>
+			</div>
+			<div class="right">
+				<div class="title"><i> 2</i> 手机扫描二维码下载</div>
+				<div class="fun">
+					<a class="apple" href="###">iPhone下载</a></br>
+					<a class="andriod" href="###">Andriod下载</a>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="title"><i> 3</i> 手机浏览器访问：<span class="oran">http://v.jiayuan.com/d</span> 即可下载</div>
+		</div>
+	</div>
+	<div id="fullpage">
+		<div class="section">
+			<div class="wrap">
+				<div class="box_1">
+					<div class="top_1">
+						<div class="head_left"><img src="./i/headleft.png" /></div>
+						<div class="head_right"><img src="./i/headright.png" /></div>
+						<div class="page1tip"><img src="./i/page1tip.png" /></div>
+						<div class="mohu1"><img src="./i/mohu1.png" /></div>
+						<div class="mohu2"><img src="./i/mohu2.png" /></div>
+						<div class="mohu3"><img src="./i/mohu3.png" /></div>
+						<div class="mohu4"><img src="./i/mohu4.png" /></div>
+					</div>
+					<div class="bottom_1 fn-clear">
+						<div class="title-1">一对一服务</div>
+						<div class="detail-1">为您筛选、推荐</br>万里挑一的</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="wrap">
+				<div class="box_2">
+					<div class="top_2">
+						<div class="title-2">个性定制</div>
+						<div class="detail-2">根据客户需求，定制爱情</div>
+					</div>
+					<div class="bottom_2">
+						<div class="bigtip"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="wrap">
+				<div class="top_3">
+					<div class="title-3">协议服务</div>
+					<div class="detail-3">法律层面保障用户安全</div>
+				</div>
+				<div class="bottom_3">
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="wrap">
+				<div class="top_4"></div>
+				<div class="bottom_4">
+					<div class="title-4">身份认证&nbsp;&nbsp;&nbsp;安全可靠</div>
+					<div class="detail-4">[  引进公安身份验证系统  ]</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="wrap">
+				<div class="box_5">
+					<div class="top_5">
+						<div class="title-5">VIP服务中心遍全国</div>
+						<div class="detail-5">整齐划一的规范管理</div>
+					</div>
+					<div class="bottom_5">
+						<div class="dottip"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

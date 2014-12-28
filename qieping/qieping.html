@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="http://images1.jyimg.com/w4/common/c/base.css"/>
 	<title>切屏测试</title>
 	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="./js/jquery.easing.js"></script>
 	<script src="./js/jquery.mousewheel.min.js"></script>
+	<script src="./js/qieping.js"></script>
 	<style type="text/css">
 		body{overflow: hidden;}
 		.box{width: 100%;position: fixed;left: 0;}
 	</style>
 </head>
 <body>
-	<ul>
+我来说几句中国话来测试下是不是真的汉字
+	<ul id="box">
 		<li class="box" style="background:red"></li>
 		<li id="box1" class="box" style="background:black"></li>
 		<li class="box" style="background:blue"></li>
@@ -21,39 +23,7 @@
 		<li class="box" style="background:yellow"></li>
 	</ul>
 	<script type="text/javascript">
-		$(function(){
-			var $win=$(window);
-			var wHieght=parseInt($win.height());
-			var wWidth=parseInt($win.width())-20;
-
-			$(window).mousewheel(function(eventA, delta){
-				// console.info(scrollTop);
-				if(delta<0){
-					$('#box1').animate({  
-						top: 0,  
-						opacity: 1  
-					}, 500, 'easeOutSine');
-				}else if(delta>0){
-					$('#box1').animate({  
-						top: -wHieght,  
-						opacity: 1  
-					}, 500, 'easeOutSine');
-				}
-			});
-			
-			console.log(wHieght+" - "+wWidth);
-			$('.box').css({'height':wHieght,"top":wHieght});
-			$('.btn').click(function(){
-				console.log(12121);
-				console.log($(document).height());
-				console.log($(window).height());
-				$('#box1').animate({  
-					top: 0,  
-					opacity: 1  
-				}, 500, 'linear');
-			})
-
-		})
+		
 	</script>
 </body>
 </html>
