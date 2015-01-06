@@ -7,7 +7,7 @@
 #fp-nav.right{right: 100px;}
 #fp-nav ul li{margin: 16px;width: 28px;height: 28px;overflow: hidden;}
 #fp-nav ul li a span{width: 24px;height: 24px;border:2px solid #fff;top: 0;left: 0}
-#fp-nav ul li a.active span{background: #fff;}
+#fp-nav ul li a.active span{background: #fff;transition:0.3s;-moz-transition:0.3;-webkit-transition:0.3;-o-transition:0.3;}
 .oran{color: #ff6352;}
 .section{overflow: hidden;}
 .wrap{width: 1000px;margin:0 auto;color: #fff;height: 100%;position: relative;}
