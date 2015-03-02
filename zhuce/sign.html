@@ -1,0 +1,1012 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一对一婚恋交友服务注册 - 世纪佳缘交友网</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://images1.jyimg.com/w4/liehun/c/base.css" rel="stylesheet" type="text/css" />
+<link href="http://images1.jyimg.com/w4/liehun/c/master.css" rel="stylesheet" type="text/css" />
+<link href="http://images1.jyimg.com/w4/liehun/c/login.css" rel="stylesheet" type="text/css" />
+<link href="http://images1.jyimg.com/w4/liehun/c/pop.css" rel="stylesheet" type="text/css" />
+<link href="http://images1.jyimg.com/w4/liehun/c/simpleDialog.css" rel="stylesheet" type="text/css" />
+<script src="http://images1.jyimg.com/w4/common/j/jquery.js"></script>
+<script src="http://images1.jyimg.com/w4/liehun/j/city.js" type="text/javascript"></script>
+<script src="http://images1.jyimg.com/w4/liehun/j/location.js" type="text/javascript"></script>
+<script src="http://images1.jyimg.com/w4/liehun/j/date.js" type="text/javascript"></script>
+
+<!--[if lte IE 6]>
+  <script type='text/javascript' src="http://images.izhenxin.com/js/common/ie6png.js"></script>
+  <script> DD_belatedPNG.fix('.bg,.steps1,.steps2,.steps3');</script>
+<![endif]-->
+
+</head>
+<body>
+<div class="bg_box1">
+  <div class="wrap">
+    <div class="head">
+      <h2><img src="./i/logoyiduiyiheng.png" width="180" height="43" /></h2>
+    </div>
+  </div>
+  <div class="wrap bg_col2 pb40 border pt20">
+    <!--main start -->
+    <div class="clearfix">
+      <!--left start -->
+      <div class="fl pl35 w_690">
+      	<div class="steps yahei">
+          <span class="f24 colorblue">注册</span> <sapn class="f16 colorred">(以下信息均为必填项)</sapn>
+        </div>
+        <!--zhu ce start-->
+        <form method="POST" name="reg_step_1" id="reg_step_1" action="" target="register_iframe">
+        <div class="zhuce_box yahei">
+          <div class="table_box f_gray_666 f16 lh36 mt20">
+            <table id="reg_mobile">
+              <tr>
+                <td width="120" class="tr">昵称：</td>
+                <td><input name="nick" id="nick" type="text"  class="text_btn"/></td>
+                <td>
+                <div class="tip3 f_gray_666 f12 tr pr10" id="nick_msg" style="display:none;"> <span></span> <em></em> 请你输入有效昵称</div>
+                </td>
+              </tr>
+              <tr>
+                <td width="120" class="tr">手机号码：</td>
+                <td width="178"><input name="mobile" id="mobile" type="text"  class="text_btn"/></td>
+                <td width="363" height="36">
+                  <div class="tip2 f_gray_666 f12 tc" id="mobile_msg" style="display:none;">  </div>                
+                </td>
+              </tr>
+              <tr>
+                <td class="tr">手机验证码：</td>
+                <td class="clearfix">
+                    <input name="mobile_code" id="mobile_code" type="text"  class="mobile_code"/><a class="btngetcode" href="###">获取验证码</a>
+                </td>
+                <td><div class="tip2 f_gray_666 f12 tc" id="valid_msg" style="display:none;"> </div></td>
+              </tr>
+              <tr>
+                <td width="120" class="tr">设置密码：</td>
+                <td width="178"><input name="password" id="password" type="password"  class="text_btn"/></td>
+                <td width="363"><div id="password_msg" class="tip3 f_gray_666 f12 tr pr10" style="display:none;"> <span></span> <em></em> 请你输入有效密码 </div></td>
+              </tr>
+            </table>
+          </div>
+          <div class="f22 f_gray_333 border_bb_dashed lh52">
+            完善个人信息
+          </div>
+        	<div class="table_box f_gray_666 f16">
+            <table>
+              <tr>
+                <td width="112" class="tr">真实姓名：</td>
+                <td><input name="nick" id="nick" type="text"  class="text_btn"/></td>
+                <td>
+                <div class="tip3 f_gray_666 f12 tr pr10" id="nick_msg" style="display:none;"> <span></span> <em></em> 请你输入真实姓名</div>
+                </td>
+              </tr>
+              <tr>
+                <td width="112" class="tr">性别：</td>
+                <td width="209">
+                	<input name="sex" id="sex_m" type="radio" value="1" />
+                  <label for="sex_m">男</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="sex" id="sex_f" type="radio" value="0" />
+                  <label for="sex_f">女</label>
+                </td>
+                <td width="179">
+                  <div class="tip3 f_gray_666 f12 tr pr10" id="sex_error" style="width:88px;display:none;"> <span></span> <em></em> 请选择性别 </div>
+                  <div class="zc_ico1" id="sex_right" style="display:none"></div>
+                </td>
+                <td width="120" class="f12 col_3">* 注册后不可修改</td>
+              </tr>
+              <tr>
+                <td width="112" class="tr">生日：</td>
+                <td width="209">
+                	<div class="birthdayWapper">
+                		<input type="text" value="选择年" id="birth_year" name="birth_year" class="birthdayP fn-left"/>
+                		<input type="text" value="选择月" id="birth_month" name="birth_month" class="birthdayP fn-left ml10"/>
+                		<input type="text" value="选择日" id="birth_day" name="birth_day" class="birthdayP fn-left ml10"/>
+                	</div>
+                </td>
+                <td width="179">
+                  <div class="tip3 f_gray_666 f12 tr pr10" id="birthday_error" style="width:112px;display:none;"> <span></span> <em></em> 请选择出生日期 </div>
+                  <div class="zc_ico1" id="birthday_right" style="display:none"></div>
+                </td>
+                <td width="120" class="f12 col_3">* 注册后不可修改</td>
+              </tr>
+              <tr>
+                <td class="tr">身高：</td>
+                <td><select name="height" id="height" class="select_1 f_gray_666">
+                	  <option value='0'>--请选择--</option>
+                    <option value="145">145</option>
+                    <option value="146">146</option>
+                    <option value="147">147</option>
+                    <option value="148">148</option>
+                    <option value="149">149</option>
+                    <option value="150">150</option>
+                    <option value="151">151</option>
+                    <option value="152">152</option>
+                    <option value="153">153</option>
+                    <option value="154">154</option>
+                    <option value="155">155</option>
+                    <option value="156">156</option>
+                    <option value="157">157</option>
+                    <option value="158">158</option>
+                    <option value="159">159</option>
+                    <option value="160">160</option>
+                    <option value="161">161</option>
+                    <option value="162">162</option>
+                    <option value="163">163</option>
+                    <option value="164">164</option>
+                    <option value="165">165</option>
+                    <option value="166">166</option>
+                    <option value="167">167</option>
+                    <option value="168">168</option>
+                    <option value="169">169</option>
+                    <option value="170">170</option>
+                    <option value="171">171</option>
+                    <option value="172">172</option>
+                    <option value="173">173</option>
+                    <option value="174">174</option>
+                    <option value="175">175</option>
+                    <option value="176">176</option>
+                    <option value="177">177</option>
+                    <option value="178">178</option>
+                    <option value="179">179</option>
+                    <option value="180">180</option>
+                    <option value="181">181</option>
+                    <option value="182">182</option>
+                    <option value="183">183</option>
+                    <option value="184">184</option>
+                    <option value="185">185</option>
+                    <option value="186">186</option>
+                    <option value="187">187</option>
+                    <option value="188">188</option>
+                    <option value="189">189</option>
+                    <option value="190">190</option>
+                    <option value="191">191</option>
+                    <option value="192">192</option>
+                    <option value="193">193</option>
+                    <option value="194">194</option>
+                    <option value="195">195</option>
+                    <option value="196">196</option>
+                    <option value="197">197</option>
+                    <option value="198">198</option>
+                    <option value="199">199</option>
+                    <option value="200">200</option>
+                  </select>&nbsp;<span class="a_gray_666">厘米</span></td>
+                 <td>
+                 		<div class="tip3 f_gray_666 f12 tr pr10" id="height_error" style="width:88px;display:none;"> <span></span> <em></em> 请选择身高 </div>
+                 		<div class="zc_ico1" id="height_right" style="display:none"></div>
+                 </td>
+                 <td class="f12 col_3" width="120">* 注册后不可修改</td>
+              </tr>
+              <tr>
+                <td class="tr">现居地：</td>
+                <td>
+                		<input type="hidden" id="province" name="province" value="0" />
+                    <input type="hidden" id="city" name="city" value="0" />   
+                    <div id="prov" style="position:relative; z-index:9999;"><input type="text" class="text_btn2" id="show_province" value="选择省/直辖市" readonly /></div>
+                    <div id="town" class="ml10 in-line" style="position:relative; z-index:9999;"><input type="text" class="text_btn2" id="show_city" value="选择市/区" readonly /></div>
+                </td>
+                <td>
+                		<div class="tip3 f_gray_666 f12 tr pr10" id="location_error" style="width:100px;display:none;"> <span></span> <em></em>请选择现居地 </div>
+                 		<div class="zc_ico1" id="location_right" style="display:none"></div>	
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="tr">学历：</td>
+                <td>
+                    <select name="education" id="education" class="select_1 f_gray_666 f14">
+                        <option value='0'>请选择</option>
+                        <option value="1">义务教育</option>
+                        <option value="2">高中/中专</option>
+                        <option value="3">大专</option>
+                        <option value="4" selected="selected">本科</option>
+                        <option value="5">双学士</option>
+                        <option value="6">硕士</option>
+                        <option value="7">博士</option>
+                        <option value="8">博士后</option>
+                    </select>
+                 </td>
+                 <td>
+                    <div class="tip3 f_gray_666 f12 tr pr10" id="education_error" style="width:88px;display:none;"> <span></span> <em></em> 请选择学历 </div>
+                    <div class="zc_ico1" id="education_right" style="display:none"></div>
+                 </td>
+                <td class="f12 col_3" width="120">* 注册后不可修改</td>
+              </tr>
+              <tr>
+                <td class="tr">婚史：</td>
+                <td>
+                		<select name="marriage" id="marriage" class="select_1 f_gray_666 f14">
+                    		<option value='0'>请选择</option>
+                    		<option value="1" selected="selected">未婚</option>
+                        <option value="2">离异</option>
+                        <option value="3">丧偶</option>
+                  	</select>
+                </td>
+                <td>
+                	<div class="tip3 f_gray_666 f12 tr pr10" id="marriage_error" style="width:112px;display:none;"> <span></span> <em></em>请选择婚姻状况 </div>
+                 	<div class="zc_ico1" id="marriage_right" style="display:none"></div>	
+                </td>
+                <td class="f12 col_3" width="120">* 注册后不可修改</td>
+              </tr>
+              <tr>
+                <td class="tr">月薪：</td>
+                <td>
+                    <select name="salary" id="salary" class="select_2 f_gray_666 f14">
+                        <option value="0">请选择</option>
+                        <option value="1">2000元以下</option>
+                        <option value="2">2000~5000元</option>
+                        <option value="3">5000~10000元</option>
+                        <option value="4">10000~20000元</option>
+                        <option value="5">20000~50000元</option>
+                        <option value="6">50000以上</option>
+                    </select>
+                </td>
+                <td>
+                  <div class="tip3 f_gray_666 f12 tr pr10" id="salary_error" style="width:100px;display:none;"> <span></span> <em></em>请选择月收入 </div>
+                  <div class="zc_ico1" id="salary_right" style="display:none"></div>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="tr">资产：</td>
+                <td>
+                    <select name="salary" id="salary" class="select_2 f_gray_666 f14">
+                        <option value="0">请选择</option>
+                        <option value="1">2000元以下</option>
+                        <option value="2">2000~5000元</option>
+                        <option value="3">5000~10000元</option>
+                        <option value="4">10000~20000元</option>
+                        <option value="5">20000~50000元</option>
+                        <option value="6">50000以上</option>
+                    </select>
+                </td>
+                <td>
+                  <div class="tip3 f_gray_666 f12 tr pr10" id="salary_error" style="width:100px;display:none;"> <span></span> <em></em>请选择您的资产</div>
+                  <div class="zc_ico1" id="salary_right" style="display:none"></div>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </div>
+          <div class="border_bt_dashed">
+            <div class="nxdb_box">
+              <div class="pt25 f_gray_666 pr pb35 clearfix">
+                <div class="fl lh26 f14">
+                  <input name="protocol" id="protocol" type="checkbox" value="1" checked="checked"/>
+                  &nbsp;我已阅读同意<a class="colorred" href="###">《佳缘用户协议》</a>并申请 红娘一对一服务
+                </div>
+                <div class="tip3 fl pl20 f_gray_666 f12 tr pr10" id="protocol_msg" style="width:128px;display:none;"> <span></span> <em></em>请阅读并同意注册协议 </div>
+              </div>
+              <input name="f" id="f" type="hidden" value="" />
+              <input name="ENP" id="ENP" type="hidden" value="" />
+              <input name="sign" id="sign" type="hidden" value="" />
+              <a class="btn_tj" href="javascript:void(0);">提交</a>
+            </div>
+          </div>
+          </div>
+        <!--zhu ce end -->
+      </div>
+  	</form>
+      <!--left end -->
+      <!--right start -->
+      <div class="fl pl20 w_230 yahei">
+          <h4 class="f16 fb col_4 pt35">已是世纪佳缘一对一服务客户？</h4>
+          <p class="f14 pt25"><a href="/login/" class="col_2">从这里登录</a></p>
+      </div>
+      <!--right end -->
+    </div>
+    <!--main end -->
+  </div>
+  <!--footer start -->
+  <div class="FooterWrapper">
+    <div class="Footer fn-clear">
+    <p class="fn-left">Copyright  ©  2013-2015 版权所有&nbsp;&nbsp; 京ICP证130108号</p>
+    <p class="FooterNav fn-right">
+      一对一服务业务合作    投诉、举报邮箱：vip_supervise@jiayuan.com
+    </p>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+(function ($){
+	$(document).ready(function() {
+		var params = {"ref":"middle","location":{"live_location":11,"live_location_str":"\u5317\u4eac"},"rand":609106};
+		var class_focus = "tip2 f_gray_666 f12 tc";
+		var class_blur = "tip3 f_gray_666 f12 tr pr10";
+		$("#mobile_code").val("");
+		$("#mobile").val("");
+		$("#email").val("");
+		$("#password").val("");
+	
+		$("#sex_f, #sex_m").click(function() {
+			$("#sex_right").show();
+			$("#sex_error").hide();
+			request_ajax('registerStepStat', {'name':'sex','from':$('#f').val()});
+		});
+		
+		$("#phoneIcon, #emailIcon").click(function() {
+			if ($(this).val() == 'mobile') {
+				$('#reg_email').hide();
+				$('#reg_mobile').show();
+				$('#email').val('');
+				$('#is_valid').hide();
+				$('#mobile').focus();
+			} else if($(this).val() == 'email') {
+				$('#reg_email').show();
+				$('#reg_mobile').hide();
+				$('#ckcodetr').hide();
+				$('#mobile').val('');
+				$('#mobile_code').val('');
+				$('#is_valid').show();
+				$('#email').focus();
+			}
+		});
+		
+		$("#height").mousedown(function() {
+			$("#height_right").hide() ;
+			$("#height_error").hide() ;
+		}).blur(function() {
+			if($(this).val() == 0) {
+				$("#height_right").hide() ;
+				$("#height_error").show();
+				return false;
+			}
+			$("#height_error").hide() ;
+			$("#height_right").show();
+		}).change(function() {
+			   request_ajax('registerStepStat', {'name':'height','from':$('#f').val()});
+			   $(this).blur();
+		});
+		$("#marriage").mousedown(function() {
+			$("#marriage_right").hide() ;
+			$("#marriage_error").hide() ;
+		}).blur(function() {
+			if($(this).val() == 0) {
+				$("#marriage_right").hide() ;
+				$("#marriage_error").show();
+				return false;
+			}
+			$("#marriage_error").hide() ;
+			$("#marriage_right").show();	
+		}).change(function() {
+			$(this).blur();
+		});
+		
+		$("#salary").mousedown(function() {
+			$("#salary_right").hide() ;
+			$("#salary_error").hide() ;
+		}).blur(function() {
+			if($(this).val() == 0) {
+				$("#salary_right").hide() ;
+				$("#salary_error").show();
+				return false;
+			}
+			$("#salary_error").hide() ;
+			$("#salary_right").show();	
+		}).change(function() {
+			$(this).blur();
+		});
+		
+		$("#education").mousedown(function() {
+			$("#education_right").hide() ;
+			$("#education_error").hide() ;
+		}).blur(function() {
+			if($(this).val() == 0) {
+				$("#education_right").hide() ;
+				$("#education_error").show();
+				return false;
+			}
+			$("#education_error").hide() ;
+			$("#education_right").show();	
+		}).change(function() {
+			$(this).blur();
+		});
+		
+		var mobile_right = false;
+		$("#mobile").focus(function() {
+			$("#mobile_msg").removeClass().addClass(class_focus).css('width','265').html('<span></span> 输入手机号码，点击“点击获取验证码”按钮').show();
+		}).blur(function() {
+			if($(this).val() == '') {
+				$("#mobile_msg").removeClass('').addClass(class_blur).css('width','111').html('<span></span> <em></em> 请输入手机号码').show();	
+				$("#ckcodetr").hide();
+				mobile_right = false;
+			} else {
+				if(is_mobile($(this).val())) {
+					request_ajax('checkMobile', {'mobile':$(this).val()}, {
+						'onSuccess': function(args) {
+							$("#mobile_msg").removeClass().addClass('zc_ico1').html('').show();
+							$("#ckcodetr").show();
+							request_ajax('registerStepStat', {'name':'mobile','from':$('#f').val()});
+							mobile_right = true;
+						},
+						'onFailed': function(args) {
+							$("#mobile_msg").removeClass().addClass(class_blur).css('width',args.width).html('<span></span><em></em> '+args.msg).show();
+							$("#ckcodetr").hide();
+							mobile_right = false;
+						}
+					});
+					
+				} else {
+					$("#mobile_msg").removeClass().addClass(class_blur).css('width','148').html('<span></span> <em></em> 请输入有效的手机号码').show();
+					$("#ckcodetr").hide();	
+					mobile_right = false;
+					return false;
+				}
+			}
+		}).keyup(function() {
+			if($(this).val() == '') {
+				$("#mobile_msg").removeClass('').addClass(class_blur).css('width','111').html('<span></span> <em></em> 请输入手机号码').show();	
+				$("#ckcodetr").hide();
+				mobile_right = false;
+			} else {
+				if(is_mobile($(this).val())) {
+					$("#get_mcode").attr('disabled',false).removeClass().addClass('num_btn');
+					$("#send_fail_msg").hide() ;
+					$("#send_succ_msg").hide();
+					request_ajax('checkMobile', {'mobile':$(this).val()}, {
+						'onSuccess': function(args) {
+							$("#mobile_msg").removeClass().addClass('zc_ico1').html('').show();
+							$("#ckcodetr").show();
+							mobile_right = true;
+						},
+						'onFailed': function(args) {
+							$("#mobile_msg").removeClass().addClass(class_blur).css('width',args.width).html('<span></span><em></em> '+args.msg).show();
+							$("#ckcodetr").hide();
+							mobile_right = false;
+						}
+					});
+				} else {
+					$("#mobile_msg").removeClass().addClass(class_focus).css('width','265').html('<span></span> 输入手机号码，点击“点击获取验证码”按钮').show();
+					$("#ckcodetr").hide();
+					mobile_right = false;
+				}
+			}
+		});		
+		$("#password").focus(function() {
+			$("#password_msg").removeClass().addClass(class_focus).css('width','175').html('<span></span>请设置密码，支持6~20个字符').show();
+		}).blur(function() {
+			if($(this).val() == '') {
+				$("#password_msg").removeClass().addClass(class_blur).css('width','88').html('<span></span><em></em> 请设置密码');
+			} else {
+				if($(this).val() != $(this).val().trim()) {
+					$(this).val($(this).val().trim());
+				}
+				if(($(this).val().length < 6)) {
+					$("#password_msg").removeClass().addClass(class_blur).css('width','170').html('<span></span><em></em> 密码太短了，至少6个字符');
+					return false;
+				} 
+				if(($(this).val().length > 20)) {
+					$("#password_msg").removeClass().addClass(class_blur).css('width','175').html('<span></span><em></em> 密码太长了，最多20个字符');
+					return false;
+				} 
+				request_ajax('registerStepStat', {'name':'password','from':$('#f').val()});
+				$("#password_msg").removeClass().addClass('zc_ico1').html('');
+			}
+			if($(this).val().checkChinese()) {
+				$("#password_msg").removeClass().addClass(class_blur).css('width','99').html('<span></span><em></em> 含有非法字符');
+				return false;
+			}
+			
+		}).keyup(function(){
+			if($(this).val() != $(this).val().trim()) {
+				$(this).val($(this).val().trim());
+			}
+		});
+		
+		$("#nick").focus(function() {
+			$("#nick_msg").removeClass().addClass(class_focus).css('width','300').html('<span></span>2~20个字符，汉字为2个字符，支持汉字，字母和数字').show();	
+		}).blur(function() {
+			var nick = $(this).val();
+			if(nick == '') {
+				$("#nick_msg").removeClass().addClass(class_blur).css('width','88').html('<span></span><em></em> 请填写昵称');
+			} else {
+				if(!nick.checkNickname()) {
+					$("#nick_msg").removeClass().addClass(class_blur).css('width','160').html('<span></span><em></em> 仅支持汉字，字母和数字');
+					return false;
+				} else {
+					if(nick.strLength() < 2) {
+						$("#nick_msg").removeClass().addClass(class_blur).css('width','167').html('<span></span><em></em> 昵称太短了，最少2个字符');
+						return false;
+					}
+					if(nick.strLength() > 20) {
+						$("#nick_msg").removeClass().addClass(class_blur).css('width','175').html('<span></span><em></em> 昵称太长了，最多20个字符');		
+						return false;
+					}
+					if(!isNaN(nick)) {
+						$("#nick_msg").removeClass().addClass(class_blur).css('width','125').html('<span></span><em></em> 昵称不能全是数字');
+						return false;
+					}
+					$("#nick_msg").removeClass().addClass('zc_ico1').html('');
+					request_ajax('registerStepStat', {'name':'nick','from':$('#f').val()});
+				}
+			}
+		});
+		
+		$("#email").focus(function() {
+			$("#email_msg").removeClass().addClass(class_focus).css('width','125').html('<span></span>请填写常用的邮箱').show();	
+		}).blur(function() {
+			var email = $("#email").val();
+			if(email == '') {
+				$("#email_msg").removeClass().addClass(class_blur).css('width','88').html('<span></span><em></em> 请填写邮箱');
+			} else  {
+				if(is_email(email)) {
+					request_ajax('checkEmail', {'email':email}, {
+						'onSuccess': function(args) {
+							
+							$("#email_msg").removeClass().addClass('zc_ico1').html('');
+							request_ajax('registerStepStat', {'name':'email','from':$('#f').val()});
+						},
+						'onFailed': function(args) {
+							
+							$("#email_msg").removeClass().addClass(class_blur).css('width','125').html('<span></span><em></em> '+args.msg);
+						}
+					});
+					
+				} else {
+					$("#email_msg").removeClass().addClass(class_blur).css('width','101').html('<span></span><em></em> 邮箱格式错误');
+				}
+			}
+		});
+		
+		$("#mobile_code").focus(function() {
+			$("#valid_msg").removeClass().addClass(class_focus).css('width','154').html('<span></span> 请输入手机收到的验证码').show();
+		}).blur(function() {
+			if($("#mobile_code").val() == '') {
+				$("#valid_msg").removeClass().addClass(class_blur).css('width','124').html('<span></span><em></em> 请输入手机验证码').show();
+			} else {
+				var mobile = $("#mobile").val();
+				var mobile_code = $("#mobile_code").val();
+				request_ajax('checkMobileCode', {'mobile':mobile, 'mobile_code':mobile_code}, {
+					'onSuccess': function() {
+						$("#valid_msg").removeClass().addClass('zc_ico1').html('').show();
+						request_ajax('registerStepStat', {'name':'mobilecode','from':$('#f').val()});
+					},
+					'onFailed': function(args) {
+						$("#valid_msg").removeClass().addClass(class_blur).css('width', args.width).html('<span></span><em></em>'+ args.msg).show();
+					}
+				});
+			}
+		});
+		
+		var re_send_tmp = false;
+		$("#re_get_mcode").bind("click", function() {
+			var mobile = $("#mobile").val();
+			if (!re_send_tmp) {
+				 re_send_tmp = true;
+			} else {
+				return false;
+			}
+			if(!mobile_right) return false;
+			if(is_mobile(mobile)) {
+				request_ajax('sendMobileCode', {'mobile': mobile}, {
+					'onSuccess': function(args) {
+						$('#err_msg').html(args.msg);
+						// showdiv('err_div');
+						// $("#err_msg_know,#err_msg_closed").click(function(){closediv('err_div');});
+						re_send_tmp = false;
+					},
+					'onFailed': function(args) {
+						$('#err_msg').html(args.msg);
+						// showdiv('err_div');
+						// $("#err_msg_know,#err_msg_closed").click(function(){closediv('err_div');});
+						re_send_tmp = false;
+					}
+				});
+			} 
+		});
+		
+		$("#get_mcode").bind("click", function() {
+			var mobile = $("#mobile").val();
+			if(!mobile_right) {
+				$('#mobile').focus().blur();
+				return false;
+			}
+			//$("#mobile").focus().blur();
+			$("#get_mcode").attr('disabled','true').removeClass().addClass('click_after_btn');
+			if(is_mobile(mobile)) {
+				request_ajax('sendMobileCode', {'mobile': mobile}, {
+					'onSuccess': function(args) {
+						$("#send_fail_msg").hide() ;
+						$("#send_succ_msg").show();
+						if (args.type == 1) {
+							$('#cmcc').show();
+							$('#uniontele').hide();
+						} else {
+							$('#cmcc').hide();
+							$('#uniontele').show();
+						}
+						request_ajax('registerStepStat', {'name':'getmobilecode','from':$('#f').val()});
+					},
+					'onFailed': function(args) {
+						if(args.code == -2) {
+							// showdiv('err_div');
+							$('#err_msg').html(args.msg);
+							// $("#err_msg_know,#err_msg_closed").click(function(){closediv('err_div');});
+						} else {
+							$("#send_succ_msg").hide() ;
+							$("#send_fail_msg").css('width', args.width).html('<span></span><em></em>'+ args.msg).show();
+						}
+						$("#get_mcode").attr('disabled',false).removeClass().addClass('num_btn');
+					}
+				});
+			} 
+		});
+
+		// 
+		// $("#intro").focus(function() {
+		// 	$("#intro_msg").hide();
+		// 	$("#last_number").show();
+		// }).blur(function() {
+		// 	var words = $(this).val().trim();
+		// 	if(words == '') {
+		// 		$("#intro_msg").removeClass().addClass('fr gx_ico1 pl20 f_gray_999').css('width', 90).html('请填写自我介绍').show();
+		// 		$("#last_number").hide();
+		// 		return false;
+		// 	}
+		// 	if(words.length < 20) {
+		// 		$("#intro_msg").removeClass().addClass('fr gx_ico1 pl20 f_gray_999').css('width', 170).html('自我介绍太短了，至少20个字').show();
+		// 		$("#last_number").hide();
+		// 		return false;
+		// 	}
+		// 	request_ajax('registerStepStat', {'name':'intro','from':$('#f').val()});
+		// 	$("#last_number").hide();
+		// 	$("#intro_msg").removeClass().addClass('fr gx_ico pl20 f_gray_999').css('width',8).html('').show();
+		// }).keyup(function() {
+		// 	$("#last_number").show();
+		// 	if($(this).val().trim().length > 1000) {
+		// 		$("#intro_msg").removeClass().addClass('fr gx_ico1 pl20 f_gray_999').css('width', 180).html('自我介绍太长了，最多1000个字').show();
+		// 		$("#last_number").hide();
+		// 		$(this).val($(this).val().substr(0,1000));
+		// 		$('#words_num').html('1000');	
+		// 		return false;
+		// 	}
+		// 	$("#intro_msg").hide();
+		// 	var input_words = $(this).val().trim().length;
+		// 	$('#words_num').html(input_words.toString());	
+		// });
+
+		$("#protocol").click(function() {
+			if($(this).attr('checked'))
+				$("#protocol_msg").hide();
+			else
+				$("#protocol_msg").show();
+		});
+		
+		$('#validate_code').focus(function(){
+			$("#vali_msg").removeClass().addClass(class_focus).css('width','150').html('<span></span> 请输入图片上的验证码').show();	
+		}).blur(function(){
+			request_ajax('checkValiCode', {'validate_code': $('#validate_code').val()}, {
+					'onSuccess': function(args) {
+						$("#vali_msg").removeClass().addClass('zc_ico1').html('');
+					},
+					'onFailed': function(args) {
+						$("#vali_msg").removeClass().addClass(class_blur).css('width','185').html('<span></span><em></em> '+args.msg);	
+					}
+				});
+		}).keyup(function(){
+			if ($(this).val().length == 5) {
+				$(this).blur();
+			}
+		});
+		$("#code_change,#code_image").click(function() {
+			var img = $("#code_image").attr("src") + "?d=" + Math.random() ;
+			$("#code_image").attr("src" ,img);
+			$("#validate_code").val("").focus();
+			return false;
+		});
+		
+		$(".btn_tj").bind("click", function() {
+			$("#reg_step_1").submit();
+		});
+		$("#reg_step_1").submit(function() {
+			var reg_type = $("input[name='reg_type']:checked").val();
+			var validate_bool = true;
+			var err_id = "";
+			if(!$("#sex_f").attr('checked') && !$("#sex_m").attr('checked')) {
+				$("#sex_right").hide();
+				$("#sex_error").show();
+				$("#sex_m").focus();
+				err_id = "sex_m";
+				validate_bool = false;
+			}
+			
+			if ($('#birth_year').val() == '选择年' || $('#birth_month').val() == '选择月' || /生日格式错误/.test($('#birthday_error').text())
+				|| $('#birth_day').val() == '选择日' || /未满18岁/.test($('#birthday_error').text())) {
+				DateConfig['eventDoSomething']();
+				$('#birth_year').focus();
+				if (err_id == '') {
+					err_id = "birth_year";
+				}
+				validate_bool = false;
+			}
+			
+			if($("#height").val() == "0") {
+				$("#height").focus().blur();
+				if(err_id == "") {
+					err_id = "height";
+				}
+				validate_bool = false;
+			}
+			
+			if($("#show_province").val() == "选择省/直辖市" || $("#show_city").val() == "选择市/区"
+				|| $("#province").val() == 0 || $("#city").val() == 0 ) {
+				$("#show_province").focus().blur();
+				if(err_id == "") {
+					if($("#show_province").val() == "选择省/直辖市" || $("#province").val() == 0) {
+						err_id = "show_province";
+					} else if($("#show_city").val() == "选择市/区" || $("#city").val() == 0) {
+						err_id = "show_city";
+					}
+				}
+				validate_bool = false;
+			}
+			
+			if($("#marriage").val() == "0") {
+				$("#marriage").focus().blur();
+				if(err_id == "") {
+					err_id = "marriage";
+				}
+				validate_bool = false;
+			}
+			
+			if($("#education").val() == "0") {
+				$("#education").focus().blur();
+				if(err_id == "") {
+					err_id = "education";
+				}
+				validate_bool = false;
+			}
+			
+			if($("#salary").val() == "0") {
+				$("#salary").focus().blur();
+				if(err_id == "") {
+					err_id = "salary";
+				}
+				validate_bool = false;
+			}
+			
+			if(reg_type == 'mobile' && !mobile_right) {
+				$("#mobile").focus().blur();
+				if(err_id == "") {
+					err_id = "mobile";
+				}
+				validate_bool = false;
+			}  
+			
+			if (reg_type == 'mobile') {
+				if($("#mobile_code").val() == "" ) {
+					$("#mobile_code").focus().blur();
+					if(err_id == "") {
+						err_id = "mobile_code";
+					}
+					validate_bool = false;
+				} else {
+					if(/验证码错误/.test($("#valid_msg").text()) 
+						|| /验证码过期/.test($("#valid_msg").text())) {
+						$("#mobile_code").focus().blur();
+						if(err_id == "") {
+							err_id = "mobile_code";
+						}
+						validate_bool = false;
+					}
+				}
+			}
+			
+			if(reg_type == 'email' && ($("#email").val() == "" || !is_email($("#email").val()))) {
+				$("#email").focus().blur();
+				if(err_id == "") {
+						err_id = "email";
+				}
+				validate_bool = false;
+			}
+			
+			if($("#password").val() == "" || $("#password").val().length < 6 || $("#password").val().length > 20) {
+				$("#password").focus().blur();
+				if(err_id == "") {
+					err_id = "password";
+				}
+				validate_bool = false;
+			}
+			
+			if($("#nick").val() == "" || !$("#nick").val().checkNickname() 
+				|| $("#nick").val().strLength() < 2 || $("#nick").val().strLength() > 20 || !isNaN($("#nick").val())){
+				$("#nick").focus().blur();
+				if(err_id == "") {
+					err_id = "nick";
+				}
+				validate_bool = false;
+			}
+			
+			if($("#intro").val().trim() == "" || $("#intro").val().trim().length < 20 
+				|| $("#intro").val().trim().length > 1000 || /^调查结果显示/.test($("#intro").val())) {
+				$("#intro").focus().blur().keyup();
+				if(err_id == "") {
+					err_id = "intro";
+				}
+				validate_bool = false;
+			}
+			
+			if (reg_type == 'email' && ($('#validate_code').val() == '' || $('#validate_code').val().length != 5 
+				|| /验证码填写有误/.test($('#vali_msg').text()))) {
+				if (err_id == "") {
+					err_id = "validate_code"
+				}
+				validate_bool = false;
+ 			}
+			
+			if(!$("#protocol").attr("checked")) {
+				$("#protocol_msg").show();
+				$("#protocol_msg").focus();
+				if(err_id == "") {
+					err_id = "protocol";
+				}
+				validate_bool = false;
+			}
+			if(validate_bool == true){
+				return true;
+			}else{
+				$("#"+err_id).focus().blur();
+				return false;
+			}
+		});
+		
+		if(!$.isEmptyObject(params)) {
+			$.each(params, function(key, value) {
+				if (key == 'email') {
+					$('#emailIcon').click();
+				}
+				if(key == 'sex') {
+					var sex = parseInt(value) ? "sex_m":"sex_f";
+					$("#"+sex).attr('checked', true);
+					$("#sex_right").show();
+				}
+				if(key == 'location') {
+					$("#province").val(value.live_location);
+					$("#show_province").val(value.live_location_str);
+					if(typeof(value.live_sublocation) != "undefined") {
+						$("#city").val(value.live_sublocation);
+						$("#show_city").val(value.live_sublocation_str);
+						$("#show_city").focus().blur();
+					} else{
+						$("#city").val(0);
+						$("#show_city").val('选择市/区');
+					}
+				}
+				if($("#"+key).length > 0) {
+					$("#"+key).val(value);
+					if($("#"+key).attr('type') != 'hidden') {
+						if(key == 'intro') {
+							$('#'+key).css('color','#666');
+							$("#"+key).focus().blur().keyup();
+						}
+						else
+							$("#"+key).focus().blur();
+					}
+				}
+			});
+		}
+		function request_ajax(func, args, callback) {
+			$.ajaxSetup({"beforeSend":function (xhr) {
+				xhr.setRequestHeader("rand", params.rand);
+			}});
+			$.post("/register/"+func+"/", args, function(response) {
+				var ret = eval('(' + response + ')');
+				if(ret.code == 1 && typeof(callback.onSuccess) == 'function') {
+					callback.onSuccess({'code':ret.code, 'msg':ret.msg, 'type':ret.type, 'width': ret.width});
+				} else if(ret.code < 0 && typeof(callback.onFailed) == 'function') {
+					callback.onFailed({'code':ret.code, 'msg':ret.msg, 'width': ret.width});
+				}
+			});
+		}
+		
+		$('#note_help').click(function(){
+			showdiv('suggesstion');
+		});
+		$('#suggesstionClose,#suggesstionKnow').click(function(){
+			closediv('suggesstion');
+		});
+		
+		$('select').each(function() {
+			if($(this).attr('id') != 'height' && $(this).attr('id') != 'salary') 
+				$(this).mousedown().blur();
+		});
+	});
+})(jQuery);
+locationConfig = new function() {
+	this.LCT = [['province','city']];
+	this.prefix = 'show';
+	this.eventDoSomething = function () {
+		var args = arguments;
+		var province = args[0][0];
+		var city = args[0][1];
+		var show_province = this.prefix+"_"+province;
+		var show_city = this.prefix+"_"+city;
+		if($("#"+show_province).val() == '选择省/直辖市' || $("#"+show_city).val() == '选择市/区' 
+			|| $("#"+province).val() == 0 || $("#"+city).val() == 0) {
+			$("#location_right").hide() ;
+			$("#location_error").show();	
+			return false;
+		}
+		
+		$.post("/register/registerStepStat/", {'name':'location','from':$('#f').val()}, function(response) {});
+		$("#location_right").show();
+		$("#location_error").hide() ;
+	}
+};
+DateConfig = {
+	"eventDoSomething" : function() {
+		if ($('#birth_year').val() != '选择年' && $('#birth_month').val() != '选择月' && $('#birth_day').val() != '选择日') {
+			var input_date = new Date($('#birth_year').val(), $('#birth_month').val(), $('#birth_day').val());
+			var myDate = new Date();
+			var today = new Date(myDate.getFullYear()-18,(parseInt(myDate.getMonth()) + 1),myDate.getDate());
+			if (input_date.getTime() > today.getTime()) {
+				$('#birthday_error').css('width', 125).html('<span></span> <em></em> 未满18岁不能注册').show();
+				$('#birthday_right').hide();
+			} else {
+				var init_day = {"1":31,"3":31,"4":30,"5":31,"6":30,"7":31,"8":31,"9":30,"10":31,"11":30,"12":31};
+				if (($('#birth_year').val() % 4 == 0 && $('#birth_year').val() % 100 != 0) 
+			    || ($('#birth_year').val() % 100 == 0 && $('#birth_year').val() % 400 == 0)) {
+					$.extend(init_day, {"2":29});
+				} else {
+					$.extend(init_day, {"2":28});
+				}
+				if ($('#birth_day').val() > init_day[$('#birth_month').val()]) {
+					$('#birthday_error').css('width',100).html('<span></span> <em></em> 生日格式错误').show();
+					$('#birthday_right').hide();
+				} else {
+					$('#birthday_error').html('').hide();
+					$('#birthday_right').show();
+				}
+			}
+		} else {
+			$('#birthday_error').css('width',112).html('<span></span> <em></em> 请选择出生日期').show();
+			$('#birthday_right').hide();
+		}
+	}
+}
+function registerCallback(response) {
+	var ret = eval('(' + response + ')');
+	var code = ret.code;
+	if(code > 0) {
+		window.location.href="/register/register_step_2/";
+		return ;
+	}
+	switch(code) {
+	case -1:
+		$('#err_msg').html("参数错误，请重试！");
+		// showdiv('err_div');
+		// $("#err_msg_know,#err_msg_closed").click(function(){closediv('err_div');});
+		break;
+	case -2:
+		$("#email").focus().blur();
+		break;
+	case -3:
+		$("#mobile").focus().blur();
+		break;
+	case -4:
+		$("#password").focus().blur();
+		break;
+	case -5:
+		$("#nick").focus().blur();
+		break;
+	// case -6:
+	// 	$("#intro").focus().blur().keyup();
+	// 	break;
+	case -7:
+		$("#mobile_code").focus().blur();
+		break;
+	case -8:
+		$('#err_msg').html("系统繁忙，请稍候重试！");
+		// showdiv('err_div');
+		// $("#err_msg_know,#err_msg_closed").click(function(){closediv('err_div');});
+		break;
+	case -9:
+		$('#validate_code').focus().blur();
+		break;
+	default:
+		break
+	}
+	return;
+}
+</script>
+</html>

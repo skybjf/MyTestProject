@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>练习类的写法</title>
+	<link rel="stylesheet" type="text/css" href="http://images1.jyimg.com/w4/common/c/base.css">
+	<script src="http://images1.jyimg.com/w4/common/j/jquery.js"></script>
+	<script src="./j/class.js"></script>
+	<style type="text/css">
+		.bibao{margin-left: 200px;}
+	</style>
+</head>
+<body>
+	<div>
+		<pre>
+			var Test = function(){
+				var massage ={
+					tip:'测试闭包'
+				};
+				this.getName = function(){
+					return massage.tip;
+				}
+		  	};
+			var test = new Test();
+			test.name;        //  => undefined
+			test.getName();   //  => '测试闭包'
+		</pre>
+		<button class="bibao">闭包案例按钮</button>
+	</div>
+</body>
+</html>

@@ -102,10 +102,10 @@ function moveDownloadBox(str){
 	var str2="linear";
 	switch(str){
 		case "down":
-			$(".downloadbox").animate({'margin-top':-244},350, str1).animate({'margin-top': -144}, 200, str2);
+			$(".downloadbox").animate({'margin-top':-300},350, str1).animate({'margin-top': -180}, 200, str2);
 			break;
 		case "up":
-			$(".downloadbox").animate({'margin-top': -44}, 350, str1).animate({'margin-top': -144}, 200, str2);
+			$(".downloadbox").animate({'margin-top': -60}, 350, str1).animate({'margin-top': -180}, 200, str2);
 			break;
 	}
 }
@@ -132,14 +132,14 @@ function allMove(page){
 		{"box_1":{"left":"-100%"}},
 		{"box_2":{"left":"-100%"}},
 		{"top_3":{"margin":"-100% 0 0 0"},"bottom_3":{"margin":"0"}},
-		{"top_4":{"top":"-100%"},"bottom_4":{"top":"100%"}},
+		{"top_4":{"top":"-100%"},"bottom_4":{"margin":"514px 0 0 0"}},
 		{"box_5":{"left":"-100%"}}
 	];
 	var moveStyle=[
 		{"box_1":{"left":"0"}},
 		{"box_2":{"left":"0"}},
-		{"top_3":{"margin":"-224px 0 0 0"},"bottom_3":{"margin":"-524px 0 0 0"}},
-		{"top_4":{"top":"50%"},"bottom_4":{"top":"50%"}},
+		{"top_3":{"margin":"-300px 0 0 0"},"bottom_3":{"margin":"-524px 0 0 0"}},
+		{"top_4":{"top":"50%"},"bottom_4":{"margin":"-74px 0 0 0"}},
 		{"box_5":{"left":"0"}}
 	];
 	switch(page){
@@ -150,7 +150,7 @@ function allMove(page){
 			$('.top_3').animate({margin:initStyle[2].top_3.margin},1000,"swing");
 			$('.bottom_3').animate({margin:initStyle[2].bottom_3.margin},1000,"swing");
 			$('.top_4').animate({top:initStyle[3].top_4.top},1000,"swing");
-			$('.bottom_4').animate({top:initStyle[3].bottom_4.top},1000,"swing");
+			$('.bottom_4').animate({margin:initStyle[3].bottom_4.margin},1000,"swing");
 			$('.box_5').animate({left:initStyle[4].box_5.left},1000,"swing");
 			break;
 		case 1:
@@ -160,7 +160,7 @@ function allMove(page){
 			$('.top_3').animate({margin:initStyle[2].top_3.margin},1000,"swing");
 			$('.bottom_3').animate({margin:initStyle[2].bottom_3.margin},1000,"swing");
 			$('.top_4').animate({top:initStyle[3].top_4.top},1000,"swing");
-			$('.bottom_4').animate({top:initStyle[3].bottom_4.top},1000,"swing");
+			$('.bottom_4').animate({margin:initStyle[3].bottom_4.margin},1000,"swing");
 			$('.box_5').animate({left:initStyle[4].box_5.left},1000,"swing");
 			break;
 		case 2:
@@ -170,7 +170,7 @@ function allMove(page){
 			$('.bottom_3').animate({bottom:moveStyle[2].bottom_3.bottom,margin:moveStyle[2].bottom_3.margin},800,"swing");
 
 			$('.top_4').animate({top:initStyle[3].top_4.top},1000,"swing");
-			$('.bottom_4').animate({top:initStyle[3].bottom_4.top},1000,"swing");
+			$('.bottom_4').animate({margin:initStyle[3].bottom_4.margin},1000,"swing");
 			$('.box_5').animate({left:initStyle[4].box_5.left},1000,"swing");
 			break;
 		case 3:
@@ -179,7 +179,7 @@ function allMove(page){
 			$('.top_3').animate({margin:initStyle[2].top_3.margin},1000,"swing");
 			$('.bottom_3').animate({margin:initStyle[2].bottom_3.margin},1000,"swing");
 			$('.top_4').animate({top:moveStyle[3].top_4.top},1000,"swing");
-			$('.bottom_4').animate({top:moveStyle[3].bottom_4.top},1000,"swing");
+			$('.bottom_4').animate({margin:moveStyle[3].bottom_4.margin},1000,"swing");
 			
 			$('.box_5').animate({left:initStyle[4].box_5.left},1000,"swing");
 			break;
@@ -189,7 +189,7 @@ function allMove(page){
 			$('.top_3').animate({margin:initStyle[2].top_3.margin},1000,"swing");
 			$('.bottom_3').animate({margin:initStyle[2].bottom_3.margin},1000,"swing");
 			$('.top_4').animate({top:initStyle[3].top_4.top},1000,"swing");
-			$('.bottom_4').animate({top:initStyle[3].bottom_4.top},1000,"swing");
+			$('.bottom_4').animate({margin:initStyle[3].bottom_4.margin},1000,"swing");
 			$('.box_5').animate({left:moveStyle[4].box_5.left},1000,"swing");
 			break;
 	}

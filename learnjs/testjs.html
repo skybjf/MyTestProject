@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>testjs</title>
+	<link rel="stylesheet" type="text/css" href="http://images1.jyimg.com/w4/common/c/base.css">
+	<script src="http://images1.jyimg.com/w4/common/j/jquery.js"></script>
+	<script src="./j/learn.js"></script>
+</head>
+<body>
+	<!--可以用于自动加载 -->
+	<style type="text/css">
+		.first{width:500px;height:200px;overflow:hidden;background:#454545;position: absolute;left: 0;top:0;}
+		.second{width:500px;height:200px;overflow:hidden;background:red;position: absolute;left: 0;top:200px;}
+	</style>
+	<div class="moveblock" style="width:500px;height:200px;overflow:hidden;position:relative">
+		<div class="first" style=""></div>
+		<div class="second" style=""></div>
+	</div>
+	<script type="text/javascript">
+		var type=1;
+		setInterval(function(){
+			switch (type){
+				case 1:
+					$('.first').animate({top:"-200px"},1000,function(){$(this).css('top','200px')});
+					$('.second').animate({top:"0"},1000);
+					type=2;
+				break;
+				case 2:
+					$('.first').animate({top:"0"},1000);
+					$('.second').animate({top:"-200px"},1000,function(){$(this).css('top','200px')});
+					type=1;
+				break;	
+			}
+			
+		},2000);
+	</script>
+	<!-- 点击切换 加 自动切换 -->
+	<style type="text/css">
+		.fn-clear:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+		.fn-clear {zoom:1;}
+		.con {width: 660px;height: 300px;overflow: hidden;position: relative;}
+		.left_btn,.right_btn{float: left;width: 30px;height: 70px;background: blue;cursor: pointer;}
+		.con .img_con{position:relative;float: left;width: 600px;height: 300px;overflow: hidden;}
+		.con .img_con ul {position: absolute;}
+		.con .img_con ul li{width: 600px;height: 300px;overflow: hidden;float: left;}
+		.con .img_con ul li img{width: 600px;height: 300px;}
+		.dot_con{position: absolute;bottom: 0;text-align: center;width: 100%;}
+		.dot_con a{display:inline-block;height: 10px;width: 20px;background-color: #ccc;overflow: hidden;margin: 10px;}
+		.dot_con .active{background-color:#666}
+	</style>
+	<div id="test" class="con fn-clear">
+		<div class="left_btn"></div>
+		<div class="img_con">
+			<ul class="fn-clear">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<div class="right_btn"></div>
+		<div class="dot_con">
+			<a class="active" href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			clickchange($('.img_con ul'),'.left_btn','.right_btn','.dot_con a');
+			$('#test').clickChange({
+				imgcon:'.img_con ul',
+				leftbtn:'.left_btn',
+				rightbtn:'.right_btn',
+				dot:'.dot_con a'
+			});
+		})
+
+		$.fn.clickChange()=function(opts){
+
+		}
+		function clickchange(ul,left_btn,right_btn,dot_con_a){
+			var page=0;
+			var leftbtn=$(left_btn);
+			var rightbtn=$(right_btn);
+			var dotlista=$(dot_con_a);
+			var n = ul.find('li').length;
+			var width = ul.find('li').width();
+			var clickflag=false;
+			var autoflag=false;
+			ul.width(n*width);
+			leftbtn.click(function(){
+				btnclick("left");
+			});
+			rightbtn.click(function(){
+				btnclick("right");
+			});
+			dotlista.click(function(){
+				page=$(this).index();
+				move(page);
+			});
+			$(left_btn+","+right_btn+","+dot_con_a).mouseenter(function(){
+				autoflag=true;
+			}).mouseleave(function(){
+				autoflag=false;
+			});
+
+			// $('.left_btn , .right_btn ,.dot_con').mouseenter(function(){
+			// 	autoflag=true;
+			// }).mouseleave(function(){
+			// 	autoflag=false;
+			// });
+
+			function btnclick(direct){
+				if(!clickflag){
+					clickflag=true;
+					switch(direct){
+						case "left":
+							page+=1;
+							if(page>=n){
+								page=n-1;
+							}
+							break;
+						case "right":
+							page-=1;
+							if(page<0){
+								page=0;
+							}
+							break;
+					}
+					move(page);
+				}
+			}
+			function move(page){
+				ul.animate({left:-page*width},1000,function(){clickflag=false});
+				dotlista.parent().find('.active').removeClass('active');
+				dotlista.eq(page).addClass('active');
+			}
+			setInterval(function(){
+				if(!autoflag){
+					page+=1;
+					if(page>=n){
+						page=0;
+					}
+					move(page);
+				}
+			},3000);
+		}
+	</script>
+</body>
+</html>

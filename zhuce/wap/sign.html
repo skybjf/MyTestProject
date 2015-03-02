@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="x-dns-prefetch-control" content="off">
+	<meta name="viewport" content="width=320,user-scalable=no">
+	<meta content="telephone=no" name="format-detection" />
+	<title>一对一婚恋交友服务注册 - 世纪佳缘交友网</title>
+	<link href="http://images1.jyimg.com/w4/vip/wap/c/sign.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://images1.jyimg.com/w4/vip/wap/j/zepto.min.js"></script>
+	<script type='text/javascript' src='http://images1.jyimg.com/w4/vip/wap/j/function.js'></script>
+</head>
+<script type='text/javascript' src='http://images1.jyimg.com/w4/vip/wap/j/regfillbasic.js'></script>
+<script type='text/javascript' src='http://images1.jyimg.com/w4/vip/wap/j/city.js'></script>
+<script type='text/javascript' src='http://images1.jyimg.com/w4/vip/wap/j/location.js'></script>
+<script type='text/javascript' src='http://images1.jyimg.com/w4/vip/wap/j/date.js'></script>
+<body>
+<header id="izx-header">
+	<div class="tit">注册</div>
+</header>
+	<div class="loginbox">已是世纪佳缘红娘一对一服务用户，请 <a class="loginbtn" href="###">立即登录</a></div>
+	<section>
+		<div class="tiptitle">*以下信息均为必填项*</div>
+			<div class="tabBottom">
+				 <iframe name="register_iframe" width=0 height=0 style="display:none"></iframe>
+				<form method="POST" name="regfillbasic" id="regfillbasic" action="/register/doregister/" target="register_iframe">
+				<div class="tabBox">
+					<ul class="bd">
+						<li>
+							<div class="leftName">昵称：</div>
+							<div class="rightInput ">
+								<input class="text" name="nick" id="nick" maxlength="20" autocomplete='off' type="text" placeholder="限2~20个字符" required />
+							</div>
+							<a class="clearTxt" id="nick_cls" style="display:none;" href="javascript:;"></a>
+						</li>
+						<li>
+							<div class="leftName">手机号码：</div>
+							<div class="rightInput ">
+								<input class="text" name="mobile" id="mobile" maxlength="11" autocomplete='off' type="tel" placeholder="请输入您的常用电话" required/>
+							</div>
+							<a class="clearTxt" id="mobile_cls" style="display:none;" href="javascript:;"></a>
+						</li>
+						<li>
+							<div class="leftName">手机验证码：</div>
+							<div class="rightInput ">
+								<input class="text code" name="mobile_code" id="mobile_code" maxlength="6" autocomplete='off' type="text" />
+								<a class="codebtn" id="get_mcode" href="###">获取验证码</a>
+							</div>
+						</li>
+						<li>
+							<div class="leftName">设置密码：</div>
+							<div class="rightInput ">
+								<input class="text" name="password" id="password" maxlength="20" autocomplete='off' type="password" placeholder="请输入6位以上密码" />
+							</div>
+							<a class="clearTxt" id="password_cls" style="display:none;" href="javascript:;"></a>
+						</li>
+					</ul>
+					<ul class="bd bn">
+						<li>
+							<div class="leftName">真实姓名：</div>
+							<div class="rightInput ">
+								<input class="text" name="realname" id="realname" maxlength="" autocomplete='off' type="text" placeholder="" />
+							</div>
+							<a class="clearTxt" id="realname_cls" style="display:none;" href="javascript:;"></a>
+						</li>
+						<li>
+							<div class="leftName">性别：</div>
+							<div class="rightInput">
+								<label>
+									<input type="radio" name="sex" id="sex_m" value="1" /> 男
+								</label>
+								<label>
+									<input type="radio" name="sex" id="sex_f" value="0" /> 女
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="leftName">生日：</div>
+							<div class="rightInput selectInput">
+								<div class="iptBox iptThree" ><span id="show_birth_year" class="hui">选择年</span></div>
+								<div class="iptBox iptThree" ><span id="show_birth_month" class="hui">选择月</span></div>
+								<div class="iptBox iptThree" ><span id="show_birth_day" class="hui">选择日</span></div>
+								<input type="hidden" id="birth_year" name="birth_year" value="0" />
+			              		<input type="hidden" id="birth_month" name="birth_month" value="0" />
+			              		<input type="hidden" id="birth_day" name="birth_day" value="0" />
+							</div>
+						</li>
+						<li>
+							<div class="leftName">身高：</div>
+							<div class="rightInput">
+								<select name="height" id="height" class="hui">
+              	  					<option value='0'>请选择</option>
+                  					<option value="145">145</option>
+									<option value="146">146</option>
+									<option value="147">147</option>
+									<option value="148">148</option>
+									<option value="149">149</option>
+									<option value="150">150</option>
+									<option value="151">151</option>
+									<option value="152">152</option>
+									<option value="153">153</option>
+									<option value="154">154</option>
+									<option value="155">155</option>
+									<option value="156">156</option>
+									<option value="157">157</option>
+									<option value="158">158</option>
+									<option value="159">159</option>
+									<option value="160">160</option>
+									<option value="161">161</option>
+									<option value="162">162</option>
+									<option value="163">163</option>
+									<option value="164">164</option>
+									<option value="165">165</option>
+									<option value="166">166</option>
+									<option value="167">167</option>
+									<option value="168">168</option>
+									<option value="169">169</option>
+									<option value="170">170</option>
+									<option value="171">171</option>
+									<option value="172">172</option>
+									<option value="173">173</option>
+									<option value="174">174</option>
+									<option value="175">175</option>
+									<option value="176">176</option>
+									<option value="177">177</option>
+									<option value="178">178</option>
+									<option value="179">179</option>
+									<option value="180">180</option>
+									<option value="181">181</option>
+									<option value="182">182</option>
+									<option value="183">183</option>
+									<option value="184">184</option>
+									<option value="185">185</option>
+									<option value="186">186</option>
+									<option value="187">187</option>
+									<option value="188">188</option>
+									<option value="189">189</option>
+									<option value="190">190</option>
+									<option value="191">191</option>
+									<option value="192">192</option>
+									<option value="193">193</option>
+									<option value="194">194</option>
+									<option value="195">195</option>
+									<option value="196">196</option>
+									<option value="197">197</option>
+									<option value="198">198</option>
+									<option value="199">199</option>
+									<option value="200">200</option>
+                				</select>
+							</div>
+						</li>
+						<li>
+							<div class="leftName">现居地：</div>
+							<div class="rightInput">
+								<input type="hidden" id="province" name="province" value="0" />
+                   	 			<input type="hidden" id="city" name="city" value="0" />   
+								<div class="iptBox iptTwo" ><span id="show_province">选择省/市</span></div>
+								<div class="iptTwoSpan">&nbsp;</div>
+								<div class="iptBox iptTwo" ><span id="show_city" class="hui">选择市/区</span></div>
+							</div>
+						</li>					
+						<li>
+							<div class="leftName">学历：</div>
+							<div class="rightInput">
+								<select name="education" id="education">
+			                  		<option value='0'>请选择</option>
+			                  		<option value="1">义务教育</option>
+									<option value="2">高中/中专</option>
+									<option value="3">大专</option>
+									<option value="4" selected="selected">本科</option>
+									<option value="5">双学士</option>
+									<option value="6">硕士</option>
+									<option value="7">博士</option>
+									<option value="8">博士后</option>
+			               		</select>
+							</div>
+						</li>
+						<li>
+							<div class="leftName">婚姻状况：</div>
+							<div class="rightInput">
+								<label>
+									<input type="radio" name="marriage" value="1" checked="">未婚
+								</label>
+								<label>
+									<input type="radio" name="marriage" value="2">离异
+								</label>
+								<label>
+									<input type="radio" name="marriage" value="3">丧偶
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="leftName">月薪：</div>
+							<div class="rightInput">
+								<select name="salary" id="salary" class="hui">
+			                    	<option value="0">请选择</option>
+			                		<option value="1">2000元以下</option>
+									<option value="2">2000~5000元</option>
+									<option value="3">5000~10000元</option>
+									<option value="4">10000~20000元</option>
+									<option value="5">20000~50000元</option>
+									<option value="6">50000以上</option>
+
+			               		</select>
+							</div>
+						</li>
+						<li>
+							<div class="leftName">资产：</div>
+							<div class="rightInput">
+								<select name="assets" id="assets" class="hui">
+			                    	<option value="0">请选择</option>
+			                		<option value="1">2000元以下</option>
+									<option value="2">2000~5000元</option>
+									<option value="3">5000~10000元</option>
+									<option value="4">10000~20000元</option>
+									<option value="5">20000~50000元</option>
+									<option value="6">50000以上</option>
+			               		</select>
+							</div>
+						</li>
+					</ul>
+				</div>
+<!-- 				<input name="mobile" id="mobile" type="hidden" value="" />
+				<input name="mobile_code" id="mobile_code" type="hidden" value="" />
+				<input name="email" id="email" type="hidden" value="" />
+				<input name="validate_code" id="validate_code" type="hidden" value="" />
+				<input name="password" id="password" type="hidden" value="" />
+				<input name="reg_type" id="reg_type" type="hidden" value="" />
+				<input name="f" id="f" type="hidden" value="" />
+				<input name="ENP" id="ENP" type="hidden" value="" />
+          		<input name="sign" id="sign" type="hidden" value="" />
+          		<input name="open_id" id="open_id" type="hidden" value="" /> -->
+				<a class="buttonSub" href="javascript:;">提交注册</a>
+			  	</form>
+			</div>
+	</section>
+	
+	<!--Footer star-->
+ 	<footer class="aFooter">
+		世纪佳缘一对一服务<br>v.jiayuan.com
+	</footer>
+	<!--Footer end-->
+
+<script type="text/javascript">
+// init_header({cat : 'login', title : '一对一婚恋交友服务注册 - 世纪佳缘交友网', url : 'login'});
+var params = {"location":{"live_location":11,"live_location_str":"\u5317\u4eac"},"f":"touch"};
+$(window).bind("popstate",function(event){
+   	var currentState = history.state;
+	history.pushState(currentState);
+    $('#popYears,#popMonths,#popDays,#sel_province,#sel_city,#__MASKDIV').remove();
+});
+// 验证开始
+(function ($) {
+	$(document).ready(function() {
+		$('#nick').blur(function() {
+			var nick = $.trim($(this).val());
+			if (nick.length < 2 || nick.length > 20) {
+				mAlert({'content': '昵称限2~20个字符'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('nick', false);
+				return false;
+			}
+			if (nick != '') {
+				if (!nick.checkNickname()) {
+					mAlert({'content':'昵称限数字、字母、中文'});
+					$(this).parents('li').addClass('iptError');
+					_setConfig('nick', false);
+					return false;
+				}
+				if (!isNaN(nick)) {
+					mAlert({'content':'昵称不能全是数字'});
+					$(this).parents('li').addClass('iptError');
+					_setConfig('nick', false);
+					return false;
+				}
+				$(this).parents('li').removeClass();
+				_setConfig('nick', true);
+				return true;
+			}
+		}).keyup(function(){
+			if ($(this).val() != '') {
+				$('#nick_cls').show();
+			} else {
+				$('#nick_cls').hide();
+			}
+		}).focus(function(){
+			$(this).parents('li').removeClass();
+		});
+
+		var mobile_right=false;
+		$('#mobile').blur(function() {
+			var mobile = $.trim($(this).val());
+			if(!is_mobile(mobile)){
+				mAlert({'content': '请输入正确的手机号'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('mobile', false);
+				return false;
+			}else{
+				$(this).parents('li').removeClass();
+				_setConfig('mobile', true);
+				mobile_right=true;
+				return true;
+			}
+		}).focus(function(){
+			$(this).parents('li').removeClass();
+		});
+		var mobile_code_right=false;
+		$('#get_mcode').bind('click',function(){
+			if(!mobile_right){
+				mAlert({'content': '请输入正确的手机号'});
+				$('#mobile').parents('li').addClass('iptError');
+				return false;
+			}else{
+				// 获得验证码
+			}
+		});
+		$('#mobile_code').blur(function() {
+			var mobile_code = $.trim($(this).val());
+			if (mobile_code.length=0 || mobile_code=="") {
+				mAlert({'content': '请输入验证码'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('mobile_code', false);
+				return false;
+			}else{
+				$(this).parents('li').removeClass();
+				_setConfig('mobile_code', true);
+				mobile_code_right=true;
+				return true;
+			}
+		}).focus(function(){
+			$(this).parents('li').removeClass();
+		});
+
+		$('#password').blur(function() {
+			var password = $.trim($(this).val());
+			if(password=="" || password.length==0){
+				mAlert({'content': '请输入密码'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('password', false);
+				return false;
+			}
+			else if(password.length<6){
+				mAlert({'content': '密码太短了，至少6个字符'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('password', false);
+				return false;
+			}
+			else if(password.length>20){
+				mAlert({'content': '密码太长了，最多20个字符'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('password', false);
+				return false;
+			}
+			else if(password.checkChinese()){
+				mAlert({'content': '含有非法字符'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('password', false);
+				return false;
+			}
+			else{
+				$(this).parents('li').removeClass();
+				_setConfig('password', true);
+				return true;
+			}
+		}).keyup(function(){
+			if ($(this).val() != '') {
+				$('#password_cls').show();
+			} else {
+				$('#password_cls').hide();
+			}
+		}).focus(function(){
+			$(this).parents('li').removeClass();
+		});
+
+		$('#realname').blur(function() {
+			var realname = $.trim($(this).val());
+			if(realname=="" || realname.length==0){
+				mAlert({'content': '请输入您的姓名'});
+				$(this).parents('li').addClass('iptError');
+				_setConfig('realname', false);
+				return false;
+			}else{
+				$(this).parents('li').removeClass();
+				_setConfig('realname', true);
+				return true;
+			}
+		}).keyup(function(){
+			if ($(this).val() != '') {
+				$('#realname_cls').show();
+			} else {
+				$('realname_cls').hide();
+			}
+		}).focus(function(){
+			$(this).parents('li').removeClass();
+		});
+
+		$('#sex_m,#sex_f').click(function() {
+			var sex = $(this).val();
+			_setConfig('sex', true);
+			_setConfig('intro', true);
+		});
+		$('#height').change(function() {
+			if ($(this).val() == 0) {
+				$(this).parents('li').addClass('iptError');
+				_setConfig('height', false);
+				return false;
+			} else {
+				$(this).parents('li').removeClass();
+				_setConfig('height', true);
+			}
+		});
+		$("input[name='marriage']").click(function() {
+			_setConfig('marriage', true);
+		});
+		$('#education').change(function() {
+			if ($(this).val() == 0) {
+				$(this).parents('li').addClass('iptError');
+				_setConfig('education', false);
+				return false;
+			} else {
+				$(this).parents('li').removeClass();
+				_setConfig('education', true);
+			}
+		});
+		
+		$('#salary').change(function() {
+			if ($(this).val() == 0) {
+				$(this).parents('li').addClass('iptError');
+				_setConfig('salary', false);
+				return false;
+			} else {
+				$(this).parents('li').removeClass();
+				_setConfig('salary', true);
+			}
+		});
+		$('#assets').change(function() {
+			if ($(this).val() == 0) {
+				$(this).parents('li').addClass('iptError');
+				_setConfig('assets', false);
+				return false;
+			} else {
+				$(this).parents('li').removeClass();
+				_setConfig('assets', true);
+			}
+		});
+
+		$('.clearTxt').click(function(){
+			$(this).parent().find('input').val('').focus();
+			$(this).hide();
+		});
+
+		if (!$.isEmptyObject(params)) {
+			$.each(params, function(key, value) {
+				if(key == 'sex') {
+					var sex = parseInt(value) ? "sex_m":"sex_f";
+					$("#"+sex).click();
+				}
+				if (key == 'location') {
+					$("#province").val(value.live_location);
+					$("#show_province").html(value.live_location_str);
+					if(typeof(value.live_sublocation) != "undefined") {
+						$("#city").val(value.live_sublocation);
+						$("#show_city").html(value.live_sublocation_str);
+						$("#show_city").removeClass();
+						_setConfig('location', true);
+					} else {
+						$("#city").val(0);
+						$("#show_city").html('选择市/区');
+					}
+				}
+				if (key == 'marriage') {
+					$.each($('input[name="marriage"]'),function(index, item){
+						if (item.value == value) {
+							 $(this).attr('checked', true);
+						 	_setConfig(key, true);
+						}
+					})
+				} 
+				if (key == 'birth') {
+					$('#birth_year').val(value.birth_year);
+					$('#show_birth_year').html(value.birth_year).removeClass();
+					$('#birth_month').val(value.birth_moth);
+					$('#show_birth_month').html(value.birth_month).removeClass();
+					$('#birth_day').val(value.birth_day);
+					$('#show_birth_day').html(value.birth_day).removeClass();
+					_setConfig('birthday', true);
+				}
+			});
+		}
+		$('select').change(function() {
+			if ($(this).val() == 0) {
+				$(this).addClass('hui');
+			} else {
+				$(this).removeClass();
+			}
+		});
+
+	$('.buttonSub').bind('click', function() {
+		if(_ckConfig()){
+			$('#regfillbasic').submit();
+		}else{
+		      if($("#nick").val() == "" || !$("#nick").val().checkNickname() 
+		        || $("#nick").val().strLength() < 2 || $("#nick").val().strLength() > 20 || !isNaN($("#nick").val())){
+		        $("#nick").focus().blur();
+		        checkAll('nick');
+				return false;
+		      }
+
+		      if(!mobile_right){
+		        $("#mobile").focus().blur();
+		        checkAll('mobile');
+				return false;
+		      }
+
+		      if(!mobile_code_right){
+		      	$("#mobile_code").focus().blur();
+		        checkAll('mobile_code');
+				return false;
+		      }
+
+		      if($("#password").val() == "" || $("#password").val().length < 6 || $("#password").val().length > 20) {
+		        $("#password").focus().blur();
+		        checkAll('password');
+				return false;
+		      }
+
+		      if($("#realname").val() == ''){
+		        $("#realname").focus().blur();
+		        checkAll('realname');
+				return false;
+		      }
+
+			if(!$("#sex_f").attr('checked') && !$("#sex_m").attr('checked')) {
+				$("#sex_m").focus();
+				checkAll('sex_m');
+				return false;
+			}
+			if ($("#show_birth_year").html() == "选择年" || $("#show_birth_month").html() == "选择月" || $("#show_birth_day").html() == "选择日"|| $('#birth_year').val() == '' || $('#birth_month').val() == '' || $('#birth_day').val() == '') {
+				DateConfig['eventDoSomething']();
+				$('#birth_year').focus();
+				checkAll('birth_year');
+				return false;
+			}else{
+				$('#birth_month').parents('li').removeClass();
+			}
+			
+			if($("#height").val() == "0") {
+				$("#height").focus().blur();
+				checkAll('height');
+				return false;
+			}
+			
+			if($("#show_province").val() == "选择省/直辖市" || $("#show_city").val() == "选择市/区"|| $("#province").val() == 0 || $("#city").val() == 0 ) {
+				$("#show_province").focus().blur();
+				if($("#show_province").val() == "选择省/直辖市" || $("#province").val() == 0 || $("#show_city").val() == "选择市/区" || $("#city").val() == 0) {
+					checkAll('show_province');
+					return false;
+				} 
+			}else{
+				$('#show_province').parents('li').removeClass();
+			}
+			
+			if($("#education").val() == "0") {
+				$("#education").focus().blur();
+				checkAll('education');
+				return false;
+			}
+      
+		      if($("#marriage").val() == "0") {
+		        $("#marriage").focus().blur();
+		        checkAll('marriage');
+				return false;
+		      }
+
+			if($("#salary").val() == "0") {
+				$("#salary").focus().blur();
+				checkAll('salary');
+				return false;
+			}
+			if($("#assets").val()== "0") {
+		      $("#assets").focus().blur();
+		      checkAll('assets');
+				return false;
+		    }
+		}
+	});
+	});
+})(Zepto);
+// var Config = ['sex','birthday','height','location','marriage','education','salary','nick'];
+var Config = ['nick','mobile','mobile_code','password','realname','sex','birthday','height','location','education','marriage','salary','assets'];
+var initConfig = {};
+$.each(Config, function(index, value) {
+	var temp = false;
+	if (value == 'education' || value == "marriage") {
+		temp = true;
+	}
+	initConfig[value] = temp;
+});
+
+function _setConfig(name, value) {
+	initConfig[name] = value;	
+	if (_ckConfig() && $('.buttonSub').hasClass('closeB')) {
+		// $('.buttonSub').removeClass().addClass('buttonSub').bind('click', function() {
+		// 	$('.buttonSub').removeClass().addClass('buttonSub closeB').unbind('click');
+		// 	$('#regfillbasic').submit();
+		// });
+	}
+	else if (!_ckConfig() && !$('.buttonSub').hasClass('closeB')) {
+		// $('.buttonSub').removeClass().addClass('buttonSub closeB').unbind('click');
+	}
+	return true;
+}
+
+function _ckConfig() {
+	for (var cfg in initConfig) {
+		if (initConfig[cfg] == false) {
+			return false;
+		}
+	}
+	return true;
+}
+function checkAll(type) {
+	$('#'+type).parents('li').addClass('iptError');
+	switch(type) {
+	case 'nick':
+		mAlert({'content':'请检查您的昵称'});
+		break;
+	case 'mobile':
+		mAlert({'content':'请检查您的手机号'});
+		break;
+	case 'mobile_code':
+		mAlert({'content':'请检查您的验证码'});
+		break;
+	case 'password':
+		mAlert({'content':'请检查您的密码'});
+		break;
+	case 'realname':
+		mAlert({'content':'请检查您的姓名'});
+		break;
+	case 'sex_m':
+		mAlert({'content':'请选择您的性别'});
+		break;
+	case 'birth_year':
+		mAlert({'content':'请检查出生年月'});
+		break;
+	case 'height':
+		mAlert({'content':'请检查您的身高'});
+		break;
+	case 'show_province':
+		mAlert({'content':'请检查您的现居地'});
+		break;
+	case 'education':
+		mAlert({'content':'请检查您的学历'});
+		break;
+	case 'marriage':
+		mAlert({'content':'请检查您的婚史'});
+		break;
+	case 'salary':
+		mAlert({'content':'请检查您的月薪'});
+		break;
+	case 'assets':
+		mAlert({'content':'请检查您的资产'});
+		break;
+	default:
+		break;
+	}
+	return;
+}
+// 验证结束
+locationConfig = new function() {
+	this.LCT = [['province','city']];
+	this.prefix = 'show';
+	
+	this.eventDoSomething = function () {
+		var args = arguments;
+		var province = args[0][0];
+		var city = args[0][1];
+		var show_province = this.prefix+"_"+province;
+		var show_city = this.prefix+"_"+city;
+		if ($("#"+city).val() != 0) {
+			$("#"+show_city).removeClass();
+		}
+		if ($("#"+province).val() != 0) {
+			$("#"+show_province).removeClass();
+		}
+		if($("#"+show_province).val() == '选择省/市' || $("#"+show_city).val() == '选择市/区' 
+			|| $("#"+province).val() == 0 || $("#"+city).val() == 0) {
+			_setConfig('location', false);	
+			return false;
+		}
+		_setConfig('location', true);
+	}
+};
+DateConfig = {
+	"eventDoSomething" : function() {
+		if ($("#birth_year").val() != 0) {
+			$("#show_birth_year").removeClass();
+		}
+		if ($("#birth_month").val() != 0) {
+			$("#show_birth_month").removeClass();
+		}
+		if ($("#birth_day").val() != 0) {
+			$("#show_birth_day").removeClass();
+		}
+		if ($('#birth_year').val() != 0 && $('#birth_month').val() != 0 && $('#birth_day').val() != 0) {
+			var input_date = new Date($('#birth_year').val(), $('#birth_month').val(), $('#birth_day').val());
+			var myDate = new Date();
+			var today = new Date(myDate.getFullYear()-18,(parseInt(myDate.getMonth()) + 1),myDate.getDate());
+			if (input_date.getTime() > today.getTime()) {
+				_setConfig('birthday', false);
+				mAlert({'content':'未满18岁不能注册'});
+			} else {
+				var init_day = {"1":31,"3":31,"4":30,"5":31,"6":30,"7":31,"8":31,"9":30,"10":31,"11":30,"12":31};
+				if (($('#birth_year').val() % 4 == 0 && $('#birth_year').val() % 100 != 0) 
+			    || ($('#birth_year').val() % 100 == 0 && $('#birth_year').val() % 400 == 0)) {
+					$.extend(init_day, {"2":29});
+				} else {
+					$.extend(init_day, {"2":28});
+				}
+				if ($('#birth_day').val() > init_day[$('#birth_month').val()]) {
+					_setConfig('birthday', false);
+					mAlert({'content':'生日格式错误'});
+				} else {
+					_setConfig('birthday', true);
+				}
+			}
+		} else {
+			_setConfig('birthday', false);
+		}
+	}
+};
+</script>
+</body>
+</html>
