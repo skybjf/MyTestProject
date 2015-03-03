@@ -10,10 +10,11 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src', //js目录下
                     src: '**/*.js', //所有js文件
-                    dest: 'dist' //输出到此目录下
+                    dest: 'dist',//输出到此目录下
+                    ext: '.min.js'
                 }]
                 // src: ['src/**/*.js'],
-                // dest: 'dist/<%= pkg.name %>.js'
+                // dest: 'dist/<%= name %>.min.js'
             }
         },
         uglify: {
@@ -32,7 +33,8 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src', //js目录下
                     src: '**/*.js', //所有js文件
-                    dest: 'dist' //输出到此目录下
+                    dest: 'dist', //输出到此目录下
+                    ext: '.min.js'
                 }]
             }
         },

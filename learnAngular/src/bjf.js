@@ -1,5 +1,3 @@
-var body=this.name;
-function alertHello(){
-	var stringTip="hello";
-	alert(stringTip);
-}
+$(function(){
+	alert("this is just a test ");
+})
