@@ -31,10 +31,10 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'src', //js目录下
-                    src: '**/*.js', //所有js文件
+                    cwd: 'src',     //js目录
+                    src: '**/*.js', //选择所有js文件
                     dest: 'dist', //输出到此目录下
-                    ext: '.min.js'
+                    ext: '.min.js'//输出文件名后缀
                 }]
             }
         },
