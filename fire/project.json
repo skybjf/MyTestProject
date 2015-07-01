@@ -1,0 +1,27 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/model.js",
+        "src/gameScene.js",
+        "src/gameLayer.js",
+        "src/plantLayer.js",
+        "src/planeManualLayer.js",
+        "src/statusLayer.js",
+        "src/resultLayer.js",
+        "src/manualLayer.js",
+        "src/cellLayerColor.js",
+        "src/animationIntro.js",
+        "src/logoLayer.js"
+    ]
+}
