@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>摇一摇</title>
+<!--[if IE]>
+<script type="text/javascript" src="http://yx.xnimg.cn/minisite/201412/xiaoxian/Scripts/html5.js"></script>
+<![endif]-->
+<link href="http://yx.xnimg.cn/minisite/common/style/w_reset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://yx.xnimg.cn/minisite/common/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var SHAKE_THRESHOLD = 5000;
+		var last_update = 0;
+		var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+
+		function deviceMotionHandler(eventData) {
+		    var acceleration =eventData.accelerationIncludingGravity;
+		    var curTime = new Date().getTime();
+		    if ((curTime-last_update)> 10) {
+		        var diffTime = curTime -last_update;
+		        last_update = curTime;
+		        x = acceleration.x;
+		        y = acceleration.y;
+		        z = acceleration.z;
+		        var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+		        if (speed > SHAKE_THRESHOLD) {
+		            alert("shake!");
+		        }
+		        last_x = x;
+		        last_y = y;
+		        last_z = z;
+		    }
+		}
+		if (window.DeviceMotionEvent) {
+		    window.addEventListener('devicemotion',deviceMotionHandler,false);
+		} else {
+		    alert("Not supported on your device.");
+		}
+	})
+</script>
+</head>
+<body>
+	
+</body>
+</html>
