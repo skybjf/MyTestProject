@@ -1,6 +1,7 @@
 var canvasModify = {}
 canvasModify.init = function (obj) {
-    var canvas = obj.canvas;
+    var id=obj.id;
+    var canvas = "#"+obj.id;
     var p_h = obj.p_h;//图片高度
     var p_w = obj.p_w;//图片宽度
     var img = obj.img;
@@ -65,11 +66,10 @@ canvasModify.init = function (obj) {
         initialScale = currentScale;
     }
 
-
     //调整图片手势
     var touchPic = function (obj2) {
         console.log($(obj2)[0]);
-        var body = document.getElementById('body');
+        var body = document.getElementById(id);
         $(obj2)[0].addEventListener('touchstart', PicTouchstart, false);
 
         $(obj2)[0].addEventListener('touchmove', PicTouchmove, false);
@@ -85,10 +85,9 @@ canvasModify.init = function (obj) {
         touch.on(obj2, 'pinchend', PicOnpinchend);
     }
 
-
     //初始化canvas
     var setCanvas = function (obj_canvas, p_w, p_h, image) {
-        var canvas_face = document.getElementById('canvas_face');
+        var canvas_face = document.getElementById(id);
         element = canvas_face.getContext("2d");
         //element.clearRect(-4000, -4000, 8000, 8000);
         var c_w = jQuery(obj_canvas).width();//canvas的宽
@@ -116,7 +115,6 @@ canvasModify.init = function (obj) {
         $('#canvas_face').attr('data-girar', 0);
     }
 
-
     //绘图
     var drawImage = function (image) {
         clear();
@@ -127,11 +125,11 @@ canvasModify.init = function (obj) {
         element.drawImage(image, -image.width / 2, -image.height / 2);
         element.restore();
     }
-//清除画布
+    //清除画布
     var clear = function () {
         element.clearRect(-4000, -4000, 8000, 8000);
     }
-//获取手指x、y
+    //获取手指x、y
     var getMousePos = function (canvas, evt) {
         var rect = canvas.getBoundingClientRect();
         return {
@@ -156,13 +154,11 @@ $(function () {
         var p_h = this.height;
 
         canvasModify.init({
-            canvas: "#canvas_face",
+            id:"canvas_face",
+            // canvas: "#canvas_face",
             p_h: p_h,
             p_w: p_w,
             img: img
         });
-
-
     }
-
 });
