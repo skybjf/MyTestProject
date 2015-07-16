@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试fancybox</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+	<link rel="stylesheet" type="text/css" href="./source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+
+	<script type="text/javascript" src="./lib/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="./lib/jquery.mousewheel-3.0.6.pack.js"></script>
+	<script type="text/javascript" src="./source/jquery.fancybox.js?v=2.1.5"></script>
+
+	<script type="text/javascript">
+	$(function(){
+		$('.fancybox').fancybox({
+			padding:0,
+			titleShow:false,
+			prevEffect : 'none',
+			nextEffect : 'none'
+		});
+	})
+	</script>
+</head>
+<body>
+	<h3>Simple image gallery</h3>
+	<p>
+		<a class="fancybox" href="./demo/1_b.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="./demo/1_s.jpg" alt="" /></a>
+
+		<a class="fancybox" href="./demo/2_b.jpg" data-fancybox-group="gallery" title="Etiam quis mi eu elit temp"><img src="./demo/2_s.jpg" alt="" /></a>
+
+		<a class="fancybox" href="./demo/3_b.jpg" data-fancybox-group="gallery" title="Cras neque mi, semper leon"><img src="./demo/3_s.jpg" alt="" /></a>
+
+		<a class="fancybox" href="./demo/4_b.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="./demo/4_s.jpg" alt="" /></a>
+	</p>
+</body>
+</html>
