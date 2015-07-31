@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>学习angular</title>
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="">
+    <script src="./js/angular.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body ng-app="app">
+
+    <div ng-controller="test">
+        <div>{{ list }}</div>
+        <ul>
+            <li ng-repeat="item in list">{{ item }}</li>
+        </ul>
+    </div>
+
+    <div ng-controller="login">
+        <input type="text " ng-model="user.name"/>
+        <input type="text " ng-model="user.pwd"/>
+        <button ng-click="loginIn()">登录</button>
+    </div>
+    <div ng-controller="register">
+        <form ng-submit="registerOne()">
+            <li>姓名：<input type="text" ng-model="user.name"/></li>
+            <li>年龄：<input type="text" ng-model="user.age"/></li>
+            <li>性别：<input type="radio" name="sex" ng-model="user.sex" ng-checked=""/>男<input type="radio" name="sex" ng-model="user.sex" ng-checked=""/>女</li>
+            <li>爱好：<input type="checkbox" ng-model="user.habit" value="sing" />sing <input type="checkbox" ng-model="user.habit" value="eat"/>eat <input type="checkbox" ng-model="user.habit" value="sleep"/>sleep </li>
+            <button>提交</button>
+        </form>
+    </div>
+<script src="./js/control.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
