@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 	<title>css3的3D旋转</title>
 	<style type="text/css">
+    body{height: 2000px;}
 	@-webkit-keyframes spin{
      0%{
          -webkit-transform:rotateY(0);
@@ -46,8 +47,14 @@
     }
     @keyframes spin{
         0%{transform:rotate3d(0,0,1,0deg)}
-        100%{transform:rotate3d(1,1,0,360deg)}
+        100%{transform:rotate3d(0,1,0,360deg)}
     }
+
+    @keyframes rotateall{
+        0%{transform:rotate3d(0,1,0,0deg)}
+        100%{transform:rotate3d(0,1,0,360deg)}
+    }
+
     .stage {
         width: 300px;
         height: 300px;
@@ -141,6 +148,44 @@
         -o-transform: rotateX(-90deg) translateZ(100px);
         transform: rotateX(-90deg) translateZ(100px);
     }
+
+    .stage1{
+        width: 300px;
+        height: 300px;
+        transform-style: preserve-3d;
+        -moz-animation:rotateall 5s linear infinite;
+        -o-animation:rotateall 5s linear infinite;
+        -webkit-animation:rotateall 5s linear infinite;
+        -ms-animation:rotateall 5s linear infinite;
+        animation:rotateall 5s linear infinite;
+    }
+
+    .circle{
+        width: 300px;
+        height: 300px;
+        border-radius: 150px;
+        border:1px solid red;
+        transform: rotateX(-90deg) translateZ(100px);
+        text-align: center;
+        line-height: 300px;
+        background:url(turn.jpg) 50% 50% no-repeat;
+        background-size: 300px 300px; 
+    }
+
+
+    .bgbt2{
+        margin:0 auto;
+        width: 200px;
+        height: 200px;
+        border:1px solid red;
+        transform: perspective(300px) rotateX(-60deg) translateZ(100px);
+        animation: rotateall 5s linear infinite;
+    }
+
+
+
+
+
 	</style>
 </head>
 <body>
@@ -154,5 +199,17 @@
         <div class="side bottom">6</div>
     </div>
 </div>
+
+<div class="stage ">
+    <div class="stage1">
+        <div class="circle">
+        转
+        </div>    
+    </div>
+</div>
+    <div class="bgbt2">
+        花
+    </div>
+
 </body>
 </html>
