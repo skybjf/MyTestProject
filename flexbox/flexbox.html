@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>弹性盒子</title>
+	<meta charset="utf-8"/>
+	<link href="http://yx.xnimg.cn/minisite/common/style/w_reset.css" rel="stylesheet" type="text/css" />
+
+	<style type="text/css">
+		.flex-box{
+			display: flex;
+			flex-flow:row wrap; 
+			align-items:stretch;
+			height: 200px;
+			overflow: hidden;
+			justify-content:space-around;
+			/*align-content:center;*/
+
+		}
+		.test{width: 100px;height: 100px;background: gray;}
+	</style>
+</head>
+<body>
+<div class="flex-box">
+	<div class="test">0</div>
+	<div class="test">1</div>
+	<div class="test" style="order: 1;">2</div>
+	<div class="test">3</div>
+</div>
+</body>
+</html>
