@@ -1,0 +1,1 @@
+div {width: 300px; height: 200px; border: 1px solid red; } @media screen and (min-width: 1000px) {div {width: 200px; background: gray; } } @media screen and (max-width: 1000px) {div {width: 500px; background-color: blue; } }
