@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+
+<head>
+    <title>测试react</title>
+</head>
+<script type="text/javascript" src="./js/testreact.js"></script>
+<script src="./react-0.13.3/build/react.js"></script>
+<script src="./react-0.13.3/build/JSXTransformer.js"></script>
+<script type="text/jsx">
+    var MyComponent = React.createClass({ 
+    	handleClick: function() { React.findDOMNode(this.refs.myTextInput).focus(); }, 
+    	render: function() { 
+    		return (<div>
+		        <input type="text" ref="myTextInput" />
+		        <input type="button" value="Focus the text input" onClick={this.handleClick} />
+		        </div>); 
+    	} 
+    }); 
+    React.render(<MyComponent />, document.getElementById('example') );
+</script>
+
+<body>
+    <div id="example"></div>
+</body>
+
+</html>
