@@ -1,0 +1,240 @@
+@charset "UTF-8";
+/** 名称：混合mixin 用法：@include name(parameter)， 使用场景：样式通过拷贝的方式使用，尤其适用于相同代码块需要在不同的环境传递不同的值时使用 */
+/**
+* 开启厂商前缀-prefixer
+* 用于在属性上加前缀
+* 默认这里将只输出webkit前缀、opera前缀和标准
+*/
+/* 开启厂商前缀-prefixer-value
+* 用于在值上加前缀
+* 默认这里将输出webkit前缀，moz前缀和标准
+*/
+/**不同屏幕设备字体等比例自适应**/
+@media screen and (min-width: 160px) { html { font-size: 312.5%; } }
+@media screen and (min-width: 200px) { html { font-size: 390.625%; } }
+@media screen and (min-width: 240px) { html { font-size: 468.75%; } }
+@media screen and (min-width: 280px) { html { font-size: 546.875%; } }
+@media screen and (min-width: 320px) { html { font-size: 625%; } }
+@media screen and (min-width: 360px) { html { font-size: 703.125%; } }
+@media screen and (min-width: 400px) { html { font-size: 781.25%; } }
+@media screen and (min-width: 440px) { html { font-size: 859.375%; } }
+@media screen and (min-width: 480px) { html { font-size: 937.5%; } }
+@media screen and (min-width: 520px) { html { font-size: 1015.625%; } }
+@media screen and (min-width: 560px) { html { font-size: 1093.75%; } }
+@media screen and (min-width: 600px) { html { font-size: 1171.875%; } }
+@media screen and (min-width: 640px) { html { font-size: 1250%; } }
+@media screen and (min-width: 680px) { html { font-size: 1328.125%; } }
+@media screen and (min-width: 720px) { html { font-size: 1406.25%; } }
+@media screen and (min-width: 760px) { html { font-size: 1484.375%; } }
+@media screen and (min-width: 800px) { html { font-size: 1562.5%; } }
+body, html { -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
+@media screen and (min-width: 160px) { html { font-size: 312.5%; } }
+@media screen and (min-width: 200px) { html { font-size: 390.625%; } }
+@media screen and (min-width: 240px) { html { font-size: 468.75%; } }
+@media screen and (min-width: 280px) { html { font-size: 546.875%; } }
+@media screen and (min-width: 320px) { html { font-size: 625%; } }
+@media screen and (min-width: 360px) { html { font-size: 703.125%; } }
+@media screen and (min-width: 400px) { html { font-size: 781.25%; } }
+@media screen and (min-width: 440px) { html { font-size: 859.375%; } }
+@media screen and (min-width: 480px) { html { font-size: 937.5%; } }
+@media screen and (min-width: 520px) { html { font-size: 1015.625%; } }
+@media screen and (min-width: 560px) { html { font-size: 1093.75%; } }
+@media screen and (min-width: 600px) { html { font-size: 1171.875%; } }
+@media screen and (min-width: 640px) { html { font-size: 1250%; } }
+@media screen and (min-width: 680px) { html { font-size: 1328.125%; } }
+@media screen and (min-width: 720px) { html { font-size: 1406.25%; } }
+@media screen and (min-width: 760px) { html { font-size: 1484.375%; } }
+@media screen and (min-width: 800px) { html { font-size: 1562.5%; } }
+/* 背景 */
+html, body { width: 100%; height: 100%; overflow: hidden; }
+
+.load { background-color: rgba(0, 0, 0, 0.7); position: fixed; z-index: 20; top: 0; left: 0; width: 100%; height: 100%; display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-direction: normal; -webkit-box-orient: vertical; -webkit-flex-direction: column; -moz-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; -moz-align-items: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; -moz-justify-content: center; justify-content: center; }
+.load div { font-size: 28px; color: #18b9d9; }
+.load div span { display: inline-block; width: 14px; height: 14px; background-color: #18b9d9; border-radius: 14px; margin-left: 16px; -webkit-animation: ball-beat 0.8s 0s infinite linear; -moz-animation: ball-beat 0.8s 0s infinite linear; -o-animation: ball-beat 0.8s 0s infinite linear; -ms-animation: ball-beat 0.8s 0s infinite linear; animation: ball-beat 0.8s 0s infinite linear; }
+.load div span:nth-child(2n-1) { -webkit-animation-delay: 0.4s !important; animation-delay: 0.4s !important; }
+
+.bg { width: 100%; height: 100%; overflow: hidden; position: relative; }
+
+.bg1 { background: url(../img/bg1.jpg) 0 0 no-repeat; background-size: 100% 100%; }
+
+.bg2 { background: url(../img/bg2.jpg) 0 0 no-repeat; background-size: 100% 100%; }
+
+.bg3 { background: url(../img/bg3.jpg) 0 0 no-repeat; background-size: 100% 100%; }
+
+.big_bg_head { position: absolute; left: 50%; background: url(../img/big_bg_head.png) 0 0 no-repeat; background-size: 100%; z-index: 2; opacity: 0; }
+
+.big_bg_head1 { top: 0.9rem; margin-left: -1.35rem; width: 2.7rem; height: 2.7rem; }
+
+.big_bg_head2 { top: 1.3rem; margin-left: -1.2rem; width: 2.4rem; height: 2.4rem; }
+
+.razor { display: none; position: absolute; left: 50%; top: 2.6rem; z-index: 10; margin-left: -1.6rem; width: 2.28rem; height: 1.01rem; background: url(../img/razor.png) 0 0 no-repeat; background-size: 100%; }
+
+/* 第一屏 */
+.text1 { height: 1.32rem; width: 2.83rem; position: absolute; top: 0.54rem; left: 50%; margin-left: -1.415rem; }
+.text1 img { display: block; max-width: 100%; }
+
+.btn1 { position: absolute; z-index: 10; left: 50%; margin-left: -0.86rem; margin-top: 2.5rem; width: 1.72rem; height: 0.63rem; background: url(../img/btn1.png) 0 0 no-repeat; background-size: 100%; -webkit-animation: twinkle 1s linear infinite; -moz-animation: twinkle 1s linear infinite; -o-animation: twinkle 1s linear infinite; -ms-animation: twinkle 1s linear infinite; animation: twinkle 1s linear infinite; }
+
+/* 第二屏 */
+.info { display: none; position: absolute; top: 2rem; left: 50%; margin-left: -1.875rem; background: url(../img/line.png) 0 0 no-repeat; background-size: 3.75rem 0.8rem; height: 0.8rem; width: 3.75rem; }
+.info .begintime, .info .endtime { color: #fff; font-size: 0.15rem; font-weight: bold; position: absolute; left: 50%; -webkit-transform: rotate(-6deg); -o-transform: rotate(-6deg); -moz-transform: rotate(-6deg); transform: rotate(-6deg); }
+.info .begintime { margin-left: -1.54rem; margin-top: 0.6rem; }
+.info .endtime { margin-left: 1.34rem; margin-top: -0.1rem; }
+.info .headimg { width: 0.78rem; height: 0.78rem; padding: 0.12rem; background: url(../img/bg_head.png) 0 0 no-repeat; background-size: 100%; position: absolute; opacity: 0; -webkit-transform: rotate(-6deg); -o-transform: rotate(-6deg); -moz-transform: rotate(-6deg); transform: rotate(-6deg); }
+.info .headimg img { display: block; border-radius: 0.5rem; border: 0.025rem solid #fff; width: 0.73rem; height: 0.73rem; opacity: 0; }
+.info .head1 { left: 50%; margin-left: -1.5rem; top: 0.65rem; }
+.info .head2 { left: 50%; margin-left: -0.33rem; top: 0.53rem; }
+.info .head3 { left: 50%; margin-left: 0.88rem; top: 0.4rem; }
+
+.text2 { background: url(../img/text2-1.png) 0 0 no-repeat; background-size: 1.655rem 0.665rem; background-position: 100% 100%; position: absolute; top: 0.43rem; left: 0.13rem; width: 1.7rem; height: 1.06rem; opacity: 0; -webkit-transform: scale(2); -o-transform: scale(2); -moz-transform: scale(2); transform: scale(2); }
+.text2 span { display: block; font-size: 0.25rem; color: #fff; font-weight: bold; margin-top: 0.3rem; margin-left: 0.12rem; -webkit-transform: rotate(-13deg); -o-transform: rotate(-13deg); -moz-transform: rotate(-13deg); transform: rotate(-13deg); }
+
+/* 第三屏 */
+.text3 { display: none; width: 1.485rem; height: 0.615rem; position: absolute; top: 0.35rem; left: 0.17rem; }
+.text3 img { display: block; width: 100%; }
+
+.whitecut { display: none; background: url(../img/whitecut.png) 0 0 no-repeat; background-size: 2.38rem 6.875rem; background-position: 100% 0; position: absolute; z-index: 4; top: 0; left: 50%; margin-left: -1.43rem; height: 100%; width: 2.38rem; }
+.whitecut .headcon { width: 1.53rem; height: 1.53rem; position: absolute; top: 1.45rem; right: 0.2rem; border-radius: 1.53rem; opacity: 0; }
+.whitecut .headcon img { width: 1.5rem; height: 1.5rem; display: block; border-radius: 1rem; border: 0.03rem solid #fff; }
+
+.whitecut2 { width: 2.265rem; background: url(../img/whitecut2.png) 0 0 no-repeat; background-size: 2.265rem 6.88rem; margin-left: -1.33rem; }
+.whitecut2 .headcon { top: 1.72rem; right: 0.17rem; }
+
+.yanzhi { opacity: 0; background: url(../img/yanzhi.png) 0 0 no-repeat; position: absolute; background-size: 100% 100%; bottom: 0.59rem; right: 0.25rem; width: 1.31rem; height: 1.28rem; -webkit-transform: scale(2); -o-transform: scale(2); -moz-transform: scale(2); transform: scale(2); }
+.yanzhi .yanzhi_num { color: #fff; font-size: 0.5rem; -webkit-transform: rotate(-14deg); -o-transform: rotate(-14deg); -moz-transform: rotate(-14deg); transform: rotate(-14deg); margin: 0.44rem 0 0 0.13rem; letter-spacing: 2px; }
+.yanzhi .yanzhi_num .icon { font-size: 0.2rem; }
+
+.tip { position: absolute; top: 0.08rem; right: 0.1rem; opacity: 0; width: 0.79rem; height: 0.96rem; opacity: 0; }
+
+/* 第四屏 */
+.text4 { position: absolute; left: 0.16rem; top: 0.35rem; width: 2.12rem; height: 1.28rem; background: url(../img/text4-1.png) 0 0 no-repeat; background-size: 100% 100%; -webkit-transform: scale(2); -o-transform: scale(2); -moz-transform: scale(2); transform: scale(2); opacity: 0; }
+.text4 .year { font-size: 0.25rem; color: #fff; font-weight: bold; margin-top: 0.4rem; margin-left: 0.14rem; -webkit-transform: rotate(-14deg); -o-transform: rotate(-14deg); -moz-transform: rotate(-14deg); transform: rotate(-14deg); }
+
+.sanlie { position: absolute; left: 50%; top: 1.46rem; width: 2.57rem; height: 2.78rem; margin-left: -1.285rem; }
+.sanlie .grid { width: 100%; height: 100%; position: absolute; z-index: 1; opacity: 0; }
+.sanlie .head { background: url(../img/bg_head_friend.png) 0 0 no-repeat; background-size: 100% 100%; position: absolute; z-index: 2; padding: 0.135rem 0.165rem 0.165rem 0.135rem; opacity: 0; }
+.sanlie .head img { display: block; width: 100%; height: 100%; border-radius: 0.5rem; border: 0.025rem solid #fff; }
+.sanlie .head1 { width: 0.5rem; height: 0.5rem; left: 1.27rem; top: 0.3rem; }
+.sanlie .head2 { left: 0; top: 0.76rem; width: 0.43rem; height: 0.43rem; }
+.sanlie .head3 { right: -0.1rem; top: 0.95rem; width: 0.35rem; height: 0.35rem; }
+.sanlie .head4 { left: -0.1rem; bottom: 0.59rem; width: 0.28rem; height: 0.28rem; }
+.sanlie .head5 { right: 0.35rem; bottom: 0.63rem; width: 0.25rem; height: 0.25rem; }
+.sanlie .head6 { left: 0.68rem; bottom: 0.25rem; width: 0.4rem; height: 0.4rem; }
+.sanlie .ball { position: absolute; z-index: 2; width: 0.86rem; height: 0.74rem; left: 0.85rem; top: 1.07rem; background: url(../img/ball.png) 0 0 no-repeat; background-size: 100%; opacity: 0; }
+.sanlie .mess { position: absolute; z-index: 3; text-align: center; color: #fff; opacity: 0; }
+.sanlie .mess .mi { font-size: 0.1rem; }
+.sanlie .mess .ping, .sanlie .mess .zan { font-size: 0.08rem; }
+.sanlie .mes1 { right: 0.62rem; top: 0rem; }
+.sanlie .mes2 { left: 0.1rem; top: 0.45rem; }
+.sanlie .mes3 { right: -0.05rem; top: 0.63rem; }
+.sanlie .mes4 { left: -0.05rem; bottom: 0.24rem; }
+.sanlie .mes5 { right: 0.35rem; bottom: 0.3rem; }
+.sanlie .mes6 { left: 0.75rem; bottom: -0.08rem; }
+
+/* 第五屏 */
+.per_zan, .per_log, .per_pic { position: absolute; left: 50%; background: url(../img/bg_head.png) 0 0 no-repeat; background-size: 100%; opacity: 0; }
+
+.icon_zan, .icon_log, .icon_pic { border: 0.02rem solid #fff; margin: 0.125rem 0 0 0.12rem; border-radius: 0.5rem; }
+.icon_zan .title, .icon_log .title, .icon_pic .title { text-align: center; font-size: 0.08rem; color: #fff; margin-top: 60%; }
+.icon_zan .value, .icon_log .value, .icon_pic .value { text-align: center; font-size: 0.1rem; font-weight: bold; color: #fff; }
+.icon_zan .value span, .icon_log .value span, .icon_pic .value span { font-weight: normal; }
+
+.per_zan { width: 0.85rem; height: 0.85rem; margin-left: -1.4rem; top: 1rem; }
+.per_zan .icon_zan { width: 0.55rem; height: 0.55rem; background: url(../img/icon-zan.png) 0 0 no-repeat; background-size: 0.32rem 0.25rem; background-position: 50% 24%; }
+
+.per_log { width: 0.97rem; height: 0.97rem; margin-left: 0.68rem; top: 1.15rem; }
+.per_log .icon_log { width: 0.67rem; height: 0.67rem; background: url(../img/icon-log.png) 0 0 no-repeat; background-size: 0.37rem 0.25rem; background-position: 50% 24%; }
+
+.per_pic { width: 0.97rem; height: 0.97rem; margin-left: -1.5rem; top: 3.14rem; }
+.per_pic .icon_pic { width: 0.67rem; height: 0.67rem; background: url(../img/icon-pic.png) 0 0 no-repeat; background-size: 0.39rem 0.25rem; background-position: 50% 24%; }
+
+.imgmu5 { position: absolute; top: 3.6rem; left: 50%; margin-left: -0.25rem; width: 1.8rem; height: 0.89rem; -webkit-transform: scale(2); -o-transform: scale(2); -moz-transform: scale(2); transform: scale(2); opacity: 0; }
+
+/* 第六屏 */
+.text5 { display: none; position: absolute; left: 0.15rem; top: 0.325rem; width: 1.485rem; height: 0.615rem; background: url(../img/text5.png) 0 0 no-repeat; background-size: 100% 100%; }
+
+.lawn { position: absolute; top: 1rem; height: 2.73rem; left: 0; background: url(../img/lawn.png) 0 0 no-repeat; background-size: 3.75rem 100%; background-position: 50% 0; width: 100%; opacity: 0; }
+.lawn .words { position: absolute; left: 50%; margin-left: -1.31rem; top: 0.5rem; width: 2.62rem; height: 1.69rem; background: url(../img/words.png) 0 0 no-repeat; background-size: 100% 100%; -webkit-transform: rotate(-16deg); -o-transform: rotate(-16deg); -moz-transform: rotate(-16deg); transform: rotate(-16deg); opacity: 0; }
+.lawn .words div { position: absolute; z-index: 1; }
+.lawn .words div img { display: block; width: 100%; height: 100%; }
+.lawn .words .w0 { top: 0.025rem; left: 0.865rem; width: 0.31rem; height: 0.16rem; }
+.lawn .words .w1 { top: 0.205rem; left: 0.995rem; width: 0.18rem; height: 0.35rem; }
+.lawn .words .w2 { top: 0.035rem; left: 1.215rem; width: 0.15rem; height: 0.7rem; }
+.lawn .words .w3 { top: 0.23rem; left: 1.38rem; width: 0.155rem; height: 0.585rem; }
+.lawn .words .w4 { top: 0.175rem; left: 1.55rem; width: 0.42rem; height: 0.15rem; }
+.lawn .words .w5 { top: 0.04rem; left: 1.985rem; width: 0.15rem; height: 0.28rem; }
+.lawn .words .w6 { top: 0.325rem; left: 1.56rem; width: 0.34rem; height: 0.18rem; }
+.lawn .words .w7 { top: 0.28rem; left: 2.305rem; width: 0.15rem; height: 0.4rem; }
+.lawn .words .w8 { top: 0.41rem; left: 2.135rem; width: 0.15rem; height: 0.275rem; }
+.lawn .words .w9 { top: 0.68rem; left: 0rem; width: 0.15rem; height: 0.41rem; }
+.lawn .words .w10 { top: 0.64rem; left: 0.17rem; width: 0.355rem; height: 0.185rem; }
+.lawn .words .w11 { top: 0.59rem; left: 0.7rem; width: 0.49rem; height: 0.25rem; }
+.lawn .words .w12 { top: 0.54rem; left: 1.56rem; width: 0.24rem; height: 0.48rem; }
+.lawn .words .w13 { top: 0.535rem; left: 1.83rem; width: 0.28rem; height: 0.15rem; }
+.lawn .words .w14 { top: 0.71rem; left: 1.935rem; width: 0.53rem; height: 0.27rem; }
+.lawn .words .w15 { top: 0.58rem; left: 2.47rem; width: 0.15rem; height: 0.41rem; }
+.lawn .words .w16 { top: 0.86rem; left: 0.155rem; width: 0.22rem; height: 0.43rem; }
+.lawn .words .w17 { top: 0.87rem; left: 0.41rem; width: 0.31rem; height: 0.16rem; }
+.lawn .words .w18 { top: 0.86rem; left: 1.025rem; width: 0.51rem; height: 0.17rem; }
+.lawn .words .w19 { top: 0.99rem; left: 2.08rem; width: 0.16rem; height: 0.305rem; }
+.lawn .words .w20 { top: 0.985rem; left: 2.26rem; width: 0.305rem; height: 0.16rem; }
+.lawn .words .w21 { top: 1.3rem; left: 0.06rem; width: 0.31rem; height: 0.165rem; }
+.lawn .words .w22 { top: 1.04rem; left: 0.4rem; width: 0.965rem; height: 0.25rem; }
+.lawn .words .w23 { top: 1.05rem; left: 1.56rem; width: 0.4rem; height: 0.2rem; }
+.lawn .words .w24 { top: 1.325rem; left: 0.99rem; width: 0.345rem; height: 0.18rem; }
+.lawn .words .w25 { top: 1.205rem; left: 1.38rem; width: 0.165rem; height: 0.46rem; }
+.lawn .words .w26 { top: 1.295rem; left: 1.575rem; width: 0.68rem; height: 0.18rem; }
+.lawn .words .w27 { top: 1.515rem; left: 1.59rem; width: 0.305rem; height: 0.16rem; }
+
+.btn-mytime { width: 1.49rem; height: 0.39rem; background: url(../img/btn-mytime.png) 0 0 no-repeat; background-size: 100% 100%; position: absolute; top: 3.67rem; left: 50%; margin-left: -0.74rem; z-index: 4; display: none; -webkit-animation: twinkle 1s linear infinite; -moz-animation: twinkle 1s linear infinite; -o-animation: twinkle 1s linear infinite; -ms-animation: twinkle 1s linear infinite; animation: twinkle 1s linear infinite; }
+
+/* 第七屏 */
+.text6 { width: 2.79rem; height: 1.2rem; background: url(../img/text6.png) 0 0 no-repeat; background-size: 100%; position: absolute; top: 1rem; left: 50%; margin-left: -1.4rem; opacity: 0; }
+
+.who { position: absolute; left: 50%; top: 2.4rem; width: 2.7rem; margin-left: -1.35rem; height: 1.5rem; background-color: rgba(0, 0, 0, 0.5); overflow: hidden; opacity: 0; }
+.who:before, .who:after { content: " "; display: table; }
+.who:after { clear: both; }
+.who .zheng { float: left; margin: 0.15rem 0 0 0.15rem; width: 0.85rem; height: 1.18rem; overflow: hidden; opacity: 0; }
+.who .zheng img { display: block; width: 100%; height: 100%; }
+.who .name { opacity: 0; -webkit-transform: scale(2); -o-transform: scale(2); -moz-transform: scale(2); transform: scale(2); width: 1.6rem; float: left; margin-top: 0.15rem; color: #fff; text-align: center; font-size: 0.12rem; line-height: 0.18rem; font-weight: bold; overflow: hidden; }
+.who .name div { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.who .name .big { font-size: 0.17rem; margin-bottom: 0.05rem; }
+
+/* 第八屏 */
+.people { position: absolute; width: 1.31rem; height: 1.88rem; top: 2.07rem; left: 50%; margin-left: -1.42rem; background: url(../img/people.png) 0 0 no-repeat; background-size: 100%; opacity: 0; }
+
+.text7 { position: absolute; left: 50%; top: 1.77rem; width: 2.08rem; height: 0.88rem; background: url(../img/text7.png) 0 0 no-repeat; background-size: 100%; margin-left: -0.4rem; opacity: 0; }
+
+.ball2 { position: absolute; z-index: 2; width: 0.86rem; height: 0.74rem; left: 50%; margin-left: 1rem; top: 3.5rem; background: url(../img/ball.png) 0 0 no-repeat; background-size: 100%; opacity: 0; }
+
+.btn-share, .btn-video, .btn-gillette { opacity: 0; width: 1.31rem; height: 0.35rem; position: absolute; left: 50%; margin-left: -0.1rem; }
+
+.btn-share { top: 2.7rem; background: url(../img/btn-share.png) 0 0 no-repeat; background-size: 100%; }
+
+.btn-video { top: 3.14rem; background: url(../img/btn-video.png) 0 0 no-repeat; background-size: 100%; }
+
+.btn-gillette { top: 3.58rem; background: url(../img/btn-gillette.png) 0 0 no-repeat; background-size: 100%; }
+
+.pop { width: 2.36rem; height: 1.83rem; position: fixed; top: 1.6rem; left: 50%; margin-left: -1.18rem; background-color: rgba(48, 53, 56, 0.7); border: 2px solid rgba(0, 0, 0, 0.1); border-radius: 0.2rem; z-index: 20; }
+.pop .close { width: 0.24rem; height: 0.24rem; position: absolute; top: 0.06rem; right: 0.06rem; background: url(../img/close.png) 0 0 no-repeat; background-size: 100%; }
+.pop .sharetext { font-size: 0.27rem; line-height: 0.64rem; font-weight: bold; color: #fff; text-indent: 0.27rem; }
+.pop .func { display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-direction: normal; -webkit-box-orient: horizontal; -webkit-flex-direction: row; -moz-flex-direction: row; -ms-flex-direction: row; flex-direction: row; height: 0.73rem; width: 100%; }
+.pop .func div { -webkit-box-flex: 1; -webkit-flex-grow: 1; -moz-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; height: 100%; }
+.pop .func .icon-ren { background: url(../img/icon-ren.png) 0 0 no-repeat; background-size: 0.55rem 0.73rem; background-position: 50% 0; }
+.pop .func .icon-weibo { background: url(../img/icon-weibo.png) 0 0 no-repeat; background-size: 0.55rem 0.73rem; background-position: 50% 0; }
+.pop .func .icon-wechat { background: url(../img/icon-wechat.png) 0 0 no-repeat; background-size: 0.55rem 0.73rem; background-position: 50% 0; }
+
+@-webkit-keyframes twinkle { 0%,
+    100% { opacity: 0.2; filter: alpha(opacity=20); }
+  50% { opacity: 1; filter: alpha(opacity=100); } }
+@keyframes twinkle { 0%,
+    100% { opacity: 0.2; filter: alpha(opacity=20); }
+  50% { opacity: 1; filter: alpha(opacity=100); } }
+@-webkit-keyframes ball-beat { 50% { opacity: 0.2; filter: alpha(opacity=20); -webkit-transform: scale(0.75); -o-transform: scale(0.75); -moz-transform: scale(0.75); transform: scale(0.75); }
+  100% { opacity: 1; filter: alpha(opacity=100); -webkit-transform: scale(1); -o-transform: scale(1); -moz-transform: scale(1); transform: scale(1); } }
+@keyframes ball-beat { 50% { opacity: 0.2; filter: alpha(opacity=20); -webkit-transform: scale(0.75); -o-transform: scale(0.75); -moz-transform: scale(0.75); transform: scale(0.75); }
+  100% { opacity: 1; filter: alpha(opacity=100); -webkit-transform: scale(1); -o-transform: scale(1); -moz-transform: scale(1); transform: scale(1); } }
+/* 针对iPhone4 */
+
+/*# sourceMappingURL=indexm.css.map */

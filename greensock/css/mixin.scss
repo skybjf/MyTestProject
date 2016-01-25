@@ -1,0 +1,358 @@
+@charset "UTF-8";
+/**
+ * 名称：混合mixin
+ * 用法：@include name(parameter)，
+ * 使用场景：样式通过拷贝的方式使用，尤其适用于相同代码块需要在不同的环境传递不同的值时使用
+ */
+
+/**
+* 开启厂商前缀-prefixer
+* 用于在属性上加前缀
+* 默认这里将只输出webkit前缀、opera前缀和标准
+*/
+@mixin prefixer($property, $value, $vendor-prefix: webkit o) {
+  @each $prefix in $vendor-prefix {
+    @if $prefix == webkit {
+      -webkit-#{$property}: $value;
+    } @else if $prefix == moz {
+      -moz-#{$property}: $value;
+    } @else if $prefix == ms {
+      -ms-#{$property}: $value;
+    } @else if $prefix == o {
+      -o-#{$property}: $value;
+    }
+  }
+  #{$property}: $value;
+}
+
+/* 开启厂商前缀-prefixer-value
+* 用于在值上加前缀
+* 默认这里将输出webkit前缀，moz前缀和标准
+*/
+@mixin prefixer-value($property, $value, $vendor-prefix: webkit moz) {
+  @each $prefix in $vendor-prefix {
+    @if $prefix == webkit {
+      #{$property}: -webkit-#{$value};
+    } @else if $prefix == moz {
+      #{$property}: -moz-#{$value};
+    } @else if $prefix == o {
+      #{$property}: -o-#{$value};
+    } @else if $prefix == ms {
+      #{$property}: -ms-#{$value};
+    }
+  }
+  #{$property}: $value;
+}
+
+// 生成圆形方法
+@mixin round($size) {
+  width: $size;
+  height: $size;
+  border-radius: $size / 2;
+}
+
+// bubble triangle
+@mixin arrow-top($color, $size, $left, $right) {
+  &:after {
+    content: "";
+    position: absolute;
+    top: -$size;
+    left: $left;
+    right: $right;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+}
+
+//user select
+@mixin user-select($value: none) {
+  @include prefixer(user-select, $value);
+}
+
+// box sizing
+@mixin box-sizing($type: border-box) {
+  @include prefixer(box-sizing, $type, webkit moz);
+}
+
+//阴影
+@mixin box-shadow($shadow...) {
+  @include prefixer(box-shadow, $shadow, webkit moz);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Glow(color=#aaaaaa,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=0,strength=6) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=90,strength=10) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=180,strength=6) progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=270,strength=6)";
+}
+
+//UA外观
+@mixin appearance($appearance: none) {
+  @include prefixer(appearance, $appearance, webkit moz);
+}
+
+// 透明度：IE compatible opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=#{$opacity * 100});
+}
+
+// tansition
+@mixin transition($transition...) {
+  @include prefixer(transition, $transition, webkit o moz);
+}
+
+// transform
+@mixin transform($transform, $origin: "") {
+  @include prefixer(transform, $transform, webkit o moz);
+  @if $origin != "" {
+    @include prefixer(transform-origin, $origin, webkit o moz);
+  }
+}
+
+// animation
+@mixin animation($animations...) {
+  @include prefixer(animation, $animations);
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+//线性渐变
+@mixin linear-gradient($pos, $start, $end) {
+  background: -moz-linear-gradient($pos, $start, $end);
+  background: -webkit-gradient(linear, $pos, $start, $end);
+  background: -webkit-linear-gradient($pos, $start, $end);
+  background: -o-linear-gradient($pos, $start, $end);
+}
+
+//z-index
+@mixin zindex($ele) {
+  z-index: index($zindexlist, $ele);
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+}
+
+//svg ui
+@mixin svg-ui($width, $height, $color: "") {
+  width: $width;
+  height: $height;
+  @if $color != "" {
+    fill: $color;
+  }
+}
+
+@mixin border-box() {
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+@mixin flex-box($value:row) {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin flex-wrap($value:wrap) {
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $value;
+  }
+  flex-wrap: $value;
+}
+
+@mixin flex-grow($int:1) {
+  -webkit-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -moz-flex-grow: $int;
+  -ms-flex-positive: $int;
+  flex-grow: $int;
+}
+
+@mixin flex-shrink($int:1) {
+  -webkit-flex-shrink: $int;
+  -moz-flex-shrink: $int;
+  -ms-flex-negative: $int;
+  flex-shrink: $int;
+}
+
+@mixin flex-basis($value:auto) {
+  -webkit-flex-basis: $value;
+  -moz-flex-basis: $value;
+  -ms-flex-preferred-size: $value;
+  flex-basis: $value;
+}
+
+@mixin height($n:100px) {
+  height: 100px;
+}
+
+@mixin align-items($value:stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+@mixin align-self($value:stretch) {
+  -webkit-align-self: $value;
+  -moz-align-self: $value;
+  @if $value == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $value == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
+}
+
+@mixin justify-content($value:flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+
+@mixin align-content($value:stretch) {
+  -webkit-align-content: $value;
+  -moz-align-content: $value;
+  @if $value == flex-start {
+    -ms-flex-line-pack: start;
+  } @else if $value == flex-end {
+    -ms-flex-line-pack: end;
+  } @else {
+    -ms-flex-line-pack: $value;
+  }
+  align-content: $value;
+}
+
+@mixin border-multi($position,$width:1px,$style:solid,$color:#dcdcdc) {
+  @each $p in $position {
+    border-#{$p}-width: $width;
+    border-#{$p}-style: $style;
+    border-#{$p}-color: $color;
+  }
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+%flexbox {
+  @include flexbox;
+}
+
+//----------------------------------
+
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+%inline-flex {
+  @include inline-flex;
+}
+
+%flex-box-row {
+  @include flex-box(row);
+}
+
+%flex-box-column {
+  @include flex-box(column);
+}
+
+%flex-grow-1 {
+  @include flex-grow();
+}
+
+%flex-shrink-1 {
+  @include flex-shrink();
+}
+
+%flex-basis-auto {
+  @include flex-basis();
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/**不同屏幕设备字体等比例自适应**/
+$deviceMinWidth:120;
+@while $deviceMinWidth < 800 {
+  $deviceMinWidth:$deviceMinWidth+40;
+  @media screen and (min-width: #{$deviceMinWidth}px) {html{font-size:$deviceMinWidth/320*625%;}}   
+}
