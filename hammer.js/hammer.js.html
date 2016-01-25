@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>测试hammer.js</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <!-- 官方推荐加上，解决ie winphone bug -->
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        html,body{height: 100%;width: 100%;}
+        .test{height: 100%;width: 100%;background: deepskyblue;font-size: 20px;text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="test" id="test">
+        
+    </div>
+
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script type="text/javascript">
+        var myElement = document.getElementById('test');
+        var mc = new Hammer(myElement);
+        mc.on("panleft panright panup pandown pinchin pinchout rotate" , function(ev){
+        // mc.on("pinchin pinchout" , function(ev){
+        // mc.on("rotate" , function(ev){  
+            var str= ev.type || ev.scale;
+            console.log("ev.type:"+ev.type+"--------ev.scale:"+ev.scale);
+            myElement.textContent ="手势：" + str;
+        })
+    </script>
+</body>
+</html>
