@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试的网页</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, maximum-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <script type="text/javascript" src="./js/quoAll.js"></script> -->
+	<script type="text/javascript" src="./js/quo.js"></script>
+    <script src="./js/quo.ajax.js"></script>
+    <script src="./js/quo.css.js"></script>
+    <script src="./js/quo.element.js"></script>
+    <script src="./js/quo.environment.js"></script>
+    <script src="./js/quo.output.js"></script>
+    <script src="./js/quo.query.js"></script>
+    <script src="./js/quo.events.js"></script>
+    <script src="./js/quo.gestures.js"></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		html,body{height: 100%;width: 100;}
+		.test{height: 100%;width: 100%;background: deepskyblue;font-size: 20px;text-align: center;}
+	</style>
+</head>
+<body>
+	<div class="test" id="test">
+		测试总结：
+			事件冲突较为严重
+			不建议使用	
+	</div>
+
+	<script type="text/javascript">
+		$$('.test').touch(function(e){
+			$$('.test').html("touch");
+		});
+		// rotate
+		$$('.test').rotateLeft(function(e){
+			$$('.test').html("左转");
+		});
+		$$('.test').rotateRight(function(e){
+			$$('.test').html("右转");
+		});
+		// swipe
+		$$('.test').swipeLeft(function(e){
+			$$('.test').html("左滑");
+		});
+		$$('.test').swipeRight(function(e){
+			$$('.test').html("右滑");
+		});
+		// $$('.test').swipeDown(function(e){
+		// 	$$('.test').html("下滑");
+		// });
+		// $$('.test').swipeUp(function(e){
+		// 	$$('.test').html("上滑");
+		// });
+		// pinch
+		$$('.test').pinchIn(function(e){
+			$$('.test').html("缩小");
+		});
+		$$('.test').pinchOut(function(e){
+			$$('.test').html("放大");
+		});
+
+
+	</script>
+</body>
+</html>
