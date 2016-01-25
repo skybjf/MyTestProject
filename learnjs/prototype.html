@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试prototype</title>
+</head>
+<script type="text/javascript">
+	// function Person(){}
+	// Person.prototype.name="BJF";
+	// Person.prototype.age="24";
+	// Person.prototype.sayName=function(){
+	// 	alert(this.name);
+	// }
+
+	// var person1=new Person();
+	// var person2=new Person();
+
+	// person1.name="WMM";
+	// delete person1.name;
+
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+		if(typeof this.sayName != 'function'){
+			Person.prototype.sayName=function(){
+				alert(this.name);
+			}
+		}
+	}
+
+	var person=new Person("BJF",24);
+	var friend=new Person("BJF",24);
+
+	console.log(person.name+"---"+friend.name);
+
+</script>
+<body>
+
+</body>
+</html>
