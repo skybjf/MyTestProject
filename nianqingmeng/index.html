@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>在年轻人眼中 你是个什么鬼</title>
+<meta property="og:description" content="想知道你在年轻人眼中是什么鬼吗？快来测测吧！"/>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link href="http://yx.xnimg.cn/minisite/common/style/m_reset.css" rel="stylesheet" type="text/css">
+<link href="http://yx.xnimg.cn/minisite/common/style/animate.css" rel="stylesheet" type="text/css">
+<link href="http://yx.xnimg.cn/minisite/common/style/base.css" rel="stylesheet" type="text/css">
+<link href="http://yx.xnimg.cn/base/component/app/jquery.yx.mobile.2.0.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://yx.xnimg.cn/minisite/common/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://yx.xnimg.cn/base/component/app/jquery.yx.mobile.source.2.0.js"></script>
+<script src="./js/jquery.imgpreload.min.js"></script>
+<script src="./js/jquery.lettering.js"></script>
+<script src="./js/highlight.min.js"></script>
+<script src="./js/jquery.fittext.js"></script>
+<script src="./js/jquery.textillate.js"></script>
+<script src="./js/indexm.js?24"></script>
+<link rel="stylesheet" href="./css/indexm.css?24">
+<!-- Demo styles -->
+<script type="text/javascript">
+jQuery(function(){
+	jQuery.post("../visit",{},function(json){
+		// console.log(json.status);
+	},"json");
+});
+var line;
+var maleRandom;
+var q;
+var r = [];
+function getQuestion(){
+	q = [];
+	if(line == 1){
+		maleRandom = Math.floor(Math.random()* 2);
+		if(maleRandom == 0){
+			q.push('m3');
+			q.push('m4');
+		}else{
+			q.push('m5');
+			q.push('m6');
+		}
+	}else if(line == 2){
+		q.push('m1');
+		q.push('m2');
+	}else if(line == 3){
+		q.push('f1');
+		q.push('f2');
+	}else{
+		q.push('f3');
+		q.push('f4');
+	}
+	var j = Math.floor(Math.random() * 7)+1;
+	q.push('r'+j);
+	while(true){
+		var k = Math.floor(Math.random() * 7)+1;
+		if(j != k){
+			q.push('r'+k);
+			break;
+		}
+	}
+}
+
+function showOptions(i){
+    jQuery("#option1").attr("src","images/q/"+ q[i].substr(0,1) + "/" + q[i].substr(1,2) + '/' +"a.png");
+    jQuery("#option2").attr("src","images/q/"+ q[i].substr(0,1) + "/" + q[i].substr(1,2) + '/' +"b.png");
+    jQuery("#option3").attr("src","images/q/"+ q[i].substr(0,1) + "/" + q[i].substr(1,2) + '/' +"c.png");
+    jQuery("#question_desc").attr("src","images/q/"+ q[i].substr(0,1) + "/" + q[i].substr(1,2) + '/' +"e.png");
+    jQuery("#question_gif").attr("src","images/q/"+ q[i].substr(0,1) + "/" + q[i].substr(1,2) + '/' +"f.gif");
+}
+
+var a10 = [];
+a10['CA'] = 7;
+a10['CC'] = 8;
+a10['CB'] = 8;
+a10['BB'] = 9;
+a10['AB'] = 9;
+a10['BC'] = 10;
+a10['BA'] = 10;
+a10['AA'] = 11;
+a10['AC'] = 12;
+//alert(a10['CA']);
+
+var a11 = [];
+a11['AC'] = 7;
+a11['BC'] = 8;
+a11['CC'] = 8;
+a11['BB'] = 9;
+a11['AB'] = 10;
+a11['CB'] = 10;
+a11['CA'] = 11;
+a11['BA'] = 11;
+a11['AA'] = 12;
+
+var a20 = [];
+a20['AA'] = 1;
+a20['AB'] = 1;
+a20['BA'] = 2;
+a20['AC'] = 3;
+a20['BB'] = 3;
+a20['CA'] = 4;
+a20['BC'] = 5;
+a20['CB'] = 5;
+a20['CC'] = 6;
+
+var a30 = [];
+a30['CC'] = 1;
+a30['CA'] = 2;
+a30['BA'] = 3;
+a30['CB'] = 3;
+a30['AC'] = 4;
+a30['BC'] = 4;
+a30['AA'] = 5;
+a30['BB'] = 5;
+a30['AB'] = 6;
+
+var a40 = [];
+a40['AA'] = 7;
+a40['AB'] = 7;
+a40['BA'] = 8;
+a40['AC'] = 9;
+a40['BB'] = 9;
+a40['CA'] = 10;
+a40['BC'] = 11;
+a40['CB'] = 11;
+a40['CC'] = 12;
+</script>
+</head>
+<body>
+<!-- #if($renren == 1)
+<img src="share.png" style="display:none">
+#end
+#if($weixin == 1)
+<img src="share.png" width="1" height="1" style="opacity:0;position:absolute">
+#end -->
+
+    <div class="all">
+        <!-- loading页面 -->
+        <div class="loading">
+            <div class="loadgif"><img src="./images/load.gif"></div>
+            <div class="tip">
+                进度条君正在努力加载（<span class="loadnum">0</span>%）
+            </div>
+        </div>
+
+        <!-- star -->
+        <div class="star">
+            <div class="title1"></div>
+            <div class="title2"></div>
+            <div class="titletra"><img src="./images/titletra.gif"></div>
+            <div class="bot">
+                <a class="btn_begin" href="javascript:;"></a>
+                <div>请用身体<span class="red">最敏感的部位</span>触碰开始</div>
+            </div>
+        </div>
+
+        <!-- 选人 -->
+        <div class="candidate">
+					<div class="center">
+            <div class="boy bor_dash clearfix">
+                <div class="tip"></div>
+                <ul>
+                    <li>
+                        <a href="javascript:;" info="1"><img src="./images/m1.png"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" info="2"><img src="./images/m2.png"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tiptxt">
+                嘤嘤嘤~请选择一名<span class="red">最能代表你</span>的角色
+            </div>
+            <div class="girl bor_dash clearfix">
+                <div class="tip"></div>
+                <ul>
+                    <li>
+                        <a href="javascript:;" info="3"><img src="./images/f1.png"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" info="4"><img src="./images/f2.png"></a>
+                    </li>
+                </ul>
+            </div>
+					</div>
+        </div>
+
+        <!-- 答题页面 -->
+        <div class="question">
+					<div class="center">
+            <div class="tips">
+                <span class="qnum">1</span>
+                <span>4</span>
+            </div>
+            <div class="gifcon fadeInDown">
+                <img src="" id="question_gif">
+            </div>
+            <div class="qtxt">
+                <img id="question_desc" src="" />
+            </div>
+            <ul class="answer">
+                <li class="flipInX1"><a href="javascript:;" info="A"><img src="" id="option1"></a></li>
+                <li class="flipInX2"><a href="javascript:;" info="B"><img src="" id="option2"></a></li>
+                <li class="flipInX3"><a href="javascript:;" info="C"><img src="" id="option3"></a></li>
+            </ul>
+					</div>
+        </div>
+
+        <!-- 计算结果 -->
+        <div class="compute">
+					<div class="center">
+            <div class="loadgif"><img src="./images/load.gif"></div>
+            <div class="txtcon">
+                <div class="txt0">正在计算结果中...</div>
+                <div class="txt1">验证三观..</div>
+                <div class="txt2">检视三围...</div>
+                <div class="txt3">刚才你犹豫了一会儿...</div>
+                <div class="txt4">你觉得我们的设计太丑了...</div>
+                <div class="txt5">感受脑波中...</div>
+                <div class="txt6">人物形象get！...</div>
+                <div class="txt7">结果输出，请稍候...</div>
+            </div>
+            <!-- <div class="tlt">正在计算结果中...<br/>验证三观..<br/>检视三围...<br/>刚才你犹豫了一会儿...<br/>你觉得我们的设计太丑了...<br/>感受脑波中...<br/>人物形象get！...<br/>结果输出，请稍候...
+            </div> -->
+					</div>
+        </div>
+    </div>
+<!-- #parse("/template/comm.html") -->
+</body>
+</html>

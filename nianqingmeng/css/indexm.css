@@ -1,0 +1,100 @@
+@charset "utf-8";
+/**不同屏幕设备字体等比例自适应**/
+@media screen and (min-width: 160px) {html{font-size:312.5%;}}
+@media screen and (min-width: 200px) {html{font-size:390.625%;}}
+@media screen and (min-width: 240px) {html{font-size:468.75%;}}
+@media screen and (min-width: 280px) {html{font-size:546.875%;}}
+@media screen and (min-width: 320px) {html{font-size:625%;}}
+@media screen and (min-width: 360px) {html{font-size:703.125%;}}
+@media screen and (min-width: 400px) {html{font-size:781.25%;}}
+@media screen and (min-width: 440px) {html{font-size:859.375%;}}
+@media screen and (min-width: 480px) {html{font-size:937.5%;}}
+@media screen and (min-width: 520px) {html{font-size:1015.625%;}}
+@media screen and (min-width: 560px) {html{font-size:1093.75%;}}
+@media screen and (min-width: 600px) {html{font-size:1171.875%;}}
+@media screen and (min-width: 640px) {html{font-size:1250%;}}
+@media screen and (min-width: 680px) {html{font-size:1328.125%;}}
+@media screen and (min-width: 720px) {html{font-size:1406.25%;}}
+@media screen and (min-width: 760px) {html{font-size:1484.375%;}}
+@media screen and (min-width: 800px) {html{font-size:1562.5%;}}
+body,html{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+.red{color: #cc0000}
+.all,.result{font-size:0.10rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;background:url(../images/txt_bot1.png) 50% 100% no-repeat,url(../images/bg_grid.png) 0 0 repeat;background-size:3.18rem 0.365rem,0.045rem 0.05rem;}
+.result{background: url(../images/bg_grid.png) 0 0 repeat;background-size:0.045rem 0.05rem;}
+.loading,.question,.candidate,.compute,.star{position:absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.loading{z-index: 50}
+.star{z-index: 40}
+.candidate{z-index: 30}
+.question{z-index: 20}
+.compute{z-index: 10}
+.center{ position: absolute; top: 50%; left: 50%;
+-webkit-transform: translate3d(-50%,-55%,0);
+-o-transform: translate3d(-50%,-55%,0);
+-moz-transform: translate3d(-50%,-55%,0);
+-ms-transform: translate3d(-50%,-55%,0);
+transform: translate3d(-50%,-55%,0);}
+/*加载页*/
+/*.loading,*/.star,.question,.candidate,.compute{display: none;overflow: hidden;}
+.loading .loadgif{width:1.6rem;height: 1.3rem;overflow: hidden;margin: 1.2rem auto 0;}
+.loading .loadgif img{width: 100%;max-width: 100%}
+.loading .tip{font-size: 0.1rem;font-weight: bold;color:#0043cc;text-align: center;margin-top: 0.1rem}
+
+/*开始测试提醒页*/
+.star .title1{position: absolute;z-index:1;top:0.07rem;left:0;background: url(../images/title1.png) 50% 0 no-repeat;background-size: 2.86rem 0.94rem;width: 100%;height: 0.94rem;
+  -webkit-animation: bounceInUp 1s ease 0s 1; -moz-animation: bounceInUp 1s ease 0s 1; animation: bounceInUp 1s ease 0s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.star .title2{position: absolute;z-index:2;top:1.37rem;left:0;background: url(../images/title2.png) 50% 0 no-repeat;background-size: 2.86rem 0.94rem;width: 100%;height: 0.94rem;
+  -webkit-animation: bounceInDown 1s ease 0s 1; -moz-animation: bounceInDown 1s ease 0s 1; animation: bounceInDown 1s ease 0s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.star .titletra{position: absolute;z-index:3;top:0.55rem;left:50%;background: url(../images/titletra_shadow.png) 50% 100% no-repeat;background-size: 1.30rem 1.18rem;width: 1.25rem;height: 1.3rem;margin-left: -0.625rem;
+  -webkit-animation: bounceIn 0.8s ease 1s 1; -moz-animation: bounceIn 0.8s ease 1s 1; animation: bounceIn 0.8s ease 1s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.star .titletra img{width: 100%;max-width: 100%}
+.star .bot{text-align: center;margin-top: 2.6rem }
+.star .bot .btn_begin{background: url(../images/btn-begin.png) 0 0 no-repeat;background-size:0.845rem 1.1rem;width: 0.845rem;height: 1.1rem;display: block;margin: 0 auto;
+  -webkit-animation: fadeInDown 1s ease 1.6s 1; -moz-animation: fadeInDown 1s ease 1.6s 1; animation: fadeInDown 1s ease 1.6s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.star .bot div{font-weight: bold;font-size: 0.15rem;margin-top: 0.15rem;
+  -webkit-animation: fadeInDown 1s ease 2.6s 1; -moz-animation: fadeInDown 1s ease 2.6s 1; animation: fadeInDown 1s ease 2.6s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+
+/*选人*/
+.candidate .boy{-webkit-animation: bounceInLeft 1s ease 0s 1; -moz-animation: bounceInLeft 1s ease 0s 1; animation: bounceInLeft 1s ease 0s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.candidate .girl{-webkit-animation: bounceInRight 1s ease 0s 1; -moz-animation: bounceInRight 1s ease 0s 1; animation: bounceInRight 1s ease 0s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.candidate .bor_dash{border:1px dashed #0043cc;border-radius: 0.1rem;width: 3rem;margin: 0.05rem auto}
+.candidate .boy .tip{float: left;width:0.18rem;height: 0.5rem;margin-top:0.7rem;background:url(../images/boy.png) 50% 0 no-repeat;background-size:0.13rem 0.5rem;}
+.candidate .boy ul{float: left;width: 2.75rem;margin: 0.04rem 0}
+.candidate .bor_dash ul li img{width: 100%;max-width: 100%}
+.candidate .girl .tip{float: right;width:0.18rem;height: 0.5rem;margin-top:0.7rem;background:url(../images/girl.png) 50% 0 no-repeat;background-size:0.13rem 0.5rem;}
+.candidate .girl ul{float: right;width: 2.75rem;margin: 0.04rem 0}
+.candidate .tiptxt{font-size: 0.15rem;font-weight: bold;text-align: center;color: #0043cc;
+	-webkit-animation: bounceIn 1s ease 0.4s 1; -moz-animation: bounceIn 1s ease 0.4s 1; animation: bounceIn 1s ease 0.4s 1; -ms-animation: none; -webkit-animation-fill-mode: both;
+}
+.candidate .bor_dash ul li{margin: 0.04rem 0}
+.candidate .bor_dash ul li a{display: block;}
+
+
+/*答题页*/
+.question .tips{width:0.4rem;height: 0.4rem;position: absolute;top: 0.2rem;left: 0.08rem;background:url(../images/tips.png) 0 0 no-repeat;background-size:0.4rem 0.4rem;}
+.question .tips span{position: absolute;font-size:0.12rem;font-weight: bold;color: #0043cc;}
+.question .tips span:nth-child(1){left: 0.11rem;top: 0.06rem}
+.question .tips span:nth-child(2){right: 0.11rem;bottom: 0.08rem}
+.question .gifcon{width: 2.5rem;height: 1.75rem;margin: 0.2rem 0 0 0.55rem;overflow: hidden;}
+.question .gifcon img{width: 100%;max-width:100%;display: block;}
+.question .qtxt{width: 2.87rem;height: 0.3rem;margin:0.1rem auto 0;text-align: center;vertical-align: middle;font-size: 0.15rem;font-weight: bold;color:#0043cc;}
+.question .qtxt img{width: 100%;max-width: 100%}
+.question .answer li{width: 2.8rem;margin: 0.05rem auto;}
+.flipInX1{-webkit-animation: flipInX 1s ease 0s 1; -moz-animation: flipInX 1s ease 0s 1; animation: flipInX 1s ease 0s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.flipInX2{-webkit-animation: flipInX 1s ease 0.1s 1; -moz-animation: flipInX 1s ease 0.1s 1; animation: flipInX 1s ease 0.1s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.flipInX3{-webkit-animation: flipInX 1s ease 0.2s 1; -moz-animation: flipInX 1s ease 0.2s 1; animation: flipInX 1s ease 0.2s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+.fadeInDown{-webkit-animation: fadeInDown 1s ease 0s 1; -moz-animation: fadeInDown 1s ease 0s 1; animation: fadeInDown 1s ease 0s 1; -ms-animation: none; -webkit-animation-fill-mode: both; }
+
+.question .answer li img{width: 100%;max-width: 100%;}
+
+/*计算*/
+.compute .loadgif{width:1.6rem;height: 1.3rem;overflow: hidden;margin: 0 auto 0;}
+.compute .loadgif img{width: 100%;max-width: 100%}
+.compute .txtcon{text-align: center;color: #0043cc;line-height:0.15rem;font-size: 0.12rem;width: 2.6rem;}
+
+/**/
+.result .txt{font-size: 0.15rem;line-height: 0.3rem;margin-top: 0.1rem;color: #0043cc;text-align: center;}
+.result .imgcon{width:2.35rem; text-align: center;margin: 0 auto}
+.result .imgcon img,.result .endinfo img,.result .again img{width: 100%;max-width: 100%;}
+.result .location{color: #0043cc;text-align: center;font-size: 0.13rem;font-weight: bold;}
+.result .endinfo{width: 2.89rem;margin: 0 auto}
+.result .again{display: block;width:1.73rem;height:0.5rem;margin: 0 auto;overflow: hidden;}
