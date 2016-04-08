@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>刮奖</title>
+    <meta name="description" content="刮奖">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {
+        margin: 0;
+    }
+    
+    #price {
+        width: 200px;
+        height: 100px;
+        font-size: 40px;
+        color: #f60;
+        line-height: 100px;
+        text-align: center;
+    }
+    
+    #canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="price">谢谢惠顾</div>
+    <canvas id="canvas" width="200" height="100">你的浏览器不支持canvas</canvas>
+    <script>
+    // 得到画笔
+    var convas = document.getElementById("canvas"),
+        ctx = convas.getContext("2d"),
+        touchRadius = 10; // 默认手指触摸半径，可以自定义设置
+
+    // 默认填充灰色来遮住文字
+    ctx.fillStyle = "#ccc";
+    ctx.fillRect(0, 0, 200, 100); // fillRect，用矩形填充
+
+    // 画园的方法
+    // @param { integer } 圆心的x坐标
+    // @param { integer } 圆心的y坐标
+    // @param { integer } 圆心半径
+    // @param { string } 填充的颜色（本例中会通过其余代码设置为‘透明’，所以这个设置可以忽略）
+    var fillCircle = function(x, y, radius, fillColor) {
+        this.fillStyle = fillColor || "#eee";
+        this.beginPath();
+        this.moveTo(x, y);
+        this.arc(x, y, radius, 0, Math.PI * 2, false); // 标准画圆
+        this.fill();
+    };
+
+    // 得到涂抹的百分比（此处参考了部分他人代码，出处http://www.cnblogs.com/jscode/p/3580878.html）
+    var getTransparentPercent = function(ctx, width, height) {
+        var imgData = ctx.getImageData(0, 0, width, height), // 得到canvas的像素信息
+            pixles = imgData.data,
+            transPixs = [];
+        for (var i = 0, j = pixles.length; i < j; i += 4) { // 因为存储的结构为[R, G, B, A]，所以要每次跳4个长度
+            var a = pixles[i + 3]; // 拿到存储alpha通道的值
+            if (a === 0) { // alpha通道为0，就代表透明
+                transPixs.push(i);
+            }
+        }
+        return (transPixs.length / (pixles.length / 4) * 100).toFixed(2);
+    }
+
+    // 绑定事件（此处参考了部分他人代码，出处http://www.cnblogs.com/jscode/p/3580878.html）
+    // 需要判断是PC还是手机
+    var device = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()),
+        clickEvtName = device ? 'touchstart' : 'mousedown',
+        moveEvtName = device ? 'touchmove' : 'mousemove';
+
+    // 判断是不是开始触摸等
+    if (!device) {
+        var isMouseDown = false;
+        document.addEventListener('mouseup', function(e) {
+            isMouseDown = false;
+        }, false);
+    } else {
+        document.addEventListener("touchmove", function(e) {
+            if (isMouseDown) {
+                e.preventDefault();
+            }
+        }, false);
+        document.addEventListener('touchend', function(e) {
+            isMouseDown = false;
+        }, false);
+    }
+
+    // 开始移动
+    canvas.addEventListener(clickEvtName, function(e) {
+        isMouseDown = true;
+        var x = (device ? e.touches[0].clientX : e.clientX);
+        var y = (device ? e.touches[0].clientY : e.clientY);
+        ctx.globalCompositeOperation = 'destination-out'; // 关键部分，描述当在canvas上再次绘画时候的情况，这个设置便是之前所说的透明
+        fillCircle.call(ctx, x, y, touchRadius);
+        console.log("当前涂抹比例为：" + getTransparentPercent(ctx, 200, 100));
+    }, false);
+
+    // 移动中
+    canvas.addEventListener(moveEvtName, function(e) {
+        if (!device && !isMouseDown) {
+            return false;
+        }
+        var x = (device ? e.touches[0].clientX : e.clientX);
+        var y = (device ? e.touches[0].clientY : e.clientY);
+        ctx.globalCompositeOperation = 'destination-out';
+        fillCircle.call(ctx, x, y, touchRadius);
+        console.log("当前涂抹比例为：" + getTransparentPercent(ctx, 200, 100));
+    }, false);
+    </script>
+</body>
+
+</html>
