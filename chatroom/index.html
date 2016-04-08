@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>直面挑战 无他不爽</title>
+    <meta property="og:description" content="直面挑战 无他不爽" />
+    <meta property="og:image" content="http://m.yx.renren.com/2467/share.jpg" />
+    <link rel="stylesheet" type="text/css" href="http://yx.xnimg.cn/base/component/app/jquery.yx.mobile.2.0.css" />
+</head>
+<style>
+
+    .clearfix:after {display: block; content: ''; clear: both; } .clearfix {zoom: 1 } * {padding: 0; margin: 0 } html, body {position: relative; height: 100%; overflow: hidden; background-color: #ebebeb; font-family: "Microsoft Yahei"; }ul{margin: 0 16px;} ul, li {line-height: 1; font-size: 12px;} .box { position: absolute; width: 100%;top: 0;bottom: 52px;text-align: center; overflow: auto;} .title1 {background-color: #cecece; display: inline-block; border-radius: 8px; margin: 13px auto 0; text-align: center; } .title1 p {color: #fff; font-size: 15px; font-family: "Microsoft Yahei"; text-align: center; padding: 8px 10px 8px 10px; margin: 0 auto; } .title2 {background-color: #cecece; display: inline-block; border-radius: 8px; margin: 16.5px auto 10px; text-align: center; padding: 8px 10px 8px 10px; } .title2 img {width: 12px; height: 13.5px; margin-left: 4px; margin-right: 4px; } .title2 span {color: #fff; font-size: 15px; font-family: "Microsoft Yahei"; text-align: center; padding-top: 0px; width: 90%; margin: 0 auto; } .msg {position: relative; margin-top: 12px; padding-left: 40px; padding-right: 40px; } .msg .fudong {float: left; } .starHead {position: absolute; left: 0; top: 0; width: 40px; height: 40px; float: left; } .starHead img {width: 100%; height: 100%; } .starRight {margin-left: 6px; } .starName {color: #888888; font-size: 12px; line-height: 16px;font-family: "Microsoft Yahei"; text-align: left; margin-left: 6px; } .music {width: 12px; height: 13.5px; margin-left: 2px; margin-bottom: -1px; } .qipao {margin-left: 5px; margin-top: 3px; float: left; } .qipao1 {width: 8px; height: 11px; position: absolute; left: 45px; top: 30px; } .qipao1 img {display: block; width: 100%; height: 100%; } .qipao2 {background-color: #fff; border-radius: 8px; border: 1px #DCD9D9 solid; } .qipao2 .content {color: #000; font-size: 15px; font-family: "Microsoft Yahei"; text-align: left; padding: 12px; margin: 0 auto; line-height: 24px; display: inline-block; min-height: 16px;} .qipao2 .xiaolian {width: 14px; height: 19px; margin-bottom: -3px; } /*底部输入框*/ .inputBox {height: 50px; width: 100%; background-color: #f6f6f8; border: 1px solid #c4c4c4; position: absolute; left: -1px; bottom: -1px; } .input {padding-left: 42px; padding-right: 130px; } .yuying {width: 42px; height: 50px; position: absolute; left: 0px; top: 0px; float: left; } .yuying img {width: 100%; width: 100%; } .kuang {border-radius: 8px; border: 1px solid #b1b1b3; float: left; width: 100%; margin-top: 7px; margin-left: 3px; } .kuang p {color: #000; font-size: 15px; font-family: "Microsoft Yahei"; text-align: left; padding: 8px; margin: 0 auto; line-height: 17px; display: inline-block; } .biaoqing {width: 47px; height: 50px; position: absolute; top: 0; right: 77px; float: left; } .biaoqing img {width: 100%; width: 100%; } .send {width: 77px; height: 50px; position: absolute; top: 0; right: 0; float: right; /* margin-top: 10px; margin-right: 10px;*/ } .send img {width: 100%; height: 100%; } /*第5条：当前用户说的话*/ .userHead {position: absolute; right: 0; top: 0; width: 40px; height: 40px; float: right; } .userHead img {width: 100%; height: 100%; } .userLeft {margin-right: 6px; } .uesrName {color: #888888; font-size: 12px; font-family: "Microsoft Yahei"; text-align: right; margin-right: 6px; } .userqipao {margin-right: 5px; margin-top: 3px; float: right; } .userqipao1 {width: 8px; height: 11px; position: absolute; right: 45px; top: 30px; } .userqipao1 img {display: block; width: 100%; height: 100%; } .userqipao2 {background-color: #a0e75a; border-radius: 8px; border: 1px #85e255 solid; } .userqipao2 .content {color: #000; font-size: 15px; text-align: left; padding: 12px; margin: 0 auto; line-height: 24px; display: inline-block; }
+</style>
+<body ng-app="chatroom">
+    <div class="box" ng-controller="ChatroomController">
+        <div>
+            <div class="title1">
+                <p>何润东邀请你加入了群聊，参与聊天的还有：凡凡，黑人</p>
+            </div>
+        </div>
+        <ul>
+            <li ng-repeat="user in users" class="msg clearfix">
+                <div class="starHead"><img ng-src="{{user.headimg}}"/></div>
+                <div class="starRight">
+                    <div class="starName" ng-bind="user.nickname"></div>
+                    <div class="qipao">
+                        <div class="qipao1">
+                            <img src="./images/qipao.png" />
+                        </div>
+                        <div class="qipao2">
+                            <p class="content" ng-bind="user.message"></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!--第5条： 当前用户的-->
+        <div class="msg clearfix">
+            <div class="userHead"><img src="http://wx.qlogo.cn/mmopen/78EkX665csDa8oQeRVgdZdn2ATBQ6EXOk2sv5DKAAZZOBc4pMCboyLrfmrEUmVyOCYUd7Ro3k7MGn7UbjYBf3Q/0" />
+            </div>
+            <div class="userLeft">
+                <p class="uesrName">文森特</p>
+                <div class="userqipao">
+                    <div class="userqipao1">
+                        <img src="./images/qipao2.png" />
+                    </div>
+                    <div class="userqipao2">
+                        <p class="content">赞啦！我也要看</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部输入部分-->
+    <div class="inputBox">
+        <div class="input clearfix">
+            <div class="yuying">
+                <img src="./images/icon2.png" />
+            </div>
+            <div class="kuang">
+                <p>&nbsp</p>
+            </div>
+            <div class="biaoqing">
+                <img src="./images/icon3.png" />
+            </div>
+            <div class="send" id="send">
+                <img src="./images/btn-send.png" />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript">
+        angular.module('chatroom', []);
+        angular.module('chatroom').controller('ChatroomController', function($scope) {
+            $scope.users=[
+                {
+                    nickname:'凡凡',
+                    headimg:'./images/head1.png',
+                    message:'我刚打完全明星赛，怎么没看到你啊，东哥？@何润东',
+                },
+                {
+                    nickname:'周公举',
+                    headimg:'./images/head2.png',
+                    message:'1211',
+                },
+                {
+                    nickname:'黑人',
+                    headimg:'./images/head3.png',
+                    message:'741',
+                },
+                {
+                    nickname:'何润东',
+                    headimg:'./images/head4.png',
+                    message:'963',
+                },
+                {
+                    nickname:'未知用户',
+                    headimg:'./images/head5.png',
+                    message:'852',
+                },
+            ];
+            // $scope.user = {
+            //     nickname:'',
+            //     headimg:'',
+            // };
+        });
+    </script>
+</body>
+</html>
