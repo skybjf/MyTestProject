@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>测试音频播放器</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script type="text/javascript" src=""></script>
+</head>
+
+<body>
+    <a href="###" class="btn-audio">开始</a>
+    <script type="text/javascript">
+    window.onload = function() {
+        var btnaudio = document.querySelector('.btn-audio');
+        var playFlag = false;
+        var myaudio = new MyAudio({
+            src: 'http://yx.xnimg.cn/minisite/201602/2468/bg.mp3',
+            time: 2000
+        });
+        btnaudio.onclick = function() {
+            if (!playFlag) {
+                myaudio.play();
+                playFlag = true;
+            } else {
+                myaudio.pause();
+                playFlag = false;
+            }
+        }
+    }
+
+    Math.formatFloat = function(num, digit) {
+        var m = Math.pow(10, digit);
+        return parseInt(num * m, 10) / m;
+    }
+
+    function MyAudio(options, callback) {
+        var loadflag = false,
+            volUpTimer, volDownTimer;
+        var difVol = 50 / options.time;
+        difVol = Math.formatFloat(difVol, 3);
+
+        this.audio = new Audio();
+        this.audio.src = options.src;
+        this.audio.loop = true;
+        this.audio.volume = 0;
+        this.play = function() {
+            this.volUp();
+            clearTimeout(volDownTimer);
+        }
+        this.pause = function() {
+            clearTimeout(volUpTimer);
+            this.volDown();
+        }
+
+        // 音量递增
+        this.volUp = function() {
+            if (this.audio.volume + difVol >= 1) {
+                clearTimeout(volUpTimer);
+                this.audio.volume = 1;
+                console.log("加加:" + this.audio.volume);
+            } else {
+                this.audio.play();
+                this.audio.volume += difVol;
+                this.audio.volume = Math.formatFloat(this.audio.volume, 3);
+                volUpTimer = setTimeout(this.volUp.bind(this), 50);
+                console.log("加加:" + this.audio.volume);
+            }
+        }
+
+        // 音量递减
+        this.volDown = function() {
+            if (this.audio.volume - difVol < 0) {
+                this.audio.volume = 0;
+                this.audio.pause();
+                clearTimeout(volUpTimer);
+                console.log("减减:" + this.audio.volume);
+
+            } else {
+                this.audio.volume -= difVol;
+                this.audio.volume = Math.formatFloat(this.audio.volume, 3);
+                volDownTimer = setTimeout(this.volDown.bind(this), 50);
+                console.log("减减:" + this.audio.volume);
+
+            }
+        }
+
+    }
+    </script>
+</body>
+
+</html>
