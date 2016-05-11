@@ -21,44 +21,45 @@
         var btnaudio = document.querySelector('.btn-audio');
         var btnvoldown = document.querySelector('.btn-voldown');
         var btnvolup = document.querySelector('.btn-volup');
-
+        var volUpTimer,volDownTimer;
+        // btnvoldown.onclick = function() {
+        //     audio.volume -= 0.1;
+        //     console.log("音量减->现在的音量：" + audio.volume);
+        // }
+        // btnvolup.onclick = function() {
+        //     audio.volume += 0.1;
+        //     console.log("音量加->现在的音量：" + audio.volume);
+        // }
         var audio = new Audio('hbg.mp3');
         var playFlag = false;
         audio.volume = 0;
         console.log(audio.volume);
         btnaudio.onclick = function() {
             if (!playFlag) {
-                clearTimeout(volDown);
+                clearTimeout(volDownTimer);
                 this.innerHTML = "STOP";
                 audio.play();
                 volUp();
                 playFlag = true;
             } else {
-                clearTimeout(volUp);
+                clearTimeout(volUpTimer);
                 this.innerHTML = "PLAY";
                 volDown();
                 playFlag = false;
             }
         };
 
-        btnvoldown.onclick = function() {
-            audio.volume -= 0.1;
-            console.log("音量减->现在的音量：" + audio.volume);
-        }
-        btnvolup.onclick = function() {
-                audio.volume += 0.1;
-                console.log("音量加->现在的音量：" + audio.volume);
-            }
-            // 音量递增
+
+        // 音量递增
         function volUp() {
             if (audio.volume + 0.005 >= 1) {
                 audio.volume = 1;
-                clearTimeout(volUp);
+                clearTimeout(volUpTimer);
                 return false;
             } else {
                 audio.volume += 0.005;
                 audio.volume = Math.formatFloat(audio.volume, 3);
-                setTimeout(volUp, 50);
+                volUpTimer = setTimeout(volUp, 50);
                 console.log("音量加->现在的音量：" + audio.volume);
             }
         }
@@ -67,12 +68,12 @@
             if (audio.volume - 0.005 < 0) {
                 audio.volume = 0;
                 audio.pause();
-                clearTimeout(volDown);
+                clearTimeout(volUpTimer);
                 return false;
             } else {
                 audio.volume -= 0.005;
                 audio.volume = Math.formatFloat(audio.volume, 3);
-                setTimeout(volDown, 50);
+                volDownTimer = setTimeout(volDown, 50);
                 console.log("音量减->现在的音量：" + audio.volume);
             }
         }
@@ -81,6 +82,18 @@
             return parseInt(num * m, 10) / m;
         }
     }
+
+    // options{
+    //     button:控制的按钮,
+    //     musicURL:音频文件的路径
+    // };
+    // function MusicController(options,callback){
+    //     var playFlag = false;
+    //     this.audio = new Audio(options.misicURL);
+    //     this.button=options.button;
+    //     audio.volume = 0;
+    // }
+
     </script>
 </body>
 
