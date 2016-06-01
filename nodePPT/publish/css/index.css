@@ -1,0 +1,25 @@
+@charset "UTF-8";
+blockquote{
+	display: block;
+	width: 100%;
+}
+#jiaozicon{
+	transition: all 300ms;
+}
+.textL{
+	text-align: left;
+}
+.nostyle{
+	list-style-type:none 
+}
+.layout-widescreen .columns-2>*{
+	max-width: 500px !important;
+}
+.slide.fill img {
+    position: relative;
+    left: initial;
+    top: initial;
+    min-width: auto;
+    min-height: auto;
+    z-index: 1; 
+}
