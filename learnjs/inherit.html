@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>学习继承</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function Person() {
+        this.name = "Person";
+        this.talk = function() {
+            console.log("talk:" + this.name);
+        };
+    }
+    Person.prototype.say = function() {
+        console.log(this.name);
+    };
+
+    function Kid() {
+        Person.call(this);
+    }
+
+    var person = new Person();
+    person.say();
+
+    var kid = new Kid();
+    kid.say();
+    </script>
+    <script type="text/javascript">
+		// call 继承
+		function Person(name,words) {
+	        this.name =name;
+	        this.talk = function() {
+	            console.log("My name is:"+this.name+"\nI say:" + words);
+	        };
+	    }
+	    function Kidcall() {
+	        Person.call(this,"Call","Hello");
+	    }
+	    function Kidapply() {
+	        Person.apply(this,["Apply","Hello"]);
+	    }
+	    var kidcall = new Kidcall();
+	    kidcall.talk();
+	    var kidapply = new Kidapply();
+	    kidapply.talk();
+
+    </script>
+</body>
+
+</html>

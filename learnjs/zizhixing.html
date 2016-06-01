@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自执行函数</title>
+</head>
+<body>
+
+<script type="text/javascript">
+;(function(){
+	function People(){
+	}
+ 	function Person(age){
+ 		this.age = age;
+ 		this.show=function(){
+ 			console.log(this);
+ 			console.log(this.age);
+ 		}
+ 	}
+ 	var person = new Person(10);
+ 	person.show();
+})();
+</script>
+</body>
+</html>
