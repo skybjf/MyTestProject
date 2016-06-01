@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>call方法</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script type="text/javascript">
+		var li_list = document.getElementsByTagName("li");
+		var arr = new Array();
+		arr=["1",2,3,5,6,7,8,10,1];
+		console.log(arr instanceof Array);
+		arr.forEach(function(item,index,arr){
+			console.log(item);
+		})
+
+		Array.apply(null,li_list).forEach(function(item,index,arr){
+			console.log(item.innerHTML-1);
+		})
+
+
+	</script>
+</body>
+</html>
