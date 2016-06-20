@@ -1,12 +1,12 @@
-var arr= new Array("Audi","Car","Java","Node","11",11,"66");
+var arr = new Array("Audi", "Car", "Java", "Node", "11", 11, "66");
 console.info("forEach");
-arr.forEach(function(value,index,array){
-  console.log(value+"----"+index+"----"+array);
+arr.forEach(function(value, index, array) {
+    console.log(value + "----" + index + "----" + array);
 });
 
 console.info("Key in");
-for(var key in arr){
-  console.log(key);
+for (var key in arr) {
+    console.log(key);
 }
 
 console.info("pop()的使用");
@@ -33,9 +33,33 @@ console.log(arr);
 console.info("splice()的使用");
 arr.splice(5);
 console.log(arr);
-arr.splice(2,2);
+arr.splice(2, 2);
 console.log(arr);
-arr.splice(0,1,"append1","append2");
+arr.splice(0, 1, "append1", "append2");
 console.log(arr);
-arr.splice(2,"append3","append4");
+arr.splice(2, "append3", "append4");
 console.log(arr);
+
+
+var uniqueArr = [1,2,3,5,4,8,5,2,1,4,5,5,4,5,2,1,4,0];
+unique(uniqueArr);
+function unique(array) {
+    var uniqueObj = {};
+    var curArr = [];
+    for (var key in array) {
+        console.log(array[key]);
+    	if(uniqueObj[array[key]] == array[key]){
+    		continue;
+    	}else{
+    		uniqueObj[array[key]] = array[key];
+    	    curArr.push(uniqueObj[array[key]]);
+        }
+    }
+    return curArr;
+}
+
+function chen(n){
+	if(n % 2 == 0 && n >= 0){
+		return n*cheng(n-2);
+	}
+}
