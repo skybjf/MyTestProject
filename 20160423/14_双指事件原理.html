@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<style>
+#box{
+	width: 150px;
+	height: 150px;
+	background: red;
+}
+</style>
+<script>
+document.addEventListener(
+	"touchmove",
+	function(e){
+		e.preventDefault();
+	},
+	false
+);
+function getDistance(p1, p2) {
+    var x = p2.pageX - p1.pageX,
+        y = p2.pageY - p1.pageY;
+
+    return Math.sqrt((x * x) + (y * y));
+}
+function getAngle(p1, p2) {
+    var x = p1.pageX - p2.pageX,
+        y = p1.pageY- p2.pageY;
+    return Math.atan2(y, x) * 180 / Math.PI;
+}
+function setGesture(el){
+	var obj = {};
+	var isGesTure = false;
+	var rotate = 0;
+	var scale = 1;
+	var startPinter = [];
+	var startRotate = [];
+	el.addEventListener(
+		"touchstart",
+		function(e){
+			if(e.touches.length >= 2){
+				isGesTure = true;
+				startPinter = e.touches;
+				obj.gesturestart&&obj.gesturestart.call(el,e);
+			}
+		},
+		false
+	);
+	el.addEventListener(
+		"touchmove",
+		function(e){
+			if(e.touches.length >= 2&&isGesTure){
+				var nowPinter = e.touches;
+				var deg1 =  getAngle(nowPinter[0], startPinter[1]);
+				var deg2 = getAngle(nowPinter[0], nowPinter[1]);
+				var deg = deg2 - deg1;
+				var dis =  getDistance(nowPinter[0],nowPinter[1]) / getDistance(startPinter[0],startPinter[1]);
+				e.rotation = Number(deg.toFixed(2));
+				e.scale = Number(dis.toFixed(2));
+				obj.gesturemove&&obj.gesturemove.call(el,e);
+				e.preventDefault();
+			}
+		},
+		false
+	);
+	document.addEventListener(
+		"touchend",
+		function(e){
+			if(isGesTure){
+				isGesTure = false;
+				obj.gestureend&&obj.gestureend.call(el);
+			}
+		},
+		false
+	);
+	return obj;
+}
+window.onload = function(){
+	var box = document.getElementById("box");
+	var boxGesture =  setGesture(box);
+	boxGesture.gesturestart = function(){
+		this.style.background = "yellow";
+	};
+	boxGesture.gesturemove = function(e){
+		this.innerHTML = e.scale+"|"+e.rotation;
+	};
+	boxGesture.gestureend = function(e){
+		this.innerHTML = "";
+		this.style.background = "red";
+	};
+};
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

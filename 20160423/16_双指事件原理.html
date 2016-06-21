@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<style>
+#box{
+	width: 150px;
+	height: 150px;
+	background: red;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -75px 0 0 -75px;
+}
+</style>
+<script>
+document.addEventListener(
+	"touchmove",
+	function(e){
+		e.preventDefault();
+	},
+	false
+);
+function getDistance(p1, p2) {
+    var x = p2.pageX - p1.pageX,
+        y = p2.pageY - p1.pageY;
+    return Math.sqrt((x * x) + (y * y));
+}
+function getAngle(p1, p2) {
+    var x = p1.pageX - p2.pageX,
+        y = p1.pageY- p2.pageY;
+    return Math.atan2(y, x) * 180 / Math.PI;
+}
+function setGesture(el){
+	var obj = {};
+	var isGesTure = false;
+	var startPinter = [];
+	el.addEventListener("touchstart",
+		function(e){
+			if(e.touches.length >= 2){
+				isGesTure = true;
+				startPinter = e.touches;
+				obj.gesturestart&&obj.gesturestart.call(el);
+			}
+		},
+		false
+	);
+	document.addEventListener("touchmove",
+		function(e){
+			if(e.touches.length >= 2&&isGesTure){
+				var nowPinter = e.touches;
+				var scale = getDistance(nowPinter[0], nowPinter[1]) / getDistance(startPinter[0], startPinter[1]);
+				var rotate =  getAngle(nowPinter[0], nowPinter[1]) -  getAngle(startPinter[0], startPinter[1]) 
+				e.scale = scale; 
+				e.rotation = rotate;
+				obj.gesturemove&&obj.gesturemove.call(el,e);
+			}
+		},
+		false
+	)
+	document.addEventListener("touchend",
+		function(){
+			if(isGesTure){
+				isGesTure = false
+				obj.gestureend&&obj.gestureend.call(el);
+			}
+		},
+		false
+	);
+	return obj;
+}
+window.onload = function(){
+	var box = document.getElementById("box");
+	var boxGesture =  setGesture(box);
+	var startScale = 1;
+	var scale = 1;
+	var rotate = 0;
+	var startRoate = 0;
+	boxGesture.gesturestart = function(){
+		this.style.background = "yellow";
+		startScale = scale;
+		startRoate = rotate;
+	};
+	boxGesture.gesturemove = function(e){
+		this.innerHTML = e.scale;
+		scale = startScale*e.scale;
+		if(scale > 2){
+			scale =2;
+		}
+		rotate = startRoate + e.rotation;
+		this.style.WebkitTransform = this.style.transform ="scale("+scale+") rotate("+rotate+"deg)";
+		this.innerHTML = e.scale+"|"+e.rotation;
+	};
+	boxGesture.gestureend = function(e){
+		this.innerHTML = "";
+		this.style.background = "red";
+	};
+};
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<style>
+#box{
+	width: 150px;
+	height: 150px;
+	background: red;
+}
+</style>
+<script>
+window.onload = function(){
+	var box = document.getElementById("box");
+	document.addEventListener(
+		"touchmove",
+		function(e){
+			e.preventDefault();
+		},
+		false
+	);
+	box.addEventListener(
+		"gesturestart",
+		function(){
+			this.style.background = "yellow";
+		},
+		false
+	);
+	box.addEventListener(
+		"gesturechange",
+		function(e){
+			this.innerHTML = e.scale+"|"+e.rotation;
+		},
+		false
+	);
+	box.addEventListener(
+		"gestureend",
+		function(e){
+			this.innerHTML = "";
+			this.style.background = "red";
+		},
+		false
+	);
+};
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

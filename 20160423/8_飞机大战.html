@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<style>
+html{
+	height: 100%;	
+}
+body{
+	height: 100%;
+	margin: 0;
+	background: url(plane/img_bg_level_1.jpg) no-repeat;
+	background-size: cover;
+	position: relative;
+}
+#box {
+	width: 120px;
+	height: 79px;
+	background: url(plane/plane.png) no-repeat;
+	font: 16px "宋体";
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -39.5px 0 0 -60px;
+}
+</style>
+<script>
+function getIos()
+{
+      var u = navigator.userAgent;
+      return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+}
+
+window.onload = function(){
+	var box = document.getElementById("box");
+	var iX = 0;
+	var iY = 0;
+	var bodyClientX = document.body.clientWidth;
+	var bodyClientY = document.body.clientHeight;
+	var maxX = (bodyClientX - box.offsetWidth)/2;
+	var maxY = (bodyClientY - box.offsetHeight)/2;
+	var dis = 0;
+	//var rotateX = 0;
+	var rotateY = 0;
+	//var rotateZ = 0;
+	window.addEventListener("devicemotion",motion,false);
+	window.addEventListener("deviceorientation",motion2,false);
+	//alert(getIos());
+	function motion(e){
+		var acceleration = e.accelerationIncludingGravity;
+		var x =  parseInt(acceleration.x);
+		var y = parseInt(acceleration.y);
+		if(!getIos()){
+			x= -x;
+			y= -y;
+		}
+		iX += x;
+		iY -= y;
+		if(Math.abs(iX)>(maxX+dis)){
+			iX = iX/Math.abs(iX)*(maxX+Math.abs(dis));
+		}
+		if(Math.abs(iY)>maxY){
+			iY = iY/Math.abs(iY)*maxY;
+		}
+		box.style.WebkitTransform = box.style.transform = "translateX("+parseInt(iX)+"px) translateY("+parseInt(iY)+"px) rotateY("+rotateY+"deg)"; 
+	}
+	function motion2(e){
+		rotateY = e.gamma;
+		if(Math.abs(rotateY) > 45){
+			rotateY = rotateY/Math.abs(rotateY)*45;
+		}
+		dis = parseInt(box.offsetWidth/2-(box.offsetWidth/2*Math.cos(Math.abs(rotateY*Math.PI/180))));
+		box.style.WebkitTransform = box.style.transform = "translateX("+iX+"px) translateY("+iY+"px) rotateY("+rotateY+"deg)"; 
+	}
+};
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

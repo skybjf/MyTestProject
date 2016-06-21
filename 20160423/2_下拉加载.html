@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<script>
+var html = document.getElementsByTagName("html")[0];
+setRem();
+window.addEventListener("resize",setRem,false);
+window.addEventListener("orientationchange",setRem,false);
+function setRem(){
+	var witdh = html.getBoundingClientRect().width;
+	html.style.fontSize = witdh/16 + "px";
+}
+</script>
+<style>
+html ,body{
+	height: 100%;
+	overflow: hidden;
+	font-size: .6rem;
+	font-family: "宋体";
+	background: #ccc; 
+}
+body,ul {
+	margin: 0;
+	padding: 0; 
+}
+li {
+	list-style: none;
+}
+img {
+	vertical-align: middle;
+}
+header {
+	height: 2rem;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	line-height: 2rem;
+	font-size: .8rem;
+}
+#wrap {
+	position: absolute;
+	top: 2rem;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+#list {
+	overflow: hidden;
+}
+#list li{
+	width: 6rem;
+	height: 6rem;
+	margin: .5rem;
+	border: .5rem solid #fff;
+	border-radius: .25rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+	float: left;
+	background:url(pics/loadingImg.gif) no-repeat center center;
+}
+#list  img {
+	width: 6rem;
+	opacity: 0;
+}
+footer{
+	background: #fff;
+	font: .6rem / 60px "宋体";
+	text-align: center;
+	color: #333;
+	position: absolute;
+	bottom: -60px;
+	left: 0;
+	right: 0;
+}
+footer img {
+	height: 40px;
+}
+#scroll {
+	position: relative;
+}
+</style>
+<script src="miaov.touch.js"></script>
+<script>
+var aImg = [];
+for(var i =0; i < 200 ; i++){
+	aImg[i] = "pics/"+(i%16+1)+".jpg";
+}
+</script>
+<script>
+window.onload = function(){
+	var wrap = document.getElementById("wrap");
+	var list = document.getElementById("list");
+	var imgW = html.getBoundingClientRect().width/2;
+	var wrapClient = wrap.clientHeight;
+	var length =  16//Math.ceil(wrapClient / imgW)*2;
+	var lis = wrap.getElementsByTagName("li");
+	var Scroll = null;
+	createImg();
+	function createImg(){
+		var start = lis.length;
+		var end  = start + length;
+		for(var i = start; i < end; i++){
+			create(i);
+		}
+		function create(i){
+			var li = document.createElement("li");
+			var img =  document.createElement("img");
+			li.appendChild(img);
+			list.appendChild(li);
+			var newImg = new Image();
+			newImg.src = aImg[i];
+			newImg.onload = function(){
+				img.src = aImg[i];
+				mTween(img,{opacity: 100},300,"easeOut");
+			};
+		}
+		if(!Scroll){
+			initScroll();
+		}
+	}
+	function initScroll(){
+		Scroll = new MScroll(
+			{
+				element: wrap,
+				showBar: true,
+				dir: "y",
+				isOver: true,
+				offMove: false
+			}
+		);
+		Scroll.backout = 60;
+		Scroll.onscrollend = function(target){
+			if(target == this.minTranslate){
+				console.log("动画结束之后，加载新的");
+			}
+			if(this.iScroll < this.minTranslate){
+				console.log("不需要回弹，直接加载新的");
+			}
+		}
+	}
+};
+</script>
+</head>
+<body>
+<header id="header">miaov--下拉加载</header>
+<section id="wrap">
+	<div id="scroll">
+        <ul id="list">
+        </ul>
+        <footer><img src="pics/loading.gif" />加载更多</footer>
+    </div>
+</section>
+</body>
+</html>

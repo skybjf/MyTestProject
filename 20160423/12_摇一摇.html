@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+gravityShake(
+	function(){
+		alert("摇一摇");
+	}
+);
+function gravityShake(callBack,calling){
+	var SHAKERANGE = 1500;
+	var lastX = 0;
+	var lastY = 0;
+	var lastZ = 0;
+	var lastTime = 0;
+	var isShanke = false;
+	window.addEventListener("devicemotion",fnShake,false);
+	function fnShake(e){
+		var acceleratio = e.accelerationIncludingGravity;
+		var nowTime = new Date().getTime();
+		var disTime = nowTime - lastTime; 
+		if(disTime > 100){
+			var x = acceleratio.x;
+			var y = acceleratio.y;
+			var z = acceleratio.z;
+			var speed = (x+y+z - lastX - lastY - lastZ)/disTime * 5000;
+			if(speed > SHAKERANGE){
+				calling&&calling();
+				isShanke = true;
+			}
+			if(isShanke&&speed<200){
+				isShanke = false;
+				callBack&&callBack();
+			}
+			lastX = x;
+			lastY = y;
+			lastZ = z;
+			lastTime = nowTime;
+		}
+	}
+}
+</script>
+</head>
+<body>
+</body>
+</html>

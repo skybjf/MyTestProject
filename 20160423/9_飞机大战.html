@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<style>
+html{height:100%;}
+body{height:100%;margin:0; overflow:hidden; position:relative;}
+#wrap{width:100%;height:100%; position:absolute;left:0;top:0; box-sizing:border-box;border:10px solid #000; background:url(plane/img_bg_level_1.jpg) no-repeat center center;background-size: cover; overflow:hidden;}
+#plane{width:60px;height:40px; position:absolute;left:50%;top:50%;margin:-20px 0 0 -30px; perspective:80px; -webkit-perspective:80px; font-size:30px;}
+#planeImg{width:60px;height:40px;background:url(plane/plane.png) no-repeat center center;background-size: cover;}
+</style>
+<script>
+window.onload=function(e)
+{
+	var oWrap=document.getElementById("wrap");
+	var oPlane=document.getElementById("plane");
+	var oPlaneImg=document.getElementById("planeImg");
+	var iTranslateX=0;
+	var iTranslateY=0;
+	var iRotateX=0;
+	var oTimer=0;
+	var iStarY = "";
+	var iMaxL=oPlane.offsetLeft;
+	var iMaxT=oPlane.offsetTop;
+	window.addEventListener("devicemotion",fn,false);
+	window.addEventListener("deviceorientation",fn2,false);
+	function fn(e)
+	{
+		var oMotion=e.accelerationIncludingGravity;
+		var iX=parseInt(oMotion.x)
+		var iY=parseInt(oMotion.y);
+		if(iStarY ===""){
+			iStarY=iY;
+		}
+		//oPlane.innerHTML = iY+"|"+iStarY;
+		
+		if(iY<0 && iStarY<0){
+			iY= (iY-iStarY)*2;
+		}else {
+			iY = iY-iStarY;
+		}
+		if(getIos())
+		{
+			iX=-iX;
+			iY=-iY;
+		}
+		iTranslateX-=iX;
+		iTranslateY+=iY;
+		if(Math.abs(iTranslateX)>iMaxL)
+		{
+			iTranslateX=iTranslateX>0?iMaxL:-iMaxL;
+			iTranslateX += iTranslateX>0? Math.abs(dis): -Math.abs(dis);
+		}
+		if(Math.abs(iTranslateY)>iMaxT)
+		{
+			iTranslateY=iTranslateY>0?iMaxT:-iMaxT;
+		}
+		oPlane.style.transform=oPlane.style.WebkitTransform=" translateX("+iTranslateX+"px) translateY("+iTranslateY+"px)";
+	}
+	function fn2(e)
+	{
+		var iY=e.gamma;
+		iRotateX=parseInt(iY);
+		var dis = parseInt(oPlaneImg.offsetWidth/2-(oPlaneImg.offsetWidth/2*Math.cos(Math.abs(iRotateX*Math.PI/180))));
+		oPlaneImg.style.transform=oPlaneImg.style.WebkitTransform=" rotateY("+iRotateX+"deg)";
+	}
+};
+// 直角三角函数中临边比斜边
+function getIos(){var u = navigator.userAgent;
+return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);}
+</script>
+</head>
+<body>
+
+<section id="wrap">
+	<div id="plane">
+		<div id="planeImg"></div>
+    </div>
+</section>
+</body>
+</html>

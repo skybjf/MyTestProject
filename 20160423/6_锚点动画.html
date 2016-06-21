@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<script>
+var html = document.getElementsByTagName("html")[0];
+setRem();
+window.addEventListener("resize",setRem,false);
+window.addEventListener("orientationchange",setRem,false);
+function setRem(){
+	var witdh = html.getBoundingClientRect().width;
+	html.style.fontSize = witdh/16 + "px";
+}
+</script>
+<style>
+html ,body{
+	height: 100%;
+	overflow: hidden;
+	font-size: .6rem;
+	font-family: "宋体";
+	background: #ccc; 
+}
+body,ul {
+	margin: 0;
+	padding: 0; 
+}
+li {
+	list-style: none;
+}
+img {
+	vertical-align: middle;
+}
+header {
+	height: 2rem;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	line-height: 2rem;
+	font-size: .8rem;
+}
+#wrap {
+	position: absolute;
+	top: 2rem;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+#list {
+	overflow: hidden;
+}
+#list li{
+	height: 1.4rem;
+	border-bottom: 1px solid #000;
+	font: .6rem/1.4rem "宋体";
+	text-indent: 2em;
+}
+</style>
+<script src="miaov.touch.js"></script>
+<script>
+window.onload = function(){
+	var wrap = document.getElementById("wrap");
+	var list = document.getElementById("list");
+	var str = "";
+	for(var i = 0; i<200; i++){
+		str +="<li ><a data-href='http://m.baidu.com'>这是第"+i+"个li</a></li>"
+	}
+	list.innerHTML = str;
+	var elements = document.querySelectorAll("a[data-href]");
+	/*mTouch(elements).tap(
+		function(){
+			alert(this.dataset.href);
+		}
+	);*/
+	console.log(elements);
+	var Scroll = new MScroll(
+		{
+			element: wrap,
+			showBar: true,
+			dir: "y",
+			isOver: true,
+			offMove: false 
+		}
+	);
+	
+	Scroll.moveToElement = function(el){
+		var target = -this.getElOffsetTop(el);
+		if(target<this.minTranslate){
+			target = this.minTranslate;
+		}
+		Scroll.move(target - this.iScroll,"easeOut",500);
+	};
+	Scroll.getElOffsetTop = function(el){
+		return el.getBoundingClientRect().top-this.iScroll - this.element.getBoundingClientRect().top;
+	};
+	mTouch(elements[5]).tap(
+		function(){
+		Scroll.moveToElement(elements[190]);		//console.log((elements[30].getBoundingClientRect().top-Scroll.iScroll).toFixed(0));
+		}
+	);
+};
+</script>
+</head>
+<body>
+<header id="header">miaov--下拉加载</header>
+<section id="wrap">
+    <ul id="list">
+    </ul>
+</section>
+</body>
+</html>
