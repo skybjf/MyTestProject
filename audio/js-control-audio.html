@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>测试音频播放器</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script type="text/javascript" src=""></script>
+</head>
+
+<body>
+    <a href="###" class="btn-audio">
+    开始
+</a>
+    <a href="###" class="btn-voldown">audio.volumedown</a>
+    <a href="###" class="btn-volup">audio.volumeyup</a>
+    <script type="text/javascript">
+    window.onload = function() {
+        var btnaudio = document.querySelector('.btn-audio');
+        var btnvoldown = document.querySelector('.btn-voldown');
+        var btnvolup = document.querySelector('.btn-volup');
+        var volUpTimer,volDownTimer;
+        // btnvoldown.onclick = function() {
+        //     audio.volume -= 0.1;
+        //     console.log("音量减->现在的音量：" + audio.volume);
+        // }
+        // btnvolup.onclick = function() {
+        //     audio.volume += 0.1;
+        //     console.log("音量加->现在的音量：" + audio.volume);
+        // }
+        var audio = new Audio('hbg.mp3');
+        var playFlag = false;
+        audio.volume = 0;
+        console.log(audio.volume);
+        btnaudio.onclick = function() {
+            if (!playFlag) {
+                clearTimeout(volDownTimer);
+                this.innerHTML = "STOP";
+                audio.play();
+                volUp();
+                playFlag = true;
+            } else {
+                clearTimeout(volUpTimer);
+                this.innerHTML = "PLAY";
+                volDown();
+                playFlag = false;
+            }
+        };
+
+
+        // 音量递增
+        function volUp() {
+            if (audio.volume + 0.005 >= 1) {
+                audio.volume = 1;
+                clearTimeout(volUpTimer);
+                return false;
+            } else {
+                audio.volume += 0.005;
+                audio.volume = Math.formatFloat(audio.volume, 3);
+                volUpTimer = setTimeout(volUp, 50);
+                console.log("音量加->现在的音量：" + audio.volume);
+            }
+        }
+        // 音量递减
+        function volDown() {
+            if (audio.volume - 0.005 < 0) {
+                audio.volume = 0;
+                audio.pause();
+                clearTimeout(volUpTimer);
+                return false;
+            } else {
+                audio.volume -= 0.005;
+                audio.volume = Math.formatFloat(audio.volume, 3);
+                volDownTimer = setTimeout(volDown, 50);
+                console.log("音量减->现在的音量：" + audio.volume);
+            }
+        }
+        Math.formatFloat = function(num, digit) {
+            var m = Math.pow(10, digit);
+            return parseInt(num * m, 10) / m;
+        }
+    }
+
+    // options{
+    //     button:控制的按钮,
+    //     musicURL:音频文件的路径
+    // };
+    // function MusicController(options,callback){
+    //     var playFlag = false;
+    //     this.audio = new Audio(options.misicURL);
+    //     this.button=options.button;
+    //     audio.volume = 0;
+    // }
+
+    </script>
+</body>
+
+</html>

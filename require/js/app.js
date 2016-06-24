@@ -1,7 +1,8 @@
-define(['jquery'],function(){
+define(['jquery'],function(a){
+	console.log(a);
 	return {
 		sayHello:function(){
-			console.log("hello");
+			console.log($(this));
 		},
 		sayNo:function(){
 			console.log("no");

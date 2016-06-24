@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<style>
+html{
+	height: 100%;	
+}
+body{
+	height: 100%;
+	margin: 0;
+	background: url(plane/img_bg_level_1.jpg) no-repeat;
+	background-size: cover;
+	position: relative;
+	-webkit-perspective: 400px;
+	perspective: 400px;
+}
+#box {
+	width: 120px;
+	height: 79px;
+	font: 16px "宋体";
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -39.5px 0 0 -60px;
+	border: 1px solid #000;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+#box2 {
+	width: 120px;
+	height: 79px;
+	background: url(plane/plane.png) no-repeat;
+	font: 16px "宋体";
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -39.5px 0 0 -60px;
+}
+</style>
+<script>
+window.onload = function(){
+	var box = document.getElementById("box");
+	var box2 = document.getElementById("box2");
+	var deg = 45;
+	var startWidth = 120;
+	var dis = parseInt(box2.offsetWidth/2-(box.offsetWidth/2*Math.cos(Math.abs(deg*Math.PI/180))));
+	console.log(dis);
+	box2.style.WebkitTransform = box2.style.transform = "rotateY("+deg+"deg)";
+	box.style.width = startWidth - Math.abs(dis*2) + "px";
+};
+</script>
+</head>
+<body>
+<div id="box">
+	<div id="box2"></div>
+</div>
+</body>
+</html>

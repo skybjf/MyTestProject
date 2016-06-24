@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>测试音频播放器</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script type="text/javascript" src="howler.core.js"></script>
+</head>
+
+<body>
+    <a href="###" class="btn-audio"> 开始 </a>
+    <a href="###" class="btn-voldown">audio.volumedown</a>
+    <a href="###" class="btn-volup">audio.volumeyup</a>
+    <script type="text/javascript">
+        window.onload = function() {
+            var btnaudio = document.querySelector('.btn-audio');
+            var btnvoldown = document.querySelector('.btn-voldown');
+            var btnvolup = document.querySelector('.btn-volup');
+
+            // var audio = 
+            var sound1 = new Howl({
+                src: ['../hbg.mp3']
+            });
+
+            btnaudio.onclick=function(){
+                sound1.play();
+            }
+            btnvoldown.onclick=function(){
+                sound1.fade(1, 0, 2000);
+                sound1.once('fade',
+                    function() {
+                        if (sound1._onfade.length === 0) {
+                            sound1.pause();
+                        }
+                    }
+                );
+            }
+            btnvolup.onclick=function(){
+                sound1.play();
+                sound1.fade(0, 1, 2000);
+                sound1.once('fade',
+                    function() {
+                        if (sound1._onfade.length === 0) {
+                        }
+                    }
+                );
+            }
+        }
+    </script>
+</body>
+
+</html>

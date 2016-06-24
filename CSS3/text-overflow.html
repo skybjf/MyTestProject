@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>text-overflow</title>
+<meta name="format-detection" content="telephone=no"/>
+<style type="text/css">
+	.stage{
+		width: 800px;
+		height: 600px;
+		background-color: #000;
+		margin: 200px auto 0;
+		color: #fff;
+	}
+	.test1{
+		width:150px;
+		height: 24px;
+		overflow: hidden;
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+    	border:1px solid #fff;
+	}
+	.test2{
+		width:150px;
+		height: 24px;
+		overflow: hidden;
+    	text-overflow: ellipsis;
+    	border:1px solid #fff;
+	}
+	.test2 span{
+    	white-space: nowrap;
+	}
+	.test3{
+		width:150px;
+		height: 24px;
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+    	border:1px solid #fff;
+	}
+
+	.test4{
+		width:150px;
+		height: 24px;
+		overflow: hidden;
+    	text-overflow: ellipsis;
+    	border:1px solid #fff;
+	}
+
+	.test5{
+		width:150px;
+		height: 54px;
+		overflow: hidden;
+		display: -webkit-box;
+	    -webkit-box-orient: vertical;
+	    -webkit-line-clamp: 3;
+	}
+</style>
+</head>
+<body>
+<div class="stage">
+	<p>测试文本：这里是很长很长很长很长很长很长很长很长很长很长很长很长的文字</p>
+	<div>测试一：属性写在一个标签上</div>
+	<p class="test1">这里是很长很长很长很长很长很长很长很长很长很长很长很长的文字</p>
+	<div>测试二：将white-space写在子标签上</div>
+	<p class="test2"><span>这里是很长很长很长很长很长很长很长很长很长很长很长很长的文字</span></p>
+	<div>测试三：不加overflow:hidden</div>
+	<p class="test3">这里是很长很长很长很长很长很长很长很长很长很长很长很长的文字</p>
+	<div>测试四：不加white-space</div>
+	<p class="test4">这里是很长很长很长很长很长很长很长很长很长很长很长很长的文字</p>
+	<div>测试五：多行文字省略号</div>
+	<p class="test5">
+		这里是很长很长很长很长很长很长很长很长很长很长很长很长的文字
+	</p>
+</div>
+</body>
+</html>
