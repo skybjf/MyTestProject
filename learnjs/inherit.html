@@ -7,30 +7,31 @@
 
 <body>
     <script type="text/javascript">
-    function Person() {
-        this.name = "Person";
-        this.talk = function() {
-            console.log("talk:" + this.name);
+        function Person() {
+            this.name = "Person";
+            this.talk = function() {
+                console.log("talk:" + this.name);
+            };
+        }
+        Person.prototype.say = function() {
+            console.log(this.name);
         };
-    }
-    Person.prototype.say = function() {
-        console.log(this.name);
-    };
 
-    function Kid() {
-        Person.call(this);
-    }
+        function Kid() {
+            Person.call(this);
+        }
 
-    var person = new Person();
-    person.say();
+        var person = new Person();
+        person.say();
 
-    var kid = new Kid();
-    kid.say();
+        var kid = new Kid();
+        // kid.say();
     </script>
+
     <script type="text/javascript">
 		// call 继承
 		function Person(name,words) {
-	        this.name =name;
+	        this.name = name;
 	        this.talk = function() {
 	            console.log("My name is:"+this.name+"\nI say:" + words);
 	        };
@@ -45,7 +46,43 @@
 	    kidcall.talk();
 	    var kidapply = new Kidapply();
 	    kidapply.talk();
+    </script>
 
+    <script type="text/javascript">
+        // 多继承
+        function Person1() {
+            this.name = "Person1";
+            this.talk1 = function() {
+                console.log("talk1:" + this.name);
+            };
+        }
+        Person1.prototype.say1 = function() {
+            console.log(this.name);
+        };
+
+        function Person2() {
+            this.age = 25;
+            this.talk2 = function() {
+                console.log("talk2:" + this.age);
+            };
+        }
+        Person2.prototype.say2 = function() {
+            console.log(this.age);
+        };
+
+        function Kid(name) {
+            Person1.call(this);
+            Person2.call(this);
+        }
+        for(var item in Person1.prototype){
+            Kid.prototype[item] = Person1.prototype[item];
+        }  
+        for(var item in Person2.prototype){
+            Kid.prototype[item] = Person2.prototype[item];
+        }       
+        var kid = new Kid();
+        kid.say1();
+        kid.say2();
     </script>
 </body>
 

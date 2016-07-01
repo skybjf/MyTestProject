@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<meta name="apple-mobile-web-app-capable" content="no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<head>
+    <title>一件复制</title>
+</head>
+
+<body>
+    <!-- Target -->
+    <input id="foo" value="https://github.com/">
+    <!-- Trigger -->
+    <button class="btn" data-clipboard-target="#foo">
+        test
+    </button>
+    <input type="" name="" value="8888888999" id="name">
+    <button class="btn" data-clipboard-target="#name">
+        button
+    </button>
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.10/dist/clipboard.min.js"></script>
+    <script type="text/javascript">
+    new Clipboard('.btn');
+    // function copyToClipboard(elem) {
+    //     // create hidden text element, if it doesn't already exist
+    //     var targetId = "_hiddenCopyText_";
+    //     var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    //     var origSelectionStart, origSelectionEnd;
+    //     if (isInput) {
+    //         // can just use the original source element for the selection and copy
+    //         target = elem;
+    //         origSelectionStart = elem.selectionStart;
+    //         origSelectionEnd = elem.selectionEnd;
+    //     } else {
+    //         // must use a temporary form element for the selection and copy
+    //         target = document.getElementById(targetId);
+    //         if (!target) {
+    //             var target = document.createElement("textarea");
+    //             target.style.position = "absolute";
+    //             target.style.left = "-9999px";
+    //             target.style.top = "0";
+    //             target.id = targetId;
+    //             document.body.appendChild(target);
+    //         }
+    //         target.textContent = elem.textContent;
+    //     }
+    //     // select the content
+    //     var currentFocus = document.activeElement;
+    //     target.focus();
+    //     target.setSelectionRange(0, target.value.length);
+
+    //     // copy the selection
+    //     var succeed;
+    //     try {
+    //         succeed = document.execCommand("copy");
+    //     } catch (e) {
+    //         succeed = false;
+    //     }
+    //     // restore original focus
+    //     if (currentFocus && typeof currentFocus.focus === "function") {
+    //         currentFocus.focus();
+    //     }
+
+    //     if (isInput) {
+    //         // restore prior selection
+    //         elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    //     } else {
+    //         // clear temporary content
+    //         target.textContent = "";
+    //     }
+    //     return succeed;
+    // }
+    // window.onload=function(){
+    // 	var btn = document.querySelector("button");
+    // 	console.log(btn);
+    // 	btn.onclick = function(){
+    // 		console.log(999);
+    // 		// copyToClipboard(document.getElementById("name"));
+    // 	}
+    // }
+    </script>
+</body>
+
+</html>

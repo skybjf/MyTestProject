@@ -20,12 +20,14 @@
 </style>
 <body>
 	<div class="bg" id="bg">
-		<div class="pop">
+		<div class="pop" id="pop">
 			
 		</div>
 	</div>
 	<script type="text/javascript">
 		var bg = document.getElementById("bg");
+		var pop = bg.getElementsByTagName('div')[0];
+		console.log(pop);
 		bg.addEventListener("click",function(e){
 			e = e || window.event;
 			e.target = e.target || e.srcElement;
