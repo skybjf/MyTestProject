@@ -2,6 +2,37 @@
 <html>
 
 <head>
+<<<<<<< HEAD
+    <title></title>
+    <script type="text/javascript">
+    function SuperType() {
+        this.property = true;
+    }
+
+    SuperType.prototype.getSuperValue = function() {
+        return this.property;
+    };
+
+    function SubType() {
+        this.subproperty = false;
+    }
+
+    //继承了SuperType
+    SubType.prototype = new SuperType();
+    SubType.prototype.getSubValue = function() {
+        return this.subproperty;
+    };
+
+    var instance = new SubType();
+    console.log(instance.getSubValue()); //true
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
+=======
     <title>学习继承</title>
 </head>
 
@@ -87,3 +118,4 @@
 </body>
 
 </html>
+>>>>>>> 45a9daabb7e740e027ca3392b838bdb8b0dfab00

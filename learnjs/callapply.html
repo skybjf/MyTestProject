@@ -5,32 +5,47 @@
     <title></title>
 </head>
 <script type="text/javascript">
-function Person(name,age) {  
-this.name=name;  
-this.age=age;  
-this.money = 500;
-} 
+console.log(name);
+var name = 'BJF';
+setName();
 
-function myFun(money) {        
+function setName() {
+    console.log(name);
+    var name = "testBJF";
+    console.log(name);
+    test();
+
+    function test() {
+        console.log(111111111111);
+    }
+}
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.money = 500;
+}
+
+function myFun(money) {
     console.log(this.money);
 }
 
 var money = 100;
-myFun(money); 
+myFun(money);
 //return 100;  
 //window.myFun(money); save to myFun(money);
 //这个时候this指向的是window对象，其实myFun函数和定义的var money = 100;都作为window对象子对象（即全局对象）
 
-myFun.apply(window,[]);  
+myFun.apply(window, []);
 //save to window.myFun.apply(window,[]);  
 //return 100;  
 //同上
 
-myFun.apply(new Person('zhangsan',23),[]);  
+myFun.apply(new Person('zhangsan', 23), []);
 //return 500, 空数组作为参数，仅符合语法要求
 //这个时候myFun方法里面的this指向的是new Person('zhangsan',23)对象，二不是myFun类(函数)，故弹出500
 
-myFun.call(new Person('zhangsan',23),money,300,'mycardId');  
+myFun.call(new Person('zhangsan', 23), money, 300, 'mycardId');
 //return 500, 后面money,300和mycardId是参数列表作为参数，一一列出
 //这个时候myFun方法里面的this指向的是new Person('zhangsan',23)对象，二不是myFun类(函数)，故弹出500
 </script>
