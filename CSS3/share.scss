@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin bg($img) {
+	background-image: url("./share/#{$img}");	
+}
+
+
+.test{
+	width: 750px;
+	height: 600px;
+	border: 1px solid #000;
+	@include bg('test1.png');
+	background-size: 750px 6000px; 
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	animation:ce1 600ms steps(9) 0s 1 forwards;
+}
+
+@include keyframes(ce) {
+    0% {
+		@include bg('map0.png');
+    }
+    10%{
+		@include bg('map1.png');
+    }
+    20%{
+		@include bg('map2.png');
+    }
+    30%{
+		@include bg('map3.png');
+    }
+    40%{
+		@include bg('map4.png');
+    }
+    50%{
+		@include bg('map5.png');
+    }
+    60%{
+		@include bg('map6.png');
+    }
+    70%{
+		@include bg('map7.png');
+    }
+    80%{
+		@include bg('map8.png');
+    }
+    90%{
+		@include bg('map9.png');
+    }
+    100%{
+		@include bg('map9.png');
+    }
+}
+
+$picWidth: 600px;
+@include keyframes(ce1) {
+	0% {
+		background-position: 0 0;
+	}
+	// 90% {
+	// 	background-position:0 0-($picWidth * 9) ; 10帧
+	// }
+	100%{
+		background-position:0  0-($picWidth * 9) ;  /* 10帧 */
+	}
+}

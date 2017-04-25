@@ -1,0 +1,42 @@
+@charset "UTF-8";
+.test {
+  width: 750px;
+  height: 600px;
+  border: 1px solid #000;
+  background-image: url("./share/test1.png");
+  background-size: 750px 6000px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  animation: ce1 600ms steps(9) 0s 1 forwards; }
+
+@keyframes ce {
+  0% {
+    background-image: url("./share/map0.png"); }
+  10% {
+    background-image: url("./share/map1.png"); }
+  20% {
+    background-image: url("./share/map2.png"); }
+  30% {
+    background-image: url("./share/map3.png"); }
+  40% {
+    background-image: url("./share/map4.png"); }
+  50% {
+    background-image: url("./share/map5.png"); }
+  60% {
+    background-image: url("./share/map6.png"); }
+  70% {
+    background-image: url("./share/map7.png"); }
+  80% {
+    background-image: url("./share/map8.png"); }
+  90% {
+    background-image: url("./share/map9.png"); }
+  100% {
+    background-image: url("./share/map9.png"); } }
+@keyframes ce1 {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 0 -5400px;
+    /* 10帧 */ } }
+
+/*# sourceMappingURL=share.css.map */
